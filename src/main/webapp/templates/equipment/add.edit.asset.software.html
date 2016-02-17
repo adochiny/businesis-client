@@ -1,0 +1,178 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row form-bg-color">
+                <div class="col-xs-12">
+
+                    <div class="col-sm-8">
+
+                    <!-- PAGE CONTENT START -->
+
+                        <h3 class="row header smaller lighter blue">
+                            <span class="col-xs-6"> Add/Edit Asset Software Details  </span><!-- /.col -->
+                        </h3>
+
+                        <form name="form" role="form" ng-submit="vm.saveAssetSoftware()" >
+
+                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                            <flash:messages></flash:messages>
+
+                            <div>
+
+                                <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                    <!-- is-open="vm.status.isFirstOpen" -->
+                                    <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                        <accordion-heading>
+                                            Asset Software Details
+                                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                        </accordion-heading>
+
+                                        <div class="form-horizontal">
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                            <!--// private Long assetSoftwareId;-->
+                                            <!--// Windows-->
+                                            <!--// private String name;-->
+                                            <!--// private String description;-->
+                                            <!--// any value we might want to associate this with.-->
+                                            <!--// private Double value;-->
+                                            <!--// Miscrosoft-->
+                                            <!--// private String manufacturer;-->
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx name xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+                                                <label class="col-sm-3 control-label no-padding-left" for="name">
+                                                    Software Name
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-7"
+                                                           type="text" id="name"
+                                                           name="name"
+                                                           ng-model="vm.assetSoftware.name" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.name.$dirty && form.name.$error.required">
+                                                        <span class="middle">Software name is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!--private String description;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx description xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.description.$dirty && form.description.$error.required }">
+                                                <label class="col-sm-3 control-label no-padding-left" for="description">
+                                                    Description
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-7"
+                                                           type="text" id="description"
+                                                           name="description"
+                                                           ng-model="vm.assetSoftware.description" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.description.$dirty && form.description.$error.required">
+                                                        <span class="middle">Description is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+
+                                            <!--private String value;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.value.$dirty && form.value.$error.required || form.value.$dirty && form.value.$invalid}">
+                                                <label class="col-sm-3 control-label no-padding-left" for="value">
+                                                    Software Value
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-7"
+                                                           type="text" id="value"
+                                                           name="value"
+                                                           ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                                           ng-model="vm.assetSoftware.value" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.value.$dirty && form.value.$error.required">
+                                                        <span class="middle">Software Value is required</span>
+                                                    </span>
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.value.$dirty && form.value.$invalid">
+                                                        <span class="middle">Software Value is invalid</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <!--private String manufacturer;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx manufacturer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.manufacturer.$dirty && form.manufacturer.$error.required }">
+                                                <label class="col-sm-3 control-label no-padding-left" for="manufacturer">
+                                                    Manufacturer
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-7"
+                                                           type="text" id="manufacturer"
+                                                           name="manufacturer"
+                                                           ng-model="vm.assetSoftware.manufacturer" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.manufacturer.$dirty && form.manufacturer.$error.required">
+                                                        <span class="middle">Manufacturer is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        </div> <!-- end of form horizontal -->
+
+                                    </accordion-group>
+
+                                </accordion>
+
+                                <!--<p>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                                <!--</p>-->
+
+                                <div class="form-actions">
+
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            ng-disabled="form.$invalid || vm.dataLoading">
+                                        Save Asset Software Details
+                                    </button>
+                                    <button ng-click="vm.navigateToPage('viewAssetSoftwareList')" class="btn btn-danger btn-mini">
+                                        Back to Asset Software List
+                                    </button>
+
+                                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                    <!---->
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+                    </div>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

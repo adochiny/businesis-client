@@ -1,0 +1,146 @@
+﻿
+<div class="main-content login-layout light-login" style="margin-top: 150px; background-color: white;">
+    <!--<div class="main-content-inner">-->
+
+        <!--<div ng-include="'templates/home/breadcrumbs.html'"></div>-->
+
+        <!--<div class="page-content">-->
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row" style="background-color: white;">
+                <div class="col-xs-10">
+
+                <!--
+
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2>Login</h2>
+                        <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                        <form name="form" ng-submit="vm.login()" role="form">
+                            <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-danger">Login</button>
+                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                <a href="#/register" class="btn btn-link">Register</a>
+                            </div>
+                        </form>
+                    </div>
+                -->
+
+                    <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                    <div class="login-container">
+                    <div class="left">
+                        <h1>
+                            <i class="ace-icon fa fa-laptop red"></i>
+                            <span class="red">riskManager</span>
+                            <!--<span class="white" id="id-text2">Application</span>-->
+                        </h1>
+                        <!--<h4 class="light-blue" id="id-company-text">&copy; Qrent</h4>-->
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body"  style="background-color: #FFF; border: 2px solid darkred;">
+                                <div class="widget-main">
+                                    <h4 class="header blue lighter bigger">
+                                        <i class="ace-icon fa fa-coffee red"></i>
+                                        Please Enter Your Information
+                                    </h4>
+
+                                    <div class="space-6"></div>
+
+                                    <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                                    <form name="form" ng-submit="vm.login()" role="form">
+                                        <fieldset>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<!--<input type="text" class="form-control" placeholder="Username" />-->
+                                                            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+                                                            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                                                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+                                            </label>
+
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+                                                <label class="inline">
+                                                    <input type="checkbox" class="ace" />
+                                                    <span class="lbl"> Remember Me</span>
+                                                </label>
+
+                                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading"
+                                                         class="width-35 pull-right btn btn-sm btn-danger">
+                                                    <i class="ace-icon fa fa-key"></i>
+                                                    <span class="bigger-110">Login</span>
+                                                </button>
+                                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    </form>
+
+                                </div><!-- /.widget-main -->
+
+                                <div class="toolbar clearfix">
+                                    <div>
+                                        <a href="#/forgotPassword" data-target="#forgot-box" class="forgot-password-link">
+                                            <i class="ace-icon fa fa-arrow-left"></i>
+                                            I forgot my password
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                                        <a href="#/register" data-target="#register-box" class="user-signup-link">
+                                            I want to register
+                                            <i class="ace-icon fa fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- /.widget-body -->
+                        </div><!-- /.login-box -->
+
+                    </div><!-- /.position-relative -->
+
+                    </div>
+                    </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+
+
+
+
+
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        <!--</div>-->
+            <!-- /.page-content -->
+    <!--</div>-->
+</div><!-- /.main-content -->

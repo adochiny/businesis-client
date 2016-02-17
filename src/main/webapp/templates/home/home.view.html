@@ -1,0 +1,419 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+
+        <div class="row">
+        <div class="col-xs-9">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="clearfix">
+            <div class="pull-left alert alert-success no-margin">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="ace-icon fa fa-times"></i>
+                </button>
+
+                <i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
+                Click on the image below or on profile fields to edit them ...
+            </div>
+
+            <div class="pull-right">
+                <span class="green middle bolder">Profile: &nbsp;</span>
+
+                <div class="btn-toolbar inline middle no-margin">
+                    <div data-toggle="buttons" class="btn-group no-margin">
+                        <label class="btn btn-sm btn-yellow active">
+                            <span class="bigger-110">1</span>
+
+                            <input type="radio" value="1">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hr dotted"></div>
+
+        <div>
+        <div id="user-profile-1" class="user-profile row">
+        <div class="col-xs-12 col-sm-3 center">
+            <div>
+                <!-- #section:pages/profile.picture -->
+                <span class="profile-picture">
+                    <img id="avatar"
+                         class="editable img-responsive editable-click editable-empty"
+                         alt="{{vm.currentUser.username}}'s Avatar" src="lib/warehouse/warehouse3.jpeg">
+                </span>
+
+                <!-- /section:pages/profile.picture -->
+                <div class="space-4"></div>
+
+                <div class="width-80 label label-danger label-xlg arrowed-in arrowed-in-right">
+                    <div class="inline position-relative">
+                        <a  class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                            <i class="ace-icon fa fa-circle light-green"></i>
+                            &nbsp;
+                            <span class="white">{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</span>
+                        </a>
+
+                        <ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
+                            <li class="dropdown-header"> Change Status</li>
+
+                            <li>
+                                <a >
+                                    <i class="ace-icon fa fa-circle green"></i>
+                                    &nbsp;
+                                    <span class="green">Available</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a >
+                                    <i class="ace-icon fa fa-circle red"></i>
+                                    &nbsp;
+                                    <span class="red">Busy</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a>
+                                    <i class="ace-icon fa fa-circle grey"></i>
+                                    &nbsp;
+                                    <span class="grey">Invisible</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-6"></div>
+
+            <!-- #section:pages/profile.contact -->
+            <div class="profile-contact-info">
+                <div class="profile-contact-links align-left">
+                    <a  class="btn btn-link">
+                        <i class="ace-icon fa fa-plus-circle bigger-120 green"></i>
+                        View my tasks
+                    </a>
+
+                    <a ng-href="mailto:adochiny@gmail.com" class="btn btn-link">
+                        <i class="ace-icon fa fa-envelope bigger-120 pink"></i>
+                        Send message to Admin
+                    </a>
+
+                    <a href="www.qrent.co.za" class="btn btn-link">
+                        <i class="ace-icon fa fa-globe bigger-125 blue"></i>
+                        www.qrent.co.za
+                    </a>
+                </div>
+
+                <div class="space-6"></div>
+
+
+            </div>
+
+            <!-- /section:pages/profile.contact -->
+            <div class="hr hr12 dotted"></div>
+
+
+            <div class="hr hr16 dotted"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9">
+        <div class="center">
+            <span class="btn btn-app btn-sm btn-light no-hover">
+                <span class="line-height-1 bigger-170 blue"> 1,411 </span>
+
+                <br>
+                <span class="line-height-1 smaller-90">Assets</span>
+            </span>
+
+            <span class="btn btn-app btn-sm btn-yellow no-hover">
+                <span class="line-height-1 bigger-170"> 32 </span>
+
+                <br>
+                <span class="line-height-1 smaller-90"> Codes </span>
+            </span>
+
+            <span class="btn btn-app btn-sm btn-pink no-hover">
+                <span class="line-height-1 bigger-170"> 4 </span>
+
+                <br>
+                <span class="line-height-1 smaller-90"> Projects </span>
+            </span>
+
+            <span class="btn btn-app btn-sm btn-grey no-hover">
+                <span class="line-height-1 bigger-170"> 23 </span>
+
+                <br>
+                <span class="line-height-1 smaller-90"> My Tasks </span>
+            </span>
+
+            <span class="btn btn-app btn-sm btn-success no-hover">
+                <span class="line-height-1 bigger-170"> 7 </span>
+                <br>
+                <span class="line-height-1 smaller-90"> Users </span>
+            </span>
+
+            <!--<span class="btn btn-app btn-sm btn-danger no-hover">-->
+                <!--<span class="line-height-1 bigger-170"> 55 </span>-->
+                <!--<br>-->
+                <!--<span class="line-height-1 smaller-90"> Contacts </span>-->
+            <!--</span>-->
+        </div>
+
+        <div class="space-12"></div>
+
+        <!-- #section:pages/profile.info -->
+        <div class="profile-user-info profile-user-info-striped">
+            <div class="profile-info-row">
+                <div class="profile-info-name"> Username</div>
+                <div class="profile-info-value">
+                    <span class="editable editable-click" id="username">{{vm.currentUser.username}}</span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name"> Location</div>
+                <div class="profile-info-value">
+                    <i class="fa fa-map-marker light-orange bigger-110"></i>
+                    <span class="editable editable-click" id="country">Johanesburg</span>
+                    <span class="editable editable-click" id="city">South Africa</span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name"> Position</div>
+                <div class="profile-info-value">
+                    <span class="editable editable-click" id="age">Team Leader</span>
+                </div>
+            </div>
+
+            <!--<div class="profile-info-row">-->
+                <!--<div class="profile-info-name">Last Loged in</div>-->
+                <!--<div class="profile-info-value">-->
+                    <!--<span class="editable editable-click" id="signup">2015/06/20</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="profile-info-row">
+                <div class="profile-info-name"> Last Online</div>
+
+                <div class="profile-info-value">
+                    <span class="editable editable-click" id="login">3 hours ago</span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name"> About Me</div>
+
+                <div class="profile-info-value">
+                    <span class="editable editable-click" id="about"> WYSIWYG</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- /section:pages/profile.info -->
+        <div class="space-20"></div>
+
+        <div class="widget-box transparent">
+        <div class="widget-header widget-header-small">
+            <h4 class="widget-title blue smaller">
+                <i class="ace-icon fa fa-rss orange"></i>
+                Recent Activities
+            </h4>
+
+            <div class="widget-toolbar action-buttons">
+                <a  data-action="reload">
+                    <i class="ace-icon fa fa-refresh blue"></i>
+                </a>
+                &nbsp;
+                <a  class="pink">
+                    <i class="ace-icon fa fa-trash-o"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="widget-body">
+        <div class="widget-main padding-8">
+        <!-- #section:pages/profile.feed -->
+        <div id="profile-feed-1" class="profile-feed ace-scroll" style="position: relative;">
+        <div class="scroll-track scroll-active" style="display: block; height: 200px;">
+            <div class="scroll-bar" style="height: 63px; top: 0px;"></div>
+        </div>
+            <div class="scroll-content" style="max-height: 200px;">
+
+                <div class="profile-activity clearfix">
+                    <div>
+                        <i class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
+                        <a class="user"> Alex Doe completed task 2.</a>
+                        <div class="time">
+                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                            1 days ago
+                        </div>
+                    </div>
+
+                    <div class="tools action-buttons">
+                        <a class="blue">
+                            <i class="ace-icon fa fa-pencil bigger-125"></i>
+                        </a>
+                        <a class="red">
+                            <i class="ace-icon fa fa-times bigger-125"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-activity clearfix">
+                    <div>
+                        <i class="pull-left thumbicon fa fa-crosshairs btn-danger no-hover"></i>
+                            <a class="user"> Alex Doe completed task 1.</a>
+                        <div class="time">
+                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                            5 days ago
+                        </div>
+                    </div>
+
+                    <div class="tools action-buttons">
+                        <a class="blue">
+                            <i class="ace-icon fa fa-pencil bigger-125"></i>
+                        </a>
+                        <a class="red">
+                            <i class="ace-icon fa fa-times bigger-125"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="profile-activity clearfix">
+                    <div>
+                        <i class="pull-left thumbicon fa fa-pencil-square-o btn-pink no-hover"></i>
+                        <a class="user" > Adonis </a>
+                         is busy with task 3
+                        <a>Read now</a>
+                        <div class="time">
+                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                            11 days ago
+                        </div>
+                    </div>
+
+                    <div class="tools action-buttons">
+                        <a class="blue">
+                            <i class="ace-icon fa fa-pencil bigger-125"></i>
+                        </a>
+                        <a class="red">
+                            <i class="ace-icon fa fa-times bigger-125"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                        <!--<i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>-->
+                        <!--<a class="user" > Alex Doe </a>-->
+
+                        <!--logged in.-->
+                        <!--<div class="time">-->
+                            <!--<i class="ace-icon fa fa-clock-o bigger-110"></i>-->
+                            <!--12 hours ago-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="tools action-buttons">-->
+                        <!--<a  class="blue">-->
+                            <!--<i class="ace-icon fa fa-pencil bigger-125"></i>-->
+                        <!--</a>-->
+
+                        <!--<a  class="red">-->
+                            <!--<i class="ace-icon fa fa-times bigger-125"></i>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                        <!--<i class="pull-left thumbicon fa fa-power-off btn-inverse no-hover"></i>-->
+                        <!--<a class="user" > Alex Doe </a>-->
+                            <!--logged out.-->
+                        <!--<div class="time">-->
+                            <!--<i class="ace-icon fa fa-clock-o bigger-110"></i>-->
+                            <!--16 hours ago-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="tools action-buttons">-->
+                        <!--<a class="blue">-->
+                            <!--<i class="ace-icon fa fa-pencil bigger-125"></i>-->
+                        <!--</a>-->
+                        <!--<a class="red">-->
+                            <!--<i class="ace-icon fa fa-times bigger-125"></i>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="profile-activity clearfix">
+                    <div>
+                        <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
+                        <a class="user" > Alex Doe </a>
+
+                        logged in.
+                        <div class="time">
+                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                            16 hours ago
+                        </div>
+                    </div>
+
+                    <div class="tools action-buttons">
+                        <a  class="blue">
+                            <i class="ace-icon fa fa-pencil bigger-125"></i>
+                        </a>
+
+                        <a  class="red">
+                            <i class="ace-icon fa fa-times bigger-125"></i>
+                        </a>
+                    </div>
+                </div>-->
+
+            </div>
+        </div>
+            <!--<p><a href="#/login" class="btn btn-danger">Logout</a></p>-->
+
+        <!-- /section:pages/profile.feed -->
+        </div>
+        </div>
+        </div>
+
+            <div class="hr hr2 hr-double"></div>
+
+            <div class="space-6"></div>
+
+            <div class="left form-actions">
+                <button type="button" ng-click="vm.logout()"  class="btn btn-sm btn-danger btn-white btn-round">
+                    <i class="ace-icon fa fa-unlock bigger-150 middle orange2"></i>
+                    <span class="bigger-110">Logout {{vm.currentUser.username}}</span>
+
+                    <i class="icon-on-right ace-icon fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- /.col -->
+        </div>
+
+
+
+
+
+
+        </div>
+            <!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->

@@ -1,0 +1,82 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <h3 class="header smaller lighter blue">Asset Software</h3>
+
+                    <div class="table-header">
+                        Asset Software
+                    </div>
+
+                    <!--// private Long assetSoftwareId;-->
+                    <!--// Windows-->
+                    <!--// private String name;-->
+                    <!--// private String description;-->
+                    <!--// any value we might want to associate this with.-->
+                    <!--// private Double value;-->
+                    <!--// Miscrosoft-->
+                    <!--// private String manufacturer;-->
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allAssetSoftwares" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>assetSoftwareId</th>-->
+                            <th>Software Name</th>
+                            <th>Description</th>
+                            <th>Value</th>
+                            <th>Manufacturer</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aSoftware in vm.allAssetSoftwares">
+                            <!--<td>{{aSoftware.assetSoftwareId}}</td>-->
+                            <td>{{aSoftware.name}}</td>
+                            <td>{{aSoftware.value}}</td>
+                            <td>{{aSoftware.description}}</td>
+                            <td>{{aSoftware.manufacturer}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditAssetSoftware(aSoftware)"
+                                        type="button" class="btn  btn-minier btn-danger">
+                                    Edit Asset Software
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditAssetSoftware()" class="btn btn-danger btn-sm">Add New Asset Software</button>
+                    </p>
+
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

@@ -1,0 +1,123 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="col-sm-10">
+
+
+                    <!-- PAGE CONTENT START -->
+
+                        <h3 class="row header smaller lighter blue">
+                            <span class="col-xs-6"> Add/Edit user details  </span><!-- /.col -->
+                        </h3>
+
+                        <form name="form" role="form" ng-submit="vm.saveUser()" >
+
+                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+
+                            <div>
+
+                                <!--<label class="checkbox">-->
+                                    <!--<input type="checkbox" ng-model="vm.oneAtATime">-->
+                                    <!--Open only one at a time-->
+                                <!--</label>-->
+
+                                <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                    <!-- is-open="vm.status.isFirstOpen" -->
+                                    <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                        <accordion-heading>
+                                            User details
+                                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                        </accordion-heading>
+                                        <!--private Long userId;-->
+
+
+                                        <div class="form-horizontal">
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        </div> <!-- end of form horizontal -->
+
+                                    </accordion-group>
+
+                                    <!--<accordion-group heading="">-->
+                                    <accordion-group is-open="vm.status.secondOpen">
+                                        <accordion-heading>
+                                            Address details
+                                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.secondOpen, 'glyphicon-chevron-right': !vm.status.secondOpen}"></i>
+                                        </accordion-heading>
+
+                                        <div class="form-horizontal">
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        </div>
+
+                                    </accordion-group>
+                                    <accordion-group is-open="vm.status.thirdOpen">
+                                        <accordion-heading>
+                                            Contact details
+                                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.thirdOpen, 'glyphicon-chevron-right': !vm.status.thirdOpen}"></i>
+                                        </accordion-heading>
+
+                                        <!--private Long contactDetailsId;-->
+
+                                        <div class="form-horizontal">
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        </div>
+
+                                    </accordion-group>
+                                </accordion>
+
+                                <!--<p>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                                <!--</p>-->
+
+                                <div class="form-actions">
+
+                                    <button type="submit" class="btn btn-primary btn-sm"
+                                            ng-disabled="form.$invalid || vm.dataLoading">
+                                        Save user details
+                                    </button>
+                                    <button href="#/viewUserList" class="btn btn-danger btn-sm">
+                                        Back to user list
+                                    </button>
+
+                                    <img ng-if="vm.dataLoading"
+                                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                    <!---->
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+                    </div>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

@@ -1,0 +1,101 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-9">
+
+                    <!-- PAGE CONTENT START -->
+
+                    <!--<h3>All registered users:</h3>-->
+                    <!--<ul>-->
+                        <!--<li ng-repeat="user in vm.allUsers">-->
+                            <!--{{user.username}} ({{user.firstName}} {{user.surname}})-->
+                            <!--- <a  ng-click="vm.deleteUser(user.id)">Delete</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<p>&nbsp;</p>-->
+
+
+
+
+
+
+                    <h3 class="header smaller lighter blue">User details</h3>
+
+                    <!--<div class="clearfix">-->
+                        <!--<div class="pull-right tableTools-container">-->
+                            <!--<div class="btn-group btn-overlap"><div class="ColVis btn-group" title="" data-original-title="Show/hide columns">-->
+                                <!--<button class="ColVis_Button ColVis_MasterButton btn btn-white btn-info btn-bold"><span><i class="fa fa-search"></i></span></button>-->
+                            <!--</div>-->
+                                <!--<a class="DTTT_button btn btn-white btn-danger  btn-bold" id="ToolTables_dynamic-table_3" title=""-->
+                                   <!--tabindex="0" aria-controls="dynamic-table" data-original-title="Print view">-->
+                                    <!--<span><i class="fa fa-print bigger-110 grey"></i></span>-->
+                                <!--</a></div></div>-->
+                    <!--</div>-->
+                    <div class="table-header">
+                        Users
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allUsers" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Created</th>
+                            <th>username</th>
+                            <th>email</th>
+                            <!--<th>userId</th>-->
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="user in vm.allUsers">
+                            <td>{{user.firstName}}</td>
+                            <td>{{user.surname}}</td>
+                            <td>{{user.created}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                            <!--<td>{{user.userId}}</td>-->
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                    <button ng-click="vm.addEditUser(user)"
+                                            type="button" class="btn  btn-minier btn-danger">
+                                        Edit user
+                                        <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                    </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditUser()" class="btn btn-danger btn-sm">Add new user</button>
+                    </p>
+
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

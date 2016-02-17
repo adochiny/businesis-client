@@ -1,0 +1,81 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <h3 class="header smaller lighter blue">Asset Brands</h3>
+
+                    <div class="table-header">
+                        Asset Brands
+                    </div>
+
+                      <!--private Long assetBrandId;-->
+                      <!--private String brandNumber;-->
+                      <!--Dell/Acer/hp/-->
+                      <!--private String brandName;-->
+                      <!--private String description;-->
+                     <!--Acer-->
+                      <!--private String manufacturer;-->
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allAssetBrands" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>assetBrandId</th>-->
+                            <th>Brand Number</th>
+                            <th>Brand Name</th>
+                            <th>Description</th>
+                            <th>Manufacturer</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aBrand in vm.allAssetBrands">
+                            <!--<td>{{aBrand.assetBrandId}}</td>-->
+                            <td>{{aBrand.brandNumber}}</td>
+                            <td>{{aBrand.brandName}}</td>
+                            <td>{{aBrand.description}}</td>
+                            <td>{{aBrand.manufacturer}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditAssetBrand(aBrand)"
+                                        type="button" class="btn  btn-minier btn-danger">
+                                    Edit Asset Brand
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditAssetBrand()" class="btn btn-danger btn-sm">Add New Asset Brand</button>
+                    </p>
+
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

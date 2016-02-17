@@ -1,0 +1,305 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-10">
+
+                    <h3 class="header smaller lighter blue">Asset</h3>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="widget-box">
+                                <div class="widget-header">
+                                    <h4 class="widget-title">Asset Search Criteria </h4>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main no-padding">
+                                        <form>
+                                            <!-- <legend>Form</legend> -->
+                                            <!--<fieldset>-->
+                                                <!--<label>Label name</label>-->
+
+                                                <!--<input type="text" placeholder="Type something…">-->
+                                                <!--<span class="help-block">Example block-level help text here.</span>-->
+
+                                                <!--<label class="pull-right">-->
+                                                    <!--<input type="checkbox" class="ace">-->
+                                                    <!--<span class="lbl"> check me out</span>-->
+                                                <!--</label>-->
+                                            <!--</fieldset>-->
+
+                                            <!--private Long assetTypeId;-->
+                                            <!--private Long assetBrandId;-->
+                                            <!--private Long assetModelId;-->
+                                            <!--private Long assetCodeId;-->
+                                            <!--private String serialNumber;-->
+
+                                            <div class="panel-body">
+                                                <div class="form-horizontal panel-body">
+
+                                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetType xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                                    <div class="form-group" ng-class="{ 'has-error': form.assetType.$dirty && form.assetType.$error.required }">
+                                                        <label class="col-sm-3 control-label no-padding-left" for="assetType">
+                                                            Asset Type
+                                                        </label>
+
+                                                        <div class="col-sm-9">
+                                                            <select name="assetType" id="assetType" class="col-xs-10 col-sm-7"
+                                                                    ng-change="vm.assetSearchNoFieldsSet()"
+                                                                    ng-model="vm.assetSearch.assetTypeId"
+                                                                    ng-options="assetType.assetTypeId as (assetType.assetTypeNumber +' - '+ assetType.assetTypeName) for assetType in vm.allAssetTypes | orderBy: 'assetTypeId'">
+                                                                <option value="">Please select </option>
+                                                                <!--<option ng-repeat="assetType in vm.allAssetTypes"-->
+                                                                <!--value="{{assetType}}">{{assetType.assetTypeNumber}} {{assetType.assetTypeName}}-->
+                                                                <!--</option>-->
+                                                                <!--<option value="1">assetType 1</option>-->
+                                                                <!--<option value="2">assetType 2</option>-->
+                                                                <!--<option value="3">assetType 3</option>-->
+                                                                <!--<option value="4">assetType 4</option>-->
+                                                                <!--<option value="5">assetType 5</option>-->
+                                                            </select>
+
+                                                            <span class="help-inline col-xs-12 col-sm-5"
+                                                                  ng-show="form.assetType.$dirty && form.assetType.$error.required">
+                                                                <span class="middle">Asset Type is required</span>
+                                                            </span>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetBrand xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                                    <div class="form-group" ng-class="{ 'has-error': form.assetBrand.$dirty && form.assetBrand.$error.required }">
+                                                        <label class="col-sm-3 control-label no-padding-left" for="assetBrand">
+                                                            Asset Brand
+                                                        </label>
+
+                                                        <div class="col-sm-9">
+                                                            <select name="assetBrand" id="assetBrand" class="col-xs-10 col-sm-7"
+                                                                    ng-change="vm.assetSearchNoFieldsSet()"
+                                                                    ng-model="vm.assetSearch.assetBrandId"
+                                                                    ng-options="assetBrand.assetBrandId as (assetBrand.brandNumber +' - '+ assetBrand.brandName) for assetBrand in vm.allAssetBrands | orderBy: 'assetBrandId'">
+                                                                <option value="">Please select </option>
+                                                            </select>
+
+                                                            <span class="help-inline col-xs-12 col-sm-5"
+                                                                  ng-show="form.assetBrand.$dirty && form.assetBrand.$error.required">
+                                                                <span class="middle">Asset Brand is required</span>
+                                                            </span>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetModel xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                                    <div class="form-group" ng-class="{ 'has-error': form.assetModel.$dirty && form.assetModel.$error.required }">
+                                                        <label class="col-sm-3 control-label no-padding-left" for="assetModel">
+                                                            Asset Model
+                                                        </label>
+
+                                                        <div class="col-sm-9">
+                                                            <select name="assetModel" id="assetModel" class="col-xs-10 col-sm-7"
+                                                                    ng-change="vm.assetSearchNoFieldsSet()"
+                                                                    ng-model="vm.assetSearch.assetModelId"
+                                                                    ng-options="assetModel.assetModelId as (assetModel.modelNumber +' - '+ assetModel.modelName) for assetModel in vm.allAssetModels | orderBy: 'assetModelId'">
+                                                                <option value="">Please select </option>
+                                                            </select>
+
+                                                            <span class="help-inline col-xs-12 col-sm-5"
+                                                                  ng-show="form.assetModel.$dirty && form.assetModel.$error.required">
+                                                                <span class="middle">Asset Model is required</span>
+                                                            </span>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx serialNumber xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                                    <div class="form-group" ng-class="{ 'has-error': form.serialNumber.$dirty && form.serialNumber.$error.required }">
+                                                        <label class="col-sm-3 control-label no-padding-left" for="serialNumber">
+                                                            Serial Number
+                                                        </label>
+                                                        <div class="col-sm-9">
+                                                            <input class="col-xs-10 col-sm-7"
+                                                                   type="text" id="serialNumber"
+                                                                   name="serialNumber"
+                                                                   ng-blur="vm.assetSearchNoFieldsSet()"
+                                                                   ng-keydown="vm.assetSearchNoFieldsSet()"
+                                                                   ng-model="vm.assetSearch.serialNumber" />
+
+                                                            <span class="help-inline col-xs-12 col-sm-5"
+                                                                  ng-show="form.serialNumber.$dirty && form.serialNumber.$error.required">
+                                                                <span class="middle">Serial Number is required</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-actions left">
+                                                <button type="button" class="btn btn-sm btn-danger"
+                                                        ng-click="vm.findAssets()"
+                                                        ng-disabled="vm.isAssetSearchNoFieldsSet">
+                                                    Find Assets
+                                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr/>
+
+                    <div>
+                        <div class="table-header">
+                           Selected Asset List
+                        </div>
+
+
+                        <!--// private Long assetId;-->
+
+                        <!--// private Warehouse warehouse;-->
+
+                        <!--// private AssetCode assetCode;-->
+                        <!--// private AssetSoftware assetSoftware;-->
+                        <!--// private List<Attribute> attributes = new ArrayList<>();-->
+                        <!--// private String serialNumber;-->
+                        <!--// private String processor;-->
+                        <!--// private String numberOfCores;-->
+
+                        <!--// 512 MB / 8 GB (max)-->
+                        <!--// private String ramInstalledSize;-->
+                        <!--// DDR2 SDRAM-->
+
+                        <!--// private String ramInstalledTechnology;-->
+
+                        <!--// private String hardDriveType;-->
+
+                        <!--// private String hardDriveSize;-->
+
+                        <!--// private Boolean wifi;-->
+
+                        <!--// 3 years warranty-->
+                        <!--// private String manufacturerWarranty;-->
+
+                        <!--// private Double systemQuantity;-->
+
+                        <!--// private Double actualQuantity;-->
+                        <!--// private Double variance;-->
+
+
+                        <div id="selected-assets-table">
+
+                        <!-- div.table-responsive -->
+
+                        <!-- div.dataTables_borderWrap -->
+                        <!--<table st-table="vm.allAssets" class="table table-striped">-->
+                            <table st-table="vm.allAssets" role="grid" aria-describedby="dynamic-table_info"
+                                   class="table table-striped table-bordered table-hover dataTable no-footer DTTT_selectable" >
+                                <thead>
+                                    <tr>
+                                        <!--<th st-sort="assetId">assetId</th>-->
+                                        <th st-sort="warehouse">Warehouse</th>
+                                        <th st-sort="assetCode">Asset Code</th>
+                                        <th>Asset Software</th>
+
+                                        <th>Serial Number</th>
+                                        <th>Processor</th>
+                                        <th>Number Of Cores</th>
+                                        <th></th>
+                                        <th></th>
+                                        <!--<th>colour</th>-->
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>
+                                            <input st-search="warehouse" placeholder="Search by warehouse" class="input-sm form-control" type="search"/>
+                                        </th>
+                                        <th colspan="7">
+                                            <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+                                        </th>
+                                        <!--<th>-->
+                                            <!--<input st-search="{{selectedPredicate}}" placeholder="bound predicate" class="input-sm form-control" type="search"/>-->
+                                        <!--</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="asset in vm.allAssets">
+                                    <!--<td>{{asset.assetId}}</td>-->
+                                    <td>{{asset.warehouse.name}}</td>
+                                    <td>{{asset.assetCode.assetType.assetTypeName}} {{asset.assetCode.assetBrand.brandName}} {{asset.assetCode.assetModel.modelName}}</td>
+                                    <td>{{asset.assetSoftware.name}} {{asset.assetSoftware.description}}</td>
+
+                                    <td>{{asset.serialNumber}}</td>
+                                    <td>{{asset.processor}}</td>
+                                    <td>{{asset.numberOfCores}}</td>
+                                    <!--<td>{{asset.colour}}</td>-->
+
+                                    <td>
+                                        <!--<div class="form-actions center">-->
+                                        <button ng-click="vm.addEditAsset(asset)"
+                                                type="button" class="btn  btn-minier btn-danger">
+                                            Edit Asset
+                                            <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                        </button>
+                                        <!--</div>-->
+                                    </td>
+                                    <td>
+                                        <!--<div class="form-actions center">-->
+                                        <button ng-click="vm.viewAssetDetails(asset)"
+                                                type="button" class="btn  btn-minier btn-danger">
+                                            View Asset details
+                                            <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                        </button>
+                                        <!--</div>-->
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                                <tfoot>
+                                <tr>
+                                    <!--<td colspan="7" class="text-center">-->
+                                        <!--<div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="10"></div>-->
+                                    <!--</td>-->
+                                    <td colspan="9" class="text-center">
+                                        <div st-items-by-page="2" st-pagination="" st-template="templates/general/pagination.html"></div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+
+                        <hr/>
+                        <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                        <p class="well">
+                            <button ng-click="vm.addEditAsset()" class="btn btn-danger btn-sm">Add New Asset</button>
+
+                            <button type="button" class="btn btn-sm btn-danger"
+                                    ng-click="vm.exportData()" ng-show="vm.allAssets.length">
+                                Export Asset list to Excel
+                            </button>
+                        </p>
+
+                        <!-- PAGE CONTENT ENDS -->
+
+                    </div>
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

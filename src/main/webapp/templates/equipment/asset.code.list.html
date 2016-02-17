@@ -1,0 +1,87 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <h3 class="header smaller lighter blue">Asset Codes</h3>
+
+                    <div class="table-header">
+                        Asset Codes
+                    </div>
+
+                    <!--// private Long assetCodeId;-->
+                    <!--// private AssetType assetType;-->
+                    <!--// private AssetBrand assetBrand;-->
+                    <!--// private AssetModel assetModel;-->
+                    <!--// private Long packagedQuantity;-->
+                    <!--// Intel vPro Technology-->
+                    <!--// private String platformTechnology;-->
+                    <!--// Small form factor-->
+                    <!--// private String assetFormFactor;-->
+                    <!--// silver black-->
+                    <!--// private String colour;-->
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allAssetCodes" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>assetCodeId</th>-->
+                            <th>Asset Type</th>
+                            <th>Asset Brand</th>
+                            <th>Asset Model</th>
+                            <th>Packaged Quantity</th>
+                            <th>Platform Technology</th>
+                            <th>Asset Form Factor</th>
+                            <th>Colour</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aCode in vm.allAssetCodes">
+                            <!--<td>{{aCode.assetCodeId}}</td>-->
+                            <td>{{aCode.assetType.assetTypeName}}</td>
+                            <td>{{aCode.assetBrand.brandName}}</td>
+                            <td>{{aCode.assetModel.modelName}}</td>
+                            <td>{{aCode.packagedQuantity}}</td>
+                            <td>{{aCode.platformTechnology}}</td>
+                            <td>{{aCode.assetFormFactor}}</td>
+                            <td>{{aCode.colour}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditAssetCode(aCode)"
+                                        type="button" class="btn  btn-minier btn-danger">
+                                    Edit Asset Code
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditAssetCode()" class="btn btn-danger btn-sm">Add New Asset Code</button>
+                    </p>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

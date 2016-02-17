@@ -1,0 +1,313 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-9">
+
+
+                <!-- PAGE CONTENT START -->
+
+                    <h3 class="row header smaller lighter blue">
+                        <span class="col-xs-6"> Add new Asset Warehouse Details </span><!-- /.col -->
+                    </h3>
+
+                    <form name="form" role="form" ng-submit="vm.saveAssetWarehouse()" >
+
+                        <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                        <flash:messages></flash:messages>
+
+                        <div>
+
+                            <!--<label class="checkbox">-->
+                                <!--<input type="checkbox" ng-model="vm.oneAtATime">-->
+                                <!--Open only one at a time-->
+                            <!--</label>-->
+
+                            <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                <!-- is-open="vm.status.isFirstOpen" -->
+                                <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                    <accordion-heading>
+                                        Asset details
+                                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                    </accordion-heading>
+
+                                    <div class="form-horizontal">
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        <!--// private Long assetCodeId;-->
+                                        <!--// private AssetType assetType;-->
+                                        <!--// private AssetBrand assetBrand;-->
+                                        <!--// private AssetModel assetModel;-->
+
+                                        <!--// private Long assetId;-->
+                                        <!--// private Warehouse warehouse;-->
+                                        <!--// private AssetCode assetCode;-->
+                                        <!--// private AssetSoftware assetSoftware;-->
+
+
+                                        <!--// private List<Attribute> attributes = new ArrayList<>();-->
+
+                                        <!--// private String serialNumber;-->
+                                        <!--// private String processor;-->
+                                        <!--// private String numberOfCores;-->
+
+                                        <!--// 512 MB / 8 GB (max)-->
+                                        <!--// private String ramInstalledSize;-->
+                                        <!--// DDR2 SDRAM-->
+
+                                        <!--// private String ramInstalledTechnology;-->
+                                        <!--// private String hardDriveType;-->
+                                        <!--// private String hardDriveSize;-->
+                                        <!--// private Boolean wifi;-->
+
+                                        <!--// 3 years warranty-->
+                                        <!--// private String manufacturerWarranty;-->
+                                        <!--// private Double systemQuantity;-->
+                                        <!--// private Double actualQuantity;-->
+                                        <!--// private Double variance;-->
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetCode xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.assetCode.$dirty && form.assetCode.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left">
+                                                Asset Code
+                                            </label>
+
+                                            <div class="col-sm-9">
+
+                                                <select name="assetCode" id="assetCode" class="col-xs-10 col-sm-7"
+                                                        disabled="disabled" style="background: whitesmoke;"
+                                                        ng-model="vm.asset.assetCode.assetCodeId"
+                                                        ng-options="assetCode.assetCodeId as (assetCode.assetType.assetTypeName +' - '+ assetCode.assetBrand.brandName +' - '+ assetCode.assetModel.modelName) for assetCode in vm.allAssetCodes">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.assetCode.$dirty && form.assetCode.$error.required">
+                                                    <span class="middle">Asset Code is required</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetSoftware xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.assetSoftware.$dirty && form.assetSoftware.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="assetSoftware">
+                                                Asset Software
+                                            </label>
+
+                                            <div class="col-sm-9">
+
+                                                <select name="assetSoftware" id="assetSoftware" class="col-xs-10 col-sm-7"
+                                                        disabled="disabled"  style="background: whitesmoke;"
+                                                        ng-model="vm.asset.assetSoftware.assetSoftwareId"
+                                                        ng-options="assetSoftware.assetSoftwareId as (assetSoftware.name +' - '+ assetSoftware.manufacturer) for assetSoftware in vm.allAssetSoftwares | orderBy: 'name'">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.assetSoftware.$dirty && form.assetSoftware.$error.required">
+                                                    <span class="middle">Asset Software is required</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!--// private String serialNumber;-->
+                                        <!--// private String processor;-->
+                                        <!--// private String numberOfCores;-->
+
+                                        <!--// 512 MB / 8 GB (max)-->
+                                        <!--// private String ramInstalledSize;-->
+                                        <!--// DDR2 SDRAM-->
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx serialNumber xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.serialNumber.$dirty && form.serialNumber.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="serialNumber">
+                                                Serial Number
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="serialNumber"
+                                                       name="serialNumber"
+                                                       ng-model="vm.asset.serialNumber" disabled="disabled" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.serialNumber.$dirty && form.serialNumber.$error.required">
+                                                    <span class="middle">Serial Number is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <hr/>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx warehouse xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.warehouse.$dirty && form.warehouse.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="warehouse">
+                                                Select new warehouse
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <select name="warehouse" id="warehouse" class="col-xs-10 col-sm-7" required
+                                                        ng-change="vm.assetWarehouseChanged()"
+                                                        ng-model="vm.asset.warehouse.warehouseId"
+                                                        ng-options="warehouse.warehouseId as (warehouse.name) for warehouse in vm.allWarehouses">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.warehouse.$dirty && form.warehouse.$error.required">
+                                                    <span class="middle">Warehouse is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- end of form horizontal -->
+
+                                </accordion-group>
+
+                            </accordion>
+
+                            <!--<p>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                            <!--</p>-->
+
+                            <div class="form-actions">
+
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        ng-disabled="form.$invalid || vm.isAssetWarehouseChanged">
+                                    Move to new Warehouse
+                                </button>
+                                <button ng-click="vm.navigateToPage('viewAssetList')" class="btn btn-danger btn-mini">
+                                    Back to Asset Search page
+                                </button>
+
+                                <img ng-if="vm.dataLoading"
+                                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                <!---->
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                <!--<div class="col-sm-12">-->
+
+                    <!--<ul class="steps">-->
+
+                        <!--<li data-step="1" class="active">-->
+                            <!--<span class="step">1</span>-->
+                            <!--<span class="title">Validation states</span>-->
+                        <!--</li>-->
+
+                        <!--<li data-step="2" class="">-->
+                            <!--<span class="step">2</span>-->
+                            <!--<span class="title">Alerts</span>-->
+                        <!--</li>-->
+
+                        <!--<li data-step="3" class="">-->
+                            <!--<span class="step">3</span>-->
+                            <!--<span class="title">Payment Info</span>-->
+                        <!--</li>-->
+
+                        <!--<li data-step="4" class="">-->
+                            <!--<span class="step">4</span>-->
+                            <!--<span class="title">Other Info</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+                <div class="col-sm-12">
+
+                    <!--<input class="col-xs-10 col-sm-7"-->
+                           <!--type="text" id="filterAssetWarehouses"-->
+                           <!--name="filterAssetWarehouses"-->
+                           <!--ng-model="vm.filterAssetWarehouses"/>-->
+
+                    <!--{{vm.allAssetWarehouses}}-->
+                    <!--<div ng-repeat="assetW in vm.allAssetWarehouses">-->
+                        <!--hello-->
+                    <!--</div>-->
+
+
+                    <hr/>
+
+
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="widget-title lighter smaller">
+                                <i class="ace-icon fa fa-comment blue"></i>
+                                Asset history
+                            </h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <!-- #section:pages/dashboard.conversations -->
+                                <div class="dialogs ace-scroll">
+                                    <div class="scroll-track scroll-active" style="display: block; height: 300px;">
+                                        <div class="scroll-bar" style="height: 236px; top: 0px;"></div>
+                                    </div>
+                                    <div class="scroll-content" style="max-height: 300px;">
+
+                                        <div ng-repeat="assetW in vm.getAllAssetWarehouses()" class="itemdiv dialogdiv">
+
+                                            <div class="user">
+                                                <img src="lib/assets/css/images/spritemap.png">
+                                            </div>
+
+                                            <div class="body">
+                                                <div class="time">
+                                                    <i class="ace-icon fa fa-clock-o"></i>
+                                                    <span class="green"> {{assetW.created}}</span>
+                                                </div>
+
+                                                <div class="name">
+                                                    <a>{{assetW.warehouse.name}}</a>
+                                                </div>
+                                                <div class="text">{{assetW.assetStatus}} {{assetW.created}}</div>
+
+                                                <div class="tools">
+                                                    <a  class="btn btn-minier btn-info">
+                                                        <i class="icon-only ace-icon fa fa-share"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div><!-- /.widget-main -->
+                        </div><!-- /.widget-body -->
+                    </div><!-- /.widget-box -->
+
+
+
+
+
+
+                </div>
+
+                <!-- PAGE CONTENT ENDS -->
+
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

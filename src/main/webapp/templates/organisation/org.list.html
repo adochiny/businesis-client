@@ -1,0 +1,81 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <!--organisationId:1,-->
+                    <!--name: 'Org 1',-->
+                    <!--registration: 'registration 1',-->
+                    <!--registartionType: "registartionType 1",-->
+                    <!--notes: "notes 1",-->
+
+
+
+
+                    <h3 class="header smaller lighter blue">Organisation List</h3>
+
+                    <div class="table-header">
+                        Organisations
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allOrgs" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>organisationId</th>-->
+                            <th>Organisation Name</th>
+                            <th>Registration</th>
+                            <th>Registartion Type</th>
+                            <th>Notes</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="org in vm.allOrgs">
+                            <!--<td>{{org.organisationId}}</td>-->
+                            <td>{{org.name}}</td>
+                            <td>{{org.registration}}</td>
+                            <td>{{org.registartionType}}</td>
+                            <td>{{org.notes}}</td>
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                    <button ng-click="vm.addEditOrg(org)"
+                                            type="button" class="btn  btn-minier btn-danger">
+                                        Edit Organisation
+                                        <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                    </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditOrg()" class="btn btn-danger btn-sm">Add New Organisation</button>
+                    </p>
+
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

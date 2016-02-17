@@ -1,0 +1,75 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <h3 class="header smaller lighter blue">Asset Models</h3>
+
+                    <div class="table-header">
+                        Asset Models
+                    </div>
+
+                    <!-- private Long assetModelId;-->
+                    <!-- private String modelNumber;-->
+                    <!-- Veriton 3900Pro-->
+                    <!-- private String modelName;-->
+                    <!-- private String description;-->
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allAssetModels" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>assetModelId</th>-->
+                            <th>Model Number</th>
+                            <th>Model Name</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aModel in vm.allAssetModels">
+                            <!--<td>{{aModel.assetModelId}}</td>-->
+                            <td>{{aModel.modelNumber}}</td>
+                            <td>{{aModel.modelName}}</td>
+                            <td>{{aModel.description}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditAssetModel(aModel)"
+                                        type="button" class="btn  btn-minier btn-danger">
+                                    Edit Asset Model
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditAssetModel()" class="btn btn-danger btn-sm">Add New Asset Model</button>
+                    </p>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

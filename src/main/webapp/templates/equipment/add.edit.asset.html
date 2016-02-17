@@ -1,0 +1,427 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row form-bg-color">
+
+                <div class="col-xs-12 col-sm-9">
+
+
+                <!-- PAGE CONTENT START -->
+
+                    <h3 class="row header smaller lighter blue">
+                        <span class="col-xs-6"> Add/Edit Asset Details  </span><!-- /.col -->
+                    </h3>
+
+                    <form name="form" role="form" ng-submit="vm.saveAsset()" >
+
+                        <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                        <flash:messages></flash:messages>
+
+                        <div>
+
+                            <!--<label class="checkbox">-->
+                                <!--<input type="checkbox" ng-model="vm.oneAtATime">-->
+                                <!--Open only one at a time-->
+                            <!--</label>-->
+
+                            <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                <!-- is-open="vm.status.isFirstOpen" -->
+                                <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                    <accordion-heading>
+                                        Asset details
+                                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                    </accordion-heading>
+
+                                    <div class="form-horizontal">
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        <!--// private Long assetCodeId;-->
+                                        <!--// private AssetType assetType;-->
+                                        <!--// private AssetBrand assetBrand;-->
+                                        <!--// private AssetModel assetModel;-->
+
+                                        <!--// private Long assetId;-->
+                                        <!--// private Warehouse warehouse;-->
+                                        <!--// private AssetCode assetCode;-->
+                                        <!--// private AssetSoftware assetSoftware;-->
+
+
+                                        <!--// private List<Attribute> attributes = new ArrayList<>();-->
+
+                                        <!--// private String serialNumber;-->
+                                        <!--// private String processor;-->
+                                        <!--// private String numberOfCores;-->
+
+                                        <!--// 512 MB / 8 GB (max)-->
+                                        <!--// private String ramInstalledSize;-->
+                                        <!--// DDR2 SDRAM-->
+
+                                        <!--// private String ramInstalledTechnology;-->
+                                        <!--// private String hardDriveType;-->
+                                        <!--// private String hardDriveSize;-->
+                                        <!--// private Boolean wifi;-->
+
+                                        <!--// 3 years warranty-->
+                                        <!--// private String manufacturerWarranty;-->
+                                        <!--// private Double systemQuantity;-->
+                                        <!--// private Double actualQuantity;-->
+                                        <!--// private Double variance;-->
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx warehouse xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.warehouse.$dirty && form.warehouse.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="warehouse">
+                                                Warehouse
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <select name="warehouse" id="warehouse" class="col-xs-10 col-sm-7" required
+                                                        ng-model="vm.asset.warehouse.warehouseId"
+                                                        ng-options="warehouse.warehouseId as (warehouse.name) for warehouse in vm.allWarehouses | orderBy: 'name'">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.warehouse.$dirty && form.warehouse.$error.required">
+                                                    <span class="middle">Warehouse is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetCodeFilter xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <!--<div class="form-group" ng-class="{ 'has-error': form.assetCodeFilter.$dirty && form.assetCodeFilter.$error.required }">-->
+                                            <!--<label class="col-sm-3 control-label no-padding-left" for="assetCodeFilter">-->
+                                                <!--Asset Code Filter-->
+                                            <!--</label>-->
+                                            <!--<div class="col-sm-9">-->
+                                                <!--<input class="col-xs-10 col-sm-7"-->
+                                                       <!--type="text" id="assetCodeFilter"-->
+                                                       <!--name="assetCodeFilter"-->
+                                                       <!--ng-model="vm.assetCodeFilter"/>-->
+
+                                                <!--<span class="help-inline col-xs-12 col-sm-5"-->
+                                                      <!--ng-show="form.assetCodeFilter.$dirty && form.assetCodeFilter.$error.required">-->
+                                                    <!--<span class="middle">Asset Code Filter is required</span>-->
+                                                <!--</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetCode xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.assetCode.$dirty && form.assetCode.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left">
+                                                Asset Code
+                                            </label>
+
+                                            <div class="col-sm-9">
+
+                                                <select name="assetCode" id="assetCode" class="col-xs-10 col-sm-7" required
+                                                        ng-model="vm.asset.assetCode.assetCodeId"
+                                                        ng-options="assetCode.assetCodeId as (assetCode.assetType.assetTypeName +' - '+ assetCode.assetBrand.brandName +' - '+ assetCode.assetModel.modelName) for assetCode in vm.allAssetCodes | orderBy: 'assetType.assetTypeName'">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <!--<ac-select ac-model="vm.selectedState"-->
+                                                           <!--ac-options="assetCode.assetCodeName for assetCode in vm.allAssetCodesSelectData"-->
+                                                           <!--ac-settings="{ loadOnOpen: false, minWidth: '333px', allowClear: 'true', noItemsText: 'No items found.', placeholderText: 'Please select...'}"-->
+                                                           <!--ac-change="vm.stateSelected(value)"></ac-select>-->
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.assetCode.$dirty && form.assetCode.$error.required">
+                                                    <span class="middle">Asset Code is required</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetSoftware xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.assetSoftware.$dirty && form.assetSoftware.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="assetSoftware">
+                                                Asset Software
+                                            </label>
+
+                                            <div class="col-sm-9">
+
+                                                <select name="assetSoftware" id="assetSoftware" class="col-xs-10 col-sm-7" required
+                                                        ng-model="vm.asset.assetSoftware.assetSoftwareId"
+                                                        ng-options="assetSoftware.assetSoftwareId as (assetSoftware.name +' - '+ assetSoftware.manufacturer) for assetSoftware in vm.allAssetSoftwares | orderBy: 'assetSoftwareId'">
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <!--<select name="assetSoftware" id="assetSoftware" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.asset.assetSoftware.assetSoftwareId" required>
+                                                    <option value=""></option>
+                                                    <option value="1">assetSoftware 1</option>
+                                                    <option value="2">assetSoftware 2</option>
+                                                    <option value="3">assetSoftware 3</option>
+                                                    <option value="4">assetSoftware 4</option>
+                                                    <option value="5">assetSoftware 5</option>
+                                                </select>-->
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.assetSoftware.$dirty && form.assetSoftware.$error.required">
+                                                    <span class="middle">Asset Software is required</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <!--// private String serialNumber;-->
+                                        <!--// private String processor;-->
+                                        <!--// private String numberOfCores;-->
+
+                                        <!--// 512 MB / 8 GB (max)-->
+                                        <!--// private String ramInstalledSize;-->
+                                        <!--// DDR2 SDRAM-->
+
+
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx serialNumber xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.serialNumber.$dirty && form.serialNumber.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="serialNumber">
+                                                Serial Number
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="serialNumber"
+                                                       name="serialNumber"
+                                                       ng-model="vm.asset.serialNumber" required />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.serialNumber.$dirty && form.serialNumber.$error.required">
+                                                    <span class="middle">Serial Number is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String processor;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx processor xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.processor.$dirty && form.processor.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="processor">
+                                                Processor
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="processor"
+                                                       name="processor"
+                                                       ng-model="vm.asset.processor" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.processor.$dirty && form.processor.$error.required">
+                                                    <span class="middle">Processor is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String numberOfCores;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx numberOfCores xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.numberOfCores.$dirty && form.numberOfCores.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="numberOfCores">
+                                                Number Of Cores
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="numberOfCores"
+                                                       name="numberOfCores"
+                                                       ng-model="vm.asset.numberOfCores" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.numberOfCores.$dirty && form.numberOfCores.$error.required">
+                                                    <span class="middle">Number Of Cores is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String ramInstalledSize;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ramInstalledSize xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.ramInstalledSize.$dirty && form.ramInstalledSize.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="ramInstalledSize">
+                                                Ram Installed (Size)
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="ramInstalledSize"
+                                                       name="ramInstalledSize"
+                                                       ng-model="vm.asset.ramInstalledSize" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.ramInstalledSize.$dirty && form.ramInstalledSize.$error.required">
+                                                    <span class="middle">Ram Installed (Size) is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <!--// private String ramInstalledTechnology;-->
+                                        <!--// private String hardDriveType;-->
+                                        <!--// private String hardDriveSize;-->
+                                        <!--// private Boolean wifi;-->
+
+                                        <!--// 3 years warranty-->
+                                        <!--// private String manufacturerWarranty;-->
+                                        <!--// private Double systemQuantity;-->
+                                        <!--// private Double actualQuantity;-->
+                                        <!--// private Double variance;-->
+
+
+                                        <!--private String ramInstalledTechnology;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ramInstalledTechnology xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.ramInstalledTechnology.$dirty && form.ramInstalledTechnology.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="ramInstalledTechnology">
+                                                Ram Installed (Technology)
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="ramInstalledTechnology"
+                                                       name="ramInstalledTechnology"
+                                                       ng-model="vm.asset.ramInstalledTechnology" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.ramInstalledTechnology.$dirty && form.ramInstalledTechnology.$error.required">
+                                                    <span class="middle">Ram Installed (Technology) is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String hardDriveType;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx hardDriveType xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.hardDriveType.$dirty && form.hardDriveType.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="hardDriveType">
+                                                Hard Drive Type
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="hardDriveType"
+                                                       name="hardDriveType"
+                                                       ng-model="vm.asset.hardDriveType" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.hardDriveType.$dirty && form.hardDriveType.$error.required">
+                                                    <span class="middle">Hard Drive Type is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String hardDriveSize;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx hardDriveSize xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.hardDriveSize.$dirty && form.hardDriveSize.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="hardDriveSize">
+                                                Hard Drive (Size)
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="hardDriveSize"
+                                                       name="hardDriveSize"
+                                                       ng-model="vm.asset.hardDriveSize"/>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.hardDriveSize.$dirty && form.hardDriveSize.$error.required">
+                                                    <span class="middle">Hard Drive Size is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx wifi xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.wifi.$dirty && form.wifi.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="wifi">
+                                                Wifi
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group col-xs-5 col-sm-5">
+                                                    <div id="wifi" class="radio">
+                                                        <label>
+                                                            <input name="wifi" value="true" ng-model="vm.asset.wifi" type="radio" class="ace">
+                                                            <span class="lbl"> Yes</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input name="wifi" value="false" ng-model="vm.asset.wifi" type="radio" class="ace">
+                                                            <span class="lbl"> No</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.wifi.$dirty && form.wifi.$error.required">
+                                                        <span class="middle">Wifi is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <!--private String manufacturerWarranty;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx manufacturerWarranty xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.manufacturerWarranty.$dirty && form.manufacturerWarranty.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="manufacturerWarranty">
+                                                Manufacturer Warranty
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="manufacturerWarranty"
+                                                       name="manufacturerWarranty"
+                                                       ng-model="vm.asset.manufacturerWarranty"/>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.manufacturerWarranty.$dirty && form.manufacturerWarranty.$error.required">
+                                                    <span class="middle">Manufacturer Warranty is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                    </div> <!-- end of form horizontal -->
+
+                                </accordion-group>
+
+                            </accordion>
+
+                            <!--<p>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                            <!--</p>-->
+
+                            <div class="form-actions">
+
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        ng-disabled="form.$invalid || vm.dataLoading">
+                                    Save Asset Details
+                                </button>
+                                <button ng-click="vm.navigateToPage('viewAssetList')" class="btn btn-danger btn-mini">
+                                    Back to Asset Search page
+                                </button>
+
+                                <img ng-if="vm.dataLoading"
+                                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                <!---->
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                <!-- PAGE CONTENT ENDS -->
+
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

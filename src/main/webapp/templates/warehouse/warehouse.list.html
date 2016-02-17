@@ -1,0 +1,80 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+
+                <div class="col-xs-8">
+
+                    <!--private Long warehouseId;-->
+                    <!--private Organisation organisation;-->
+                    <!--private Address address;-->
+                    <!--private String name;-->
+                    <!--private String description;-->
+                    <!--private WarehouseType warehouseType;-->
+
+                    <h3 class="header smaller lighter blue">Warehouse List</h3>
+
+                    <div class="table-header">
+                        Warehouses
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allWarehouses" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>warehouseId</th>-->
+                            <th>Warehouse name</th>
+                            <th>Description</th>
+                            <th>Warehouse Type</th>
+                            <th>Organisation</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="warehouse in vm.allWarehouses">
+                            <!--<td>{{warehouse.warehouseId}}</td>-->
+                            <td>{{warehouse.name}}</td>
+                            <td>{{warehouse.description}}</td>
+                            <td>{{warehouse.warehouseType}}</td>
+                            <td>{{warehouse.organisation.name}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditWarehouse(warehouse)"
+                                        type="button" class="btn btn-minier btn-danger">
+                                    Edit Warehouse
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditWarehouse()" class="btn btn-danger btn-sm">Add New Warehouse</button>
+                    </p>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+

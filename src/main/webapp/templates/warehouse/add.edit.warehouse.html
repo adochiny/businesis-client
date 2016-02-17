@@ -1,0 +1,385 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row form-bg-color">
+
+                <div class="col-xs-12 col-sm-8">
+
+
+                <!-- PAGE CONTENT START -->
+
+                    <h3 class="row header smaller lighter blue">
+                        <span class="col-xs-6"> Add/Edit Warehouse Details  </span><!-- /.col -->
+                    </h3>
+
+                    <form name="form" role="form" ng-submit="vm.saveWarehouse()" >
+
+                        <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                        <flash:messages></flash:messages>
+
+                        <div>
+
+                            <!--<label class="checkbox">-->
+                                <!--<input type="checkbox" ng-model="vm.oneAtATime">-->
+                                <!--Open only one at a time-->
+                            <!--</label>-->
+
+                            <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                <!-- is-open="vm.status.isFirstOpen" -->
+                                <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                    <accordion-heading>
+                                        Warehouse Details
+                                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                    </accordion-heading>
+
+                                    <div class="form-horizontal">
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+
+                                        <!--private Long warehouseId;-->
+
+                                        <!--private Organisation organisation;-->
+
+                                        <!--private Address address;-->
+
+                                        <!--private String name;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx name xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="name">
+                                                Warehouse name
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="name"
+                                                       name="name"
+                                                       ng-model="vm.warehouse.name" required />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.name.$dirty && form.name.$error.required">
+                                                    <span class="middle">Warehouse name is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Organisation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.organisation.$dirty && form.organisation.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="organisation">
+                                                Organisation
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <select name="organisation" id="organisation" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.warehouse.organisation.organisationId"
+                                                        ng-options="organisation.organisationId as (organisation.name) for organisation in vm.allOrgs"
+                                                        required>
+                                                    <option value="">Please select </option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.organisation.$dirty && form.organisation.$error.required">
+                                                    <span class="middle">Organisation name is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String description;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx description xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.description.$dirty && form.description.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="description">
+                                                Warehouse description
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="description"
+                                                       name="description"
+                                                       ng-model="vm.warehouse.description" required />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.description.$dirty && form.description.$error.required">
+                                                    <span class="middle">Warehouse description is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--// inbound / outbound/ client-->
+                                        <!--private WarehouseType warehouseType;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx warehouseType xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.warehouseType.$dirty && form.warehouseType.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="warehouseType">
+                                                Warehouse Type
+                                            </label>
+
+                                            <div class="col-sm-9">
+                                                <select name="warehouseType" id="warehouseType" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.warehouse.warehouseType" required>
+                                                    <option value=""></option>
+                                                    <option value="Inbound">Inbound</option>
+                                                    <option value="Outbound">Outbound</option>
+                                                    <option value="Client">Client</option>
+                                                </select>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.warehouseType.$dirty && form.warehouseType.$error.required">
+                                                    <span class="middle">Warehouse Type is required</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                    </div> <!-- end of form horizontal -->
+
+                                </accordion-group>
+
+                                <!--<accordion-group heading="">-->
+                                <accordion-group is-open="vm.status.secondOpen">
+                                    <accordion-heading>
+                                        Address details
+                                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.secondOpen, 'glyphicon-chevron-right': !vm.status.secondOpen}"></i>
+                                    </accordion-heading>
+
+                                    <div class="form-horizontal">
+                                        <!--private Long addressId;-->
+
+                                        <!--private AddressType addressType;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ID type xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.addressType.$dirty && form.addressType.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="addressType">
+                                                Address Type
+                                            </label>
+
+                                            <div class="col-sm-9">
+                                                <select name="addressType" id="addressType" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.warehouse.address.addressType">
+                                                    <option value=""></option>
+                                                    <option value="Physical">Physical</option>
+                                                    <option value="Postal">Postal</option>
+                                                </select>
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.addressType.$dirty && form.addressType.$error.required">
+                                                        <span class="middle">Address Type is required</span>
+                                                    </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!--private String complexName;-->
+
+                                        <!--private String poBox;-->
+
+                                        <!--private String unitNumber;-->
+
+                                        <!--private String houseNumber;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx houseNumber xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.houseNumber.$dirty && form.houseNumber.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="houseNumber">
+                                                House Number
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="houseNumber"
+                                                       name="houseNumber"
+                                                       ng-model="vm.warehouse.houseNumber" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.houseNumber.$dirty && form.houseNumber.$error.required">
+                                                    <span class="middle">House Number is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String streetName;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx streetName xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.streetName.$dirty && form.streetName.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="streetName">
+                                                Street Name
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="streetName"
+                                                       name="streetName"
+                                                       ng-model="vm.warehouse.streetName" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.streetName.$dirty && form.streetName.$error.required">
+                                                    <span class="middle">House Number is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String suburb;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx suburb xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.suburb.$dirty && form.suburb.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="suburb">
+                                                Suburb
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="suburb"
+                                                       name="suburb"
+                                                       ng-model="vm.warehouse.suburb" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.suburb.$dirty && form.suburb.$error.required">
+                                                    <span class="middle">Suburb is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String townCity;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx townCity xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.townCity.$dirty && form.townCity.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="townCity">
+                                                Town/City
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="townCity"
+                                                       name="townCity"
+                                                       ng-model="vm.warehouse.townCity"/>
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.townCity.$dirty && form.townCity.$error.required">
+                                                    <span class="middle">Town/City is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String province;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx province xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.province.$dirty && form.province.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="province">
+                                                Province
+                                            </label>
+
+                                            <div class="col-sm-9">
+                                                <select name="province" id="province" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.warehouse.address.province">
+                                                    <option value=""></option>
+                                                    <!--<option value="Physical">Physical</option>-->
+                                                    <!--<option value="Postal">Postal</option>-->
+                                                    <option value="Eastern Cape">Eastern Cape</option>
+                                                    <option value="Free State">Free State</option>
+                                                    <option value="Gauteng">Gauteng</option>
+                                                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                                                    <option value="Limpopo">Limpopo</option>
+                                                    <option value="Mpumalanga">Mpumalanga</option>
+                                                    <option value="North West">North West</option>
+                                                    <option value="Northern Cape">Northern Cape</option>
+                                                    <option value="Western Cape">Western Cape</option>
+                                                </select>
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.province.$dirty && form.province.$error.required">
+                                                        <span class="middle">Address Type is required</span>
+                                                    </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!--private String country;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx country xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.country.$dirty && form.country.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="country">
+                                                Country
+                                            </label>
+
+                                            <div class="col-sm-9">
+                                                <select name="country" id="country" class="col-xs-10 col-sm-7"
+                                                        ng-model="vm.warehouse.address.country">
+                                                    <option value=""></option>
+                                                    <option value="South Africa">South Africa</option>
+                                                    <option value="Zimbabwe">Zimbabwe</option>
+                                                    <option value="Zambia">Zambia</option>
+                                                    <option value="Tanzania">Tanzania</option>
+                                                </select>
+
+                                                    <span class="help-inline col-xs-12 col-sm-5"
+                                                          ng-show="form.country.$dirty && form.country.$error.required">
+                                                        <span class="middle">Country is required</span>
+                                                    </span>
+
+                                            </div>
+                                        </div>
+
+                                        <!--private String postalCode;-->
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx postalCode xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                        <div class="form-group" ng-class="{ 'has-error': form.postalCode.$dirty && form.postalCode.$error.required }">
+                                            <label class="col-sm-3 control-label no-padding-left" for="postalCode">
+                                                Postal Code
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <input class="col-xs-10 col-sm-7"
+                                                       type="text" id="postalCode"
+                                                       name="postalCode"
+                                                       ng-model="vm.warehouse.postalCode" />
+
+                                                <span class="help-inline col-xs-12 col-sm-5"
+                                                      ng-show="form.postalCode.$dirty && form.postalCode.$error.required">
+                                                    <span class="middle">postalCode is required</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!--private String erfNumber;-->
+                                        <!--private String portionNumber;-->
+                                        <!--private Long anotherNumber;-->
+
+                                        <!--<p>Address details content</p>-->
+                                        <!--<button class="btn btn-default btn-sm" ng-click="vm.addItem()">Add Item</button>-->
+                                        <!--<div ng-repeat="item in vm.items">{{item}}</div>-->
+
+                                    </div>
+
+                                </accordion-group>
+
+                            </accordion>
+
+                            <!--<p>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                            <!--</p>-->
+
+                            <div class="form-actions">
+
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        ng-disabled="form.$invalid || vm.dataLoading">
+                                    Save Warehouse details
+                                </button>
+                                <button ng-click="vm.navigateToPage('viewWarehouseList')" class="btn btn-danger btn-mini">
+                                    Back to Warehouse List
+                                </button>
+
+                                <img ng-if="vm.dataLoading"
+                                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                <!---->
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                <!-- PAGE CONTENT ENDS -->
+
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

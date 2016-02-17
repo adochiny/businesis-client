@@ -1,0 +1,169 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row form-bg-color">
+                <div class="col-xs-12">
+
+                    <div class="col-sm-10">
+
+                    <!-- PAGE CONTENT START -->
+
+                        <h3 class="row header smaller lighter blue">
+                            <span class="col-xs-6"> Add/Edit Asset Type Details  </span><!-- /.col -->
+                        </h3>
+
+                        <form name="form" role="form" ng-submit="vm.saveAssetType()" >
+
+                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                            <flash:messages></flash:messages>
+
+                            <div>
+
+                                <accordion class="accordion-style1 panel-group" close-others="vm.oneAtATime">
+                                    <!-- is-open="vm.status.isFirstOpen" -->
+                                    <accordion-group is-open="vm.status.firstOpen" is-disabled="vm.status.isFirstDisabled">
+                                        <accordion-heading>
+                                            Asset Type Details
+                                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': vm.status.firstOpen, 'glyphicon-chevron-right': !vm.status.firstOpen}"></i>
+                                        </accordion-heading>
+
+                                        <div class="form-horizontal">
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                            <!--assetTypeId:1,-->
+                                            <!--assetTypeNumber: 'assetTypeNumber 1',-->
+                                            <!--assetTypeName: 'assetTypeName 1',-->
+                                            <!--description: 'description 1',-->
+                                            <!--formFactor: "formFactor desktop"-->
+
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetTypeNumber xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.assetTypeNumber.$dirty && form.assetTypeNumber.$error.required }">
+                                                <label class="col-sm-2 control-label no-padding-left" for="assetTypeNumber">
+                                                    Asset Type Number
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-5"
+                                                           type="text" id="assetTypeNumber"
+                                                           name="assetTypeNumber"
+                                                           ng-model="vm.assetType.assetTypeNumber" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-7"
+                                                          ng-show="form.assetTypeNumber.$dirty && form.assetTypeNumber.$error.required">
+                                                        <span class="middle">Asset Type Number is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!--private String assetTypeName;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx assetTypeName xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.assetTypeName.$dirty && form.assetTypeName.$error.required }">
+                                                <label class="col-sm-2 control-label no-padding-left" for="assetTypeName">
+                                                    Name
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-5"
+                                                           type="text" id="assetTypeName"
+                                                           name="assetTypeName"
+                                                           ng-model="vm.assetType.assetTypeName" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-7"
+                                                          ng-show="form.assetTypeName.$dirty && form.assetTypeName.$error.required">
+                                                        <span class="middle">Name is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!--private String description;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx description xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.description.$dirty && form.description.$error.required }">
+                                                <label class="col-sm-2 control-label no-padding-left" for="description">
+                                                    Description
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-5"
+                                                           type="text" id="description"
+                                                           name="description"
+                                                           ng-model="vm.assetType.description" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-7"
+                                                          ng-show="form.description.$dirty && form.description.$error.required">
+                                                        <span class="middle">Description is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!--private String formFactor;-->
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx formFactor xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+                                            <div class="form-group" ng-class="{ 'has-error': form.formFactor.$dirty && form.formFactor.$error.required }">
+                                                <label class="col-sm-2 control-label no-padding-left" for="formFactor">
+                                                    Form Factor
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input class="col-xs-10 col-sm-5"
+                                                           type="text" id="formFactor"
+                                                           name="formFactor"
+                                                           ng-model="vm.assetType.formFactor" required />
+
+                                                    <span class="help-inline col-xs-12 col-sm-7"
+                                                          ng-show="form.formFactor.$dirty && form.formFactor.$error.required">
+                                                        <span class="middle">Form Factor is required</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  -->
+
+                                        </div> <!-- end of form horizontal -->
+
+                                    </accordion-group>
+
+                                </accordion>
+
+                                <!--<p>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.open = !status.open">Toggle last panel</button>-->
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.status.isFirstDisabled = !vm.status.isFirstDisabled">Enable / Disable first panel</button>-->
+                                <!--</p>-->
+
+                                <div class="form-actions">
+
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            ng-disabled="form.$invalid || vm.dataLoading">
+                                        Save Asset Type Details
+                                    </button>
+                                    <button ng-click="vm.navigateToPage('viewAssetTypeList')" class="btn btn-danger btn-mini">
+                                        Back to Asset Type List
+                                    </button>
+
+                                    <img ng-if="vm.dataLoading"
+                                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    <!--<a href="#/viewUserList" class="btn btn-link">Cancel</a>-->
+                                    <!---->
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    <!-- PAGE CONTENT ENDS -->
+
+                    </div>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+
+</div><!-- /.main-content -->
+

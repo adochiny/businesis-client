@@ -1,0 +1,79 @@
+﻿<div ng-include="'templates/home/sidebar.html'"></div>
+
+<div class="main-content">
+    <div class="main-content-inner">
+
+        <div ng-include="'templates/home/breadcrumbs.html'"></div>
+
+        <div class="page-content">
+            <!-- #section:settings.box -->
+
+            <!--<div ng-include="'templates/login/login.html'"></div>-->
+
+            <!-- /section:settings.box -->
+            <div class="row">
+                <div class="col-xs-8">
+
+                    <h3 class="header smaller lighter blue">Asset Types</h3>
+
+                    <div class="table-header">
+                        Asset Types
+                    </div>
+
+                    <!--assetTypeId:1,-->
+                    <!--assetTypeNumber: 'assetTypeNumber 1',-->
+                    <!--assetTypeName: 'assetTypeName 1',-->
+                    <!--description: 'description 1',-->
+                    <!--formFactor: "formFactor desktop"-->
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <table st-table="vm.allAssetTypes" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th>assetTypeId</th>-->
+                            <th>Asset Type Number</th>
+                            <th>Asset Type Name</th>
+                            <th>Description</th>
+                            <th>Form Factor</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="aType in vm.allAssetTypes">
+                            <!--<td>{{aType.assetTypeId}}</td>-->
+                            <td>{{aType.assetTypeNumber}}</td>
+                            <td>{{aType.assetTypeName}}</td>
+                            <td>{{aType.description}}</td>
+                            <td>{{aType.formFactor}}</td>
+
+                            <td>
+                                <!--<div class="form-actions center">-->
+                                <button ng-click="vm.addEditAssetType(aType)"
+                                        type="button" class="btn btn-minier btn-danger">
+                                    Edit Asset Type
+                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                </button>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                    <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                    <p>
+                        <button ng-click="vm.addEditAssetType()" class="btn btn-danger btn-sm">Add New Asset Type</button>
+                    </p>
+
+
+                    <!-- PAGE CONTENT ENDS -->
+
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+
