@@ -25,7 +25,7 @@
                     AuthenticationService.SetCredentials(response.user, vm.password);
                     //
                     vm.user = $rootScope.globals.currentUser;
-                    flash('User logged in, can no access system functionality.');
+                    flash('User logged in, can now access system functionality.');
                     //
                     $route.reload();
                     $window.location.reload();
@@ -44,7 +44,6 @@
             flash('User logged out, thanks for your time.');
             $location.path('/login');
         };
-
 
     }
 

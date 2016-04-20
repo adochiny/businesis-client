@@ -1,0 +1,297 @@
+
+.panel-title {
+    font-size: 20px;
+    }
+
+.font-size-small {
+    font-size: 0.8em;
+}
+
+.font-size-medium {
+    font-size: 0.9em;
+}
+
+.font-size-large {
+    font-size: 1.0em;
+}
+
+.tab-pane {
+    padding: 5px 5px 10px 10px;
+}
+.fms-panel {
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #fff;
+    border-width: 1px;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    box-shadow: none;
+}
+
+
+.fms-panel {
+    padding: 20px 15px 15px 15px;
+    position: relative;
+    /*padding: 30px 15px 15px;*/
+    /*margin: 0 -15px 15px;*/
+    margin: 10px 10px 10px 10px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    /*border-width: 1px 0;*/
+}
+
+.fms-panel:after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.my-nav-pills {
+  color: #555555;
+  background-color: #e7e7e7;
+}
+.my-nav-pills-blue {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.valid {
+  /*width: 24px;*/
+  /*height: 24px;*/
+  /*background: url(assets/img/valid.png) center center no-repeat;*/
+  /*display: inline-block;*/
+  /*text-indent: -9999px;*/
+}
+.error {
+  /*font-weight: bold;*/
+  color: #b94a48;
+  /*padding: 2px 8px;*/
+  margin-top: 2px;
+}
+
+
+
+.fms-box-footer {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin-top: 100px;
+    color: #777;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-links {
+    margin: 10px 0;
+    padding-left: 0;
+}
+
+.footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+.footer-links li:first-child {
+    padding-left: 0;
+}
+
+.fms-box-footer p {
+    margin-bottom: 0;
+}
+
+
+
+/*
+ * Examples
+ *
+ * Isolated sections of example content for each component or feature. Usually
+ * followed by a code snippet.
+ */
+
+.fms-box {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  background-color: #fafafa;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  /*border-width: 1px 0;*/
+}
+/* Echo out a label for the example */
+.fms-box:after {
+  /*content: "Panel title ";*/
+  position: absolute;
+  top:  15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tweak display of the code snippets when following an example */
+.fms-box + .highlight {
+  margin: -15px -15px 15px;
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
+.fms-box1:after {
+    content: "Panel title ";
+}
+
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.invoicetable > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.invoicetable > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.invoicetable > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+
+/*
+Customizing for Ingwe life.
+*/
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: red !important;
+    border-color: red;
+}
+.panel-info {
+    border-color: red;
+}
+.panel-info>.panel-heading {
+    color: #fff;
+    background-color: red;
+    border-color: red;
+}
+.menu-item a:hover {
+    background-color: red;
+    color: white;
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+    background-color: red;
+    border-color: red;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
+    /*color: red;*/
+    color: lightyellow;
+}
+.header {
+    background-color: red;
+    /*background-color: #D95500;*/
+    color: #f9f9f9;
+}
+a:hover, a:focus {
+    color: #2a6496;
+    text-decoration: underline;
+}
+.current {
+    color: #fff;
+    background-color: red;
+    border-color: red;
+    cursor: default;
+}
+.logo {
+       background-color: red;
+       color: #f9f9f9;
+   }
+
+.dropdown-toggle {
+    background-color: red;
+    color: #f9f9f9;
+}
+.navbar-nav > .user-menu > .dropdown-menu > li.user-footer .btn-default {
+    background-color: red;
+    color: #f9f9f9;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: red;
+    color: #f9f9f9;
+    border-color: red;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #f9f9f9;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: red;
+    border: 1px solid red;
+}
+
+/*override nav pill and tabs*/
+.nav>li.disabled>a {
+    /*color: #999;*/
+    padding: 15px 25px 25px 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #777777;
+}
+
+.cat-tabs li a {
+    padding: 15px 25px 25px 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #777777;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: red;
+}
+
+/* Table row group */
+tr.group td {
+    background-color: red !important;
+}
+.dataTables_scrollHeadInner {
+   padding-left: 0px !important;
+}
+/*.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {*/
+    /*background-color: #f9f9f9;*/
+/*}*/
+/*.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+    background-color: red;
+}*/
+
+/* Select list group fonts*/
+.multiselect-group {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.ui-menu .ui-menu-item>a:hover, .ui-menu .ui-menu-item>a:focus{
+    color: #fff;
+    background-color: red;
+    border: 1px solid red;
+}
+
+#haveCompany .notActive{
+    color: #3276b1;
+    background-color: #fff;
+}
+
+
+ 

@@ -1,146 +1,219 @@
-﻿
-<div class="main-content login-layout light-login" style="margin-top: 150px; background-color: white;">
-    <!--<div class="main-content-inner">-->
+﻿<div class="skin-blue wysihtml5-supported pace-done font-size-large" style="margin-top: 50px; min-height: 1172px; font-size: 14px; background: rgb(249, 249, 249);">
 
-        <!--<div ng-include="'templates/home/breadcrumbs.html'"></div>-->
 
-        <!--<div class="page-content">-->
-            <!-- #section:settings.box -->
 
-            <!--<div ng-include="'templates/login/login.html'"></div>-->
+<!--<div id="loadingIndicator" style="display: none;-->
+                                            <!--position: absolute;-->
+                                            <!--border-radius: 8px;-->
+                                            <!--text-align: center;-->
+                                            <!--width: 150px;-->
+                                            <!--left: 50%; right: 50%; top: 250px;-->
+                                            <!--background-color: #efefef;-->
+                                            <!--border: 1px solid #9e9e9e">-->
+    <!--<img src="./Entreprenosis_files/loader.gif"><span> loading...</span>-->
+<!--</div>-->
 
-            <!-- /section:settings.box -->
-            <div class="row" style="background-color: white;">
-                <div class="col-xs-10">
 
-                <!--
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
 
-                    <div class="col-md-6 col-md-offset-3">
-                        <h2>Login</h2>
-                        <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
-                        <form name="form" ng-submit="vm.login()" role="form">
-                            <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
-                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+<!--Top bar-->
+<!---->
+<header class="header">
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-fixed-top" role="navigation" style="background-color: red;  color: #f9f9f9;">
+
+        <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="lib/assets/img/entresis-logo.png" style="width: 287px; height: 50px;">
+
+
+        <a style="font-size: 14px;color: black;align-content: center;">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            To get help, email: info@sigamkwane.co.za, phone: +27(0)11-027 2076/3216</a>
+        <!-- Sidebar toggle button-->
+        <a href="http://197.242.146.106/entreprenosis/#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+
+
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--Top bar-->
+<div class="row" style="background:#000000; min-height: 700px;">
+
+
+    <div class="col-sm-12 col-md-offset-1" style="background:#000000;">
+
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="first" class="">Risk</h1>
+        </div>
+        <div class="col-sm-4">
+            <h3 style="color:#ffffff;" id="second" class="">Success</h3>
+        </div>
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="third" class="">Profit</h1>
+        </div>
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="fourth" class="">Resilience</h1>
+        </div>
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="fifth" class="">Leadership</h1>
+        </div>
+        <div class="col-sm-4">
+            <h3 style="color:#ffffff;" id="sixth" class="">Hustler</h3>
+        </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-offset-1" style="background:#000000;">
+        <div class="col-sm-3">
+            <div class="row" style="background:#000000;">
+                <br><h3 style="color:#ffffff;" id="seventh" class="">Independence</h3><br>
+                <br><h3 style="color:#ffffff;" id="eighth" class="hinge animated">Confident</h3><br>
+                <br><h3 style="color:#ffffff;" id="nineth" class="">Brave</h3><br>
+                <br><h3 style="color:#ffffff;" id="tenth" class="hinge animated">Endurance</h3>
+            </div>
+        </div>
+
+        <div class="col-sm-5" style="background:#000000;">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="color: black;">Sign In</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="loginForm" style="margin-bottom: 0px; background-color: #fff;" class="form-horizontal well" action="http://197.242.146.106/entreprenosis/j_spring_security_check" method="post">
+
+
+                        <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="lib/assets/img/entresis-logo.png" style="width: 287px; height: 110px;">
+
+                        <br><br>
+
+                        <div class="alert alert-error" style="background-color: red; border-color: red; margin-right: 20px; margin-left: 10px;">
+                            <h4><strong>Sign in!</strong> To access Entreprenosis you need to login</h4>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="username" value="" name="j_username" placeholder="Username" autocomplete="on">
                             </div>
-                            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-                                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" id="password" name="j_password" value="" placeholder="Password">
                             </div>
-                            <div class="form-actions">
-                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-danger">Login</button>
-                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                <a href="#/register" class="btn btn-link">Register</a>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="login" type="submit" style="color: black;" class="btn btn-primary btn-lg col-sm-3">Sign in &gt;&gt; </button>
                             </div>
-                        </form>
-                    </div>
-                -->
+                        </div>
+                    </form>
 
-                    <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                    <div class="login-container">
-                    <div class="left">
-                        <h1>
-                            <i class="ace-icon fa fa-laptop red"></i>
-                            <span class="red">riskManager</span>
-                            <!--<span class="white" id="id-text2">Application</span>-->
-                        </h1>
-                        <!--<h4 class="light-blue" id="id-company-text">&copy; Qrent</h4>-->
-                    </div>
+                </div>
 
-                    <div class="space-6"></div>
+                <div class="panel-footer">
 
-                    <div class="position-relative">
-                        <div id="login-box" class="login-box visible widget-box no-border">
-                            <div class="widget-body"  style="background-color: #FFF; border: 2px solid darkred;">
-                                <div class="widget-main">
-                                    <h4 class="header blue lighter bigger">
-                                        <i class="ace-icon fa fa-coffee red"></i>
-                                        Please Enter Your Information
-                                    </h4>
+                </div>
+            </div>
 
-                                    <div class="space-6"></div>
+        </div>
+        <div class="col-sm-1">
 
-                                    <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
-                                    <form name="form" ng-submit="vm.login()" role="form">
-                                        <fieldset>
-                                            <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<!--<input type="text" class="form-control" placeholder="Username" />-->
-                                                            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
-                                                            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-                                            </label>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" style="background:#000000;">
+                <br><h3 style="color:#ffffff;" id="11th" class="">Confident</h3><br>
+                <br><h3 style="color:#ffffff;" id="12th" class="hinge animated">Independence</h3><br>
+                <br><h3 style="color:#ffffff;" id="13th" class="">Resilience</h3><br>
+                <br><h3 style="color:#ffffff;" id="14th" class="hinge animated">Endurance</h3>
+            </div>
+        </div>
 
-                                            <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-                                                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
-															<i class="ace-icon fa fa-lock"></i>
-														</span>
-                                            </label>
+    </div>
 
-                                            <div class="space"></div>
+    <div class="col-sm-12 col-md-offset-1" style="background:#000000;">
 
-                                            <div class="clearfix">
-                                                <label class="inline">
-                                                    <input type="checkbox" class="ace" />
-                                                    <span class="lbl"> Remember Me</span>
-                                                </label>
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="15th" class="">Independence</h1>
+        </div>
+        <div class="col-sm-4">
+            <h3 style="color:#ffffff;" id="16th" class="hinge animated">Profit</h3>
+        </div>
+        <div class="col-sm-4">
+            <h1 style="color:#ffffff;" id="17th" class="">Success</h1>
+        </div>
 
-                                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading"
-                                                         class="width-35 pull-right btn btn-sm btn-danger">
-                                                    <i class="ace-icon fa fa-key"></i>
-                                                    <span class="bigger-110">Login</span>
-                                                </button>
-                                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
 
-                                            </div>
+</div>
 
-                                            <div class="space-4"></div>
-                                        </fieldset>
-                                    </form>
+<footer class="bs-footer" role="contentinfo">
+    <div class="container" style="color: #000000;">
 
-                                </div><!-- /.widget-main -->
-
-                                <div class="toolbar clearfix">
-                                    <div>
-                                        <a href="#/forgotPassword" data-target="#forgot-box" class="forgot-password-link">
-                                            <i class="ace-icon fa fa-arrow-left"></i>
-                                            I forgot my password
-                                        </a>
-                                    </div>
-
-                                    <div>
-                                        <!--<a href="#/register" class="btn btn-link">Register</a>-->
-                                        <a href="#/register" data-target="#register-box" class="user-signup-link">
-                                            I want to register
-                                            <i class="ace-icon fa fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /.widget-body -->
-                        </div><!-- /.login-box -->
-
-                    </div><!-- /.position-relative -->
-
-                    </div>
-                    </div><!-- /.col -->
-                    </div><!-- /.row -->
+        <p><b>Warning:</b> This computer program is protected by copyright law of South Africa and Siga Mkwane Consulting (PTY) LTD. </p>
+        <p>Unauthorized reproduction or distribution of this program,</p>
+        <p>or any portion of it may result in civil and criminal penalties and </p>
+        <p>will be prosecuted to the maximum extend possible under the law. </p>
 
 
+    </div>
+</footer>
 
+    <script>
+        $(document).ready(function() {
+            $(function() {
+                function testAnim(element,x) {
+                    $(element).removeClass().addClass(x + ' animated')
+                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                                $(this).removeClass();
+                            });
+                };
 
+                var timerID = setInterval(function() {
+                    testAnim('#first','bounceInDown');
+                    testAnim('#second','bounceOutUp');
+                    testAnim('#third','fadeInRightBig');
+                    testAnim('#fourth','fadeOutLeftBig');
+                    testAnim('#fifth','zoomOutDown');
+                    testAnim('#sixth','lightSpeedIn');
+                    testAnim('#seventh','rotateOut');
+                    testAnim('#eighth','hinge');
+                    testAnim('#nineth','rubberBand');
+                    testAnim('#tenth','hinge');
+                    testAnim('#11th','shake');
+                    testAnim('#12th','hinge');
+                    testAnim('#13th','tada');
+                    testAnim('#14th','hinge');
+                    testAnim('#15th','rotateInUpRight');
+                    testAnim('#16th','hinge');
+                    testAnim('#17th','slideInUp');
+                    testAnim('#18th','rollOut');
+                    testAnim('#19th','rubberBand');
+                    testAnim('#20th','rollIn');
+                }, 2000);
 
+            });
+        });
+    </script>
 
-
-                    <!-- PAGE CONTENT ENDS -->
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        <!--</div>-->
-            <!-- /.page-content -->
-    <!--</div>-->
-</div><!-- /.main-content -->
+</div>
