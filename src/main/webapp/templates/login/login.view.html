@@ -97,8 +97,15 @@
                 </div>
                 <div class="panel-body">
 
-                    <form id="loginForm" style="margin-bottom: 0px; background-color: #fff;" class="form-horizontal well" action="http://197.242.146.106/entreprenosis/j_spring_security_check" method="post">
+                    <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
 
+                    <form name="form" ng-submit="vm.login()" role="form"
+                          style="margin-bottom: 0px; background-color: #fff;"
+                          class="form-horizontal well">
+                    <!--<form id="loginForm" style="margin-bottom: 0px; background-color: #fff;"-->
+                          <!--class="form-horizontal well"-->
+                          <!--action="http://197.242.146.106/entreprenosis/j_spring_security_check"-->
+                          <!--method="post">-->
 
                         <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" src="lib/assets/img/entresis-logo.png" style="width: 287px; height: 110px;">
 
@@ -108,23 +115,32 @@
                             <h4><strong>Sign in!</strong> To access Entreprenosis you need to login</h4>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                        <!--<div class="form-group">-->
                             <label for="username" class="col-sm-2 control-label">Username</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="username" value="" name="j_username" placeholder="Username" autocomplete="on">
+                                <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                                <!--<input type="text" class="form-control" id="username" value="" name="j_username" placeholder="Username" autocomplete="on">-->
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                             <label for="password" class="col-sm-2 control-label">Password</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" id="password" name="j_password" value="" placeholder="Password">
+                                <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                                <!--<input type="password" class="form-control" id="password" name="j_password" value="" placeholder="Password">-->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button id="login" type="submit" style="color: black;" class="btn btn-primary btn-lg col-sm-3">Sign in &gt;&gt; </button>
+                                <!--<button id="login" type="submit" style="color: black;" class="btn btn-primary btn-lg col-sm-3">Sign in &gt;&gt; </button>-->
+                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-danger">Login</button>
+                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                <!--<a href="#/register" class="btn btn-link">Register</a>-->
+                            </div>
                             </div>
                         </div>
                     </form>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('eManager', ['ngRoute', 'ngCookies', 'smart-table','flash'])
+        .module('eManager', ['ngRoute', 'ngCookies', 'smart-table','flash', 'ngMockE2E'])
         .config(config)
         .run(run);
 
@@ -140,11 +140,61 @@
             .otherwise({ redirectTo: '/login' });
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-    function run($rootScope, $location, $cookieStore, $http) {
+    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http','$httpBackend'];
+    function run($rootScope, $location, $cookieStore, $http, $httpBackend) {
 
         // Set the template path for all instances
         // acuteSelectService.updateSetting("templatePath", "lib/acute");
+
+        $httpBackend.whenGET(/login\/.*/).passThrough();
+        $httpBackend.whenGET(/home\/.*/).passThrough();
+
+        $httpBackend
+            .when('POST', 'http://localhost:8080/risk-rev/user-management/authenticate-username')
+            .respond({
+                "userId": 51,
+                "created": "2015-06-14", "updated": "2015-06-14", "isactive": true,
+                "createdby": 100, "updatedby": 100,
+                "username": "adonis@fnb.co.za", "firstName": "Adonis",
+                "firstName1": null, "firstName2": null, "firstName3": null,
+                "surname": "Mhlanga", "password": "123", "idNumber": null,
+                "dateOfBirth": 1434277284914, "gender": null, "title": null,
+                "notes": null, "jobTitle": null, "description": null,
+
+                "userRole": {
+                    "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "roleId": 51,
+                    "name": "Admin",
+                    "description": null,
+                    "userList": []
+                },
+
+                "organisation": null,
+
+                "contactDetails": {
+                    "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "contactDetailsId": 51,
+                    "workNumber": null,
+                    "homeNumber": null,
+                    "cellNumber": "0728030942",
+                    "otherNumber": null,
+                    "faxNumber": null,
+                    "email": "adochiny@gmail.com",
+                    "website": null,
+                    "twitter": "@adochiny",
+                    "facebook": null,
+                    "linkedin": null },
+
+                "address": null
+            });
 
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
