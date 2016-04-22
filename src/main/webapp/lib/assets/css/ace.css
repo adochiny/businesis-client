@@ -1055,9 +1055,9 @@ pre.prettyprint {
 .header {
   line-height: 28px;
   margin-bottom: 16px;
-  margin-top: 18px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #CCC;
+  /*margin-top: 18px;*/
+  /*padding-bottom: 4px;*/
+  /*border-bottom: 1px solid #CCC;*/
 }
 .header.blue {
   border-bottom-color: #d5e3ef;
@@ -1795,10 +1795,10 @@ pre.prettyprint {
 }
 .navbar .navbar-nav > li {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-width: 0 1px 0 0;
+  border-width: 0 0px 0 0;
 }
 .navbar .navbar-nav > li:first-child {
-  border-width: 0 1px 0 1px;
+  border-width: 0 0px 0 0px;
 }
 .navbar .navbar-nav > li > a {
   padding-top: 12px;
@@ -5353,7 +5353,7 @@ body.mob-safari .sidebar.sidebar-fixed {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-image: none !important;
   border: 5px solid #FFF;
-  border-radius: 0;
+  /*border-radius: 0;*/
   box-shadow: none !important;
   -webkit-transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
   -o-transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
@@ -5484,8 +5484,8 @@ fieldset[disabled] .btn-default:active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn.active,
 fieldset[disabled] .btn-default.active {
-  background-color: #abbac3 !important;
-  border-color: #abbac3;
+  /*background-color: #abbac3 !important;*/
+  /*border-color: #abbac3;*/
 }
 .btn-primary,
 .btn-primary:focus {
@@ -5529,8 +5529,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #428bca !important;
-  border-color: #428bca;
+  /*background-color: #428bca !important;*/
+  /*border-color: #428bca;*/
 }
 .btn-info,
 .btn-info:focus {
@@ -8713,7 +8713,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-  border-radius: 0 !important;
+  /*border-radius: 0 !important;*/
   color: black;
   background-color: #ffffff;
   border: 1px solid #d5d5d5;
@@ -8784,7 +8784,7 @@ input:-ms-input-placeholder,
 }
 .form-control,
 select {
-  border-radius: 0;
+  /*border-radius: 0;*/
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   color: black;
@@ -19086,9 +19086,10 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
 }
 .no-skin .sidebar {
   background-color: #f2f2f2;
-  border-style: solid;
+  /*border-style: solid;*/
   border-color: #cccccc;
-  border-width: 0 1px 0 0;
+  border-width: 0 0px 0 0;
+  width: 100%;
 }
 .no-skin .nav-list .open > a,
 .no-skin .nav-list .open > a:hover,

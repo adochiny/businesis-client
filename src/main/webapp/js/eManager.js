@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('eManager', ['ngRoute', 'ngCookies', 'smart-table','flash', 'ngMockE2E'])
+        .module('eManager', ['ngRoute', 'ngCookies', 'smart-table','flash'])
         .config(config)
         .run(run);
 
@@ -14,13 +14,20 @@
         $routeProvider
             .when('/', {
                 controller: 'HomeController',
-                templateUrl: 'templates/home/home.view.html',
+                //templateUrl: 'templates/home/home.view.html',
+                templateUrl: 'templates/member/add.new.beneficiary.view.html',
                 controllerAs: 'vm'
             })
 
             .when('/login', {
                 controller: 'LoginController',
                 templateUrl: 'templates/login/login.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/character', {
+                controller: 'HomeController',
+                templateUrl: 'templates/diagnosis/character.view.html',
                 controllerAs: 'vm'
             })
 
@@ -141,60 +148,27 @@
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http','$httpBackend'];
-    function run($rootScope, $location, $cookieStore, $http, $httpBackend) {
+    function run($rootScope, $location, $cookieStore, $http) {
 
         // Set the template path for all instances
         // acuteSelectService.updateSetting("templatePath", "lib/acute");
 
-        $httpBackend.whenGET(/login\/.*/).passThrough();
-        $httpBackend.whenGET(/home\/.*/).passThrough();
+        // ---------------------------MOCKS----------------------------------------------------------------------------------
 
-        $httpBackend
-            .when('POST', 'http://localhost:8080/risk-rev/user-management/authenticate-username')
-            .respond({
-                "userId": 51,
-                "created": "2015-06-14", "updated": "2015-06-14", "isactive": true,
-                "createdby": 100, "updatedby": 100,
-                "username": "adonis@fnb.co.za", "firstName": "Adonis",
-                "firstName1": null, "firstName2": null, "firstName3": null,
-                "surname": "Mhlanga", "password": "123", "idNumber": null,
-                "dateOfBirth": 1434277284914, "gender": null, "title": null,
-                "notes": null, "jobTitle": null, "description": null,
+       //$httpBackend.whenGET(/login\/.*/).passThrough();
+       //$httpBackend.whenGET(/home\/.*/).passThrough();
+       //$httpBackend.whenGET(/member\/.*/).passThrough();
 
-                "userRole": {
-                    "created": "2015-06-14",
-                    "updated": "2015-06-14",
-                    "isactive": true,
-                    "createdby": 100,
-                    "updatedby": 100,
-                    "roleId": 51,
-                    "name": "Admin",
-                    "description": null,
-                    "userList": []
-                },
+       //$httpBackend
+       //    .when('POST', 'http://localhost:8080/risk-rev/user-management/authenticate-username')
+       //    .respond(user);
 
-                "organisation": null,
 
-                "contactDetails": {
-                    "created": "2015-06-14",
-                    "updated": "2015-06-14",
-                    "isactive": true,
-                    "createdby": 100,
-                    "updatedby": 100,
-                    "contactDetailsId": 51,
-                    "workNumber": null,
-                    "homeNumber": null,
-                    "cellNumber": "0728030942",
-                    "otherNumber": null,
-                    "faxNumber": null,
-                    "email": "adochiny@gmail.com",
-                    "website": null,
-                    "twitter": "@adochiny",
-                    "facebook": null,
-                    "linkedin": null },
 
-                "address": null
-            });
+
+
+
+        // ---------------------------MOCKS----------------------------------------------------------------------------------
 
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};

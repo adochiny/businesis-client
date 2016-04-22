@@ -1,0 +1,753 @@
+﻿<div class="skin-blue wysihtml5-supported pace-done font-size-large"
+     style="margin-top: 50px; min-height: 1172px; font-size: 14px; background: rgb(249, 249, 249);">
+
+
+    <div id="loadingIndicator" style="display: none;
+                                            position: absolute;
+                                            border-radius: 8px;
+                                            text-align: center;
+                                            width: 150px;
+                                            left: 50%; right: 50%; top: 250px;
+                                            background-color: #efefef;
+                                            border: 1px solid #9e9e9e">
+        <img src="./Entreprenosis_files/loader.gif"><span> loading...</span>
+    </div>
+
+
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <!--Top bar-->
+    <!---->
+    <header class="header">
+
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color: red;  color: #f9f9f9;">
+
+
+            <img data-src="holder.js/140x140" class="img-rounded" alt="140x140"
+                 src="lib/assets/img/entresis-logo.png" style="width: 287px; height: 50px;">
+
+
+            <a style="font-size: 14px;color: black;align-content: center;">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                To get help, email: info@sigamkwane.co.za, phone: +27(0)11-027 2076/3216</a>
+            <!-- Sidebar toggle button-->
+            <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#"
+               class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+
+
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#"
+                           class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span><i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header bg-light-blue">
+                                <img src="./Entreprenosis_files/user_female.png" class="img-circle" alt="User Image">
+
+                                <p>
+                                    -
+                                    <small>Member since</small>
+                                </p>
+                            </li>
+                            <!-- Menu Body -->
+
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="http://197.242.146.106/entreprenosis/oras/userSummary?memberId="
+                                       class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="http://197.242.146.106/entreprenosis/oras/logout"
+                                       class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--Top bar-->
+
+
+    <aside class="left-side sidebar-offcanvas" style="min-height: 1172px; background: #f9f9f9;">
+        <section class="sidebar" style="padding: 20px 15px; background: #f9f9f9;">
+
+
+            <div class="panel-group" id="accordion">
+
+
+                <div class="panel panel-default" style="margin-top: 0px;">
+
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#user-menu"
+                               class="">
+                                <span class="glyphicon glyphicon-user"> </span>
+                                Personal Info
+                            </a>
+                        </h4>
+                    </div>
+
+
+                    <div id="user-menu" class="panel-collapse collapse  in " style="  height: auto; ">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin"
+                                           class="menu-link">
+
+                                            <span class="glyphicon glyphicon-pencil "></span>
+                                            Add New Entrepreneur
+
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="panel panel-default" style="margin-top: 0px;">
+
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#business-menu"
+                               class="collapsed">
+                                <span class="glyphicon glyphicon-th-large"> </span>
+                                Administration
+                            </a>
+                        </h4>
+                    </div>
+
+
+                    <div id="business-menu" class="panel-collapse collapse " style=" height: 0px;  ">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner"
+                                           class="menu-link">
+
+                                            <span class="glyphicon glyphicon-pencil "></span>
+                                            Add Business Partner
+
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/editUserDetails"
+                                           class="menu-link">
+
+                                            <span class="glyphicon glyphicon-pencil "></span>
+                                            Add New Administrator
+
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="panel panel-default" style="margin-top: 0px;">
+
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#certificate-menu"
+                               class="collapsed">
+                                <span class="glyphicon glyphicon-book"> </span>
+                                Certificates
+                            </a>
+                        </h4>
+                    </div>
+
+
+                    <div id="certificate-menu" class="panel-collapse collapse " style=" height: 0px;  ">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/selectViewBeneficiaryPartners?certStatus=NotCompleted"
+                                           class="menu-link">
+
+                                            <span class=""></span>
+                                            In Progress
+
+
+                                            <span class="label label-success"></span>
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/selectViewBeneficiaryPartners?certStatus=Completed"
+                                           class="menu-link">
+
+                                            <span class=""></span>
+                                            Completed
+
+
+                                            <span class="label label-success"></span>
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="panel panel-default" style="margin-top: 0px;">
+
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#report-menu"
+                               class="collapsed">
+                                <span class="glyphicon glyphicon-book"> </span>
+                                Reports
+                            </a>
+                        </h4>
+                    </div>
+
+
+                    <div id="report-menu" class="panel-collapse collapse " style=" height: 0px;  ">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/selectViewDiagnosisPartners?reportName=DiagnosisSummary"
+                                           class="menu-link">
+
+                                            <span class=""></span>
+                                            Diagnosis Summary
+
+
+                                            <span class="label label-success"></span>
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/selectViewBeePartners?reportName=BeeSummary"
+                                           class="menu-link">
+
+                                            <span class=""></span>
+                                            BEE Summary Report
+
+
+                                            <span class="label label-success"></span>
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="menu-item">
+                                        <a href="http://197.242.146.106/entreprenosis/oras/otherReports"
+                                           class="menu-link">
+
+                                            <span class=""></span>
+                                            Other
+
+
+                                            <span class="label label-success"></span>
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!--Menu-->
+            <!--<div class="container">-->
+            <!--<div class="row">-->
+            <!--<div class="col-sm-12 col-md-12">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+        </section>
+    </aside>
+
+
+    <aside class="right-side">
+
+
+        <section class="content">
+
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="panel panel-info" style="">
+
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title" style="font-size: 28px; color: black;">
+                                Add New Beneficiary
+
+                            </h3>
+                        </div>
+
+
+                        <div class="panel-body" style="padding: 10px;">
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+
+                                    <!-- Nav tabs -->
+
+
+                                    <ul class="nav nav-pills cat-tabs">
+
+
+                                        <li class="active ">
+                                            <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#user_details"
+                                               data-toggle="tab" style="color: black;">
+                                                <span class="glyphicon glyphicon-inbox"></span>
+                                                Add New Beneficiary
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+
+
+                                    <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
+
+
+                                    <!-- Tab panes -->
+
+
+                                    <div class="tab-content">
+
+
+                                        <div class="tab-pane fade in active" id="user_details">
+
+
+                                            <!-- Simple error tag -->
+
+
+                                            <!-- Simple Form -->
+                                            <form class="form-horizontal " id="saveMemberMinDetails_form" role="form"
+                                                  method="POST"
+                                                  action="http://197.242.146.106/entreprenosis/oras/saveMemberMinDetails"
+                                                  commandname="command" data-toggle="validator"
+                                                  style="margin-left: 20px;">
+                                                <fieldset>
+
+
+                                                    <div class="row">
+
+
+                                                        <div class="col-sm-5 col-md-5">
+
+
+                                                            <div class="fms-panel well">
+
+
+                                                                <input id="businessPartnerId"
+                                                                       name="member.businessPartnerId" type="hidden"
+                                                                       value="11">
+                                                                <input id="memberId" name="member.memberId"
+                                                                       type="hidden" value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="firstnames">
+                                                                        First names
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="firstnames" name="member.firstName"
+                                                                               type="text" value=""
+                                                                               placeholder="First names" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="surname">
+                                                                        Surname
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="surname" name="member.surname"
+                                                                               type="text" value=""
+                                                                               placeholder="Surname" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="idNumber">
+                                                                        ID number
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="idNumber" name="member.idNumber"
+                                                                               type="text" value=""
+                                                                               placeholder="ID number" pattern="\d{13}"
+                                                                               maxlength="13" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <input id="contactDetailsId"
+                                                                       name="contact.contactDetailsId" type="hidden"
+                                                                       value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="email">
+                                                                        Email
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="email" name="contact.email"
+                                                                               type="email" value=""
+                                                                               placeholder="Email address"
+                                                                               data-error="Email entered is not valid"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="cellphone">
+                                                                        Cellphone
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="cellphone" name="contact.cellNumber"
+                                                                               type="text" value=""
+                                                                               placeholder="Cellphone" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeContributer">
+                                                                        BEE Contributor
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Select Basic -->
+                                                                        <select id="beeContributer"
+                                                                                name="member.beeContributer"
+                                                                                class="form-control" required="">
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="true">
+                                                                                Yes
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="false">
+                                                                                No
+                                                                            </option>
+
+
+                                                                        </select>
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeLevel">
+                                                                        BEE Level
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Select Basic -->
+                                                                        <select id="beeLevel" name="member.beeLevel"
+                                                                                class="form-control" required="">
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="1">
+                                                                                1
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="2">
+                                                                                2
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="3">
+                                                                                3
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="4">
+                                                                                4
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="5">
+                                                                                5
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="6">
+                                                                                6
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="7">
+                                                                                7
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="8">
+                                                                                8
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="0">
+                                                                                No a contributor
+                                                                            </option>
+
+
+                                                                        </select>
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <hr style="background-color: #bbb; border: 1px solid #bbb;">
+
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-6">
+
+
+                                                            <!-- form Group -->
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="btn-grp1">
+
+                                                                </label>
+
+                                                                <div class="col-md-8  ">
+
+
+                                                                    <!-- Simple Button group -->
+                                                                    <div id="btn-grp1">
+
+
+                                                                        <!-- Simple Button style="color: black;"-->
+
+
+                                                                        <button id="saveMemberMinDetails_btn"
+                                                                                name="saveMemberMinDetails"
+                                                                                style="font-size: 14px; color: black;  "
+                                                                                target="" type="submit"
+                                                                                class="btn btn-primary btn-lg"
+                                                                                disabled="disabled">
+                                                                            Send token
+                                                                        </button>
+
+
+                                                                        <!-- Simple Button style="color: black;"-->
+
+
+                                                                        <a type="button" id="add_new_users"
+                                                                           name="add_new_users"
+                                                                           class="btn btn-primary btn-lg" target=""
+                                                                           style="font-size: 14px; color: black; "
+                                                                           href="http://197.242.146.106/entreprenosis/oras/editUserDetails">
+                                                                            Cancel
+                                                                        </a>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </fieldset>
+                                            </form>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </aside>
+
+</div>
