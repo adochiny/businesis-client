@@ -13,21 +13,57 @@
 
         $routeProvider
             .when('/', {
-                controller: 'HomeController',
+                controller: 'LandingListBpsController',
                 //templateUrl: 'templates/home/home.view.html',
-                templateUrl: 'templates/member/add.new.beneficiary.view.html',
+                //templateUrl: 'templates/businesis/add.new.ass.bp.view.html',
+                templateUrl: 'templates/businesis/landing.list.bps.view.html',
                 controllerAs: 'vm'
             })
-
             .when('/login', {
                 controller: 'LoginController',
                 templateUrl: 'templates/login/login.view.html',
                 controllerAs: 'vm'
             })
 
+            // Add new Bp, Business and business user. ----------------------
+            .when('/LandingBpList', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/landing.list.bps.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/addNewCompany', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/add.new.company.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/addNewCompanyUser', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/add.new.company.user.view.html',
+                controllerAs: 'vm'
+            })
+
+            // Business Diagnosis ------------------------------------------
             .when('/character', {
                 controller: 'HomeController',
                 templateUrl: 'templates/diagnosis/character.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/financial', {
+                controller: 'HomeController',
+                templateUrl: 'templates/diagnosis/financial.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/marketing', {
+                controller: 'HomeController',
+                templateUrl: 'templates/diagnosis/marketing.view.html',
+                controllerAs: 'vm'
+            })
+
+            // Add New Bp -----------------------------------------------------------------------
+            .when('/addNewBp', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/add.new.bp.view.html',
                 controllerAs: 'vm'
             })
 

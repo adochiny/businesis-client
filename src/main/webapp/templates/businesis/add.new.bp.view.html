@@ -1,0 +1,611 @@
+﻿<div class="skin-blue wysihtml5-supported pace-done font-size-large"
+     style="margin-top: 50px; min-height: 1172px; font-size: 14px; background: rgb(249, 249, 249);">
+
+
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <div ng-include="'templates/home/businesis.header.html'"></div>
+    <div ng-include="'templates/home/businesis.admin.menu.html'"></div>
+
+    <aside class="right-side">
+
+
+        <section class="content">
+
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="panel panel-info" style="">
+
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title" style="font-size: 28px; color: black;">
+                                Business partner information
+
+                            </h3>
+                        </div>
+
+
+                        <div class="panel-body" style="padding: 10px;">
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+
+                                    <!-- Nav tabs -->
+
+
+                                    <ul class="nav nav-pills cat-tabs">
+
+
+                                        <li class="active ">
+                                            <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner#business_details"
+                                               data-toggle="tab" style="color: black;">
+                                                <span class="glyphicon glyphicon-inbox"></span>
+                                                Business details
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+
+
+                                    <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
+
+
+                                    <!-- Tab panes -->
+
+
+                                    <div class="tab-content">
+
+
+                                        <div class="tab-pane fade in active" id="business_details">
+
+
+                                            <!-- Simple error tag -->
+
+
+                                            <!-- Simple Form -->
+                                            <form class="form-horizontal " id="saveBusinessPartner_form" role="form"
+                                                  method="POST"
+                                                  action="http://197.242.146.106/entreprenosis/oras/saveBusinessPartner"
+                                                  commandname="command" data-toggle="validator"
+                                                  style="margin-left: 20px;">
+                                                <fieldset>
+
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-6">
+
+
+                                                            <div class="fms-panel well">
+
+
+                                                                <input id="businessPartnerId"
+                                                                       name="bp.businessPartnerId" type="hidden"
+                                                                       value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Companyname">
+                                                                        Company name
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="Companyname" name="bp.name"
+                                                                               type="text" value=""
+                                                                               placeholder="Company name" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Tradingas">
+                                                                        Trading as
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="Tradingas" name="bp.name1"
+                                                                               type="text" value=""
+                                                                               placeholder="Trading as"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Registrationnumber">
+                                                                        Registration number
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="Registrationnumber"
+                                                                               name="bp.registration" type="text"
+                                                                               value=""
+                                                                               placeholder="Registration number"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Registrationtype">
+                                                                        Registration type
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="Registrationtype"
+                                                                               name="bp.registartionType" type="text"
+                                                                               value="" placeholder="Registration type"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="dateOfRegistration">
+                                                                        Date of registration
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- date input-->
+                                                                        <div class="input-group date datetimepicker"
+                                                                             data-date-format="YYYY/MM/DD"
+                                                                             id="dateOfRegistration">
+                                                                            <input type="text"
+                                                                                   name="dateOfRegistrationDate"
+                                                                                   value=""
+                                                                                   pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"
+                                                                                   class="form-control">
+    <span class="input-group-addon">
+        <span class="glyphicon-calendar glyphicon"></span>
+    </span>
+                                                                        </div>
+                                                                        <script type="text/javascript">
+                                                                            $(function () {
+
+                                                                                $('.datetimepicker').datetimepicker({
+                                                                                    pickTime: false
+                                                                                });
+
+                                                                            });
+                                                                        </script>
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+
+                                                            <div class="fms-panel ">
+
+
+                                                                <input id="contactDetailsId"
+                                                                       name="contact.contactDetailsId" type="hidden"
+                                                                       value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="email">
+                                                                        Email
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="email" name="contact.email"
+                                                                               type="email" value=""
+                                                                               placeholder="Email address"
+                                                                               data-error="Email entered is not valid"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="workTelephone">
+                                                                        Work telephone
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="workTelephone"
+                                                                               name="contact.workNumber" type="text"
+                                                                               value="" placeholder="Work telephone"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="homeTelephone">
+                                                                        Home telephone
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="homeTelephone"
+                                                                               name="contact.homeNumber" type="text"
+                                                                               value="" placeholder="Home telephone"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="cellphone">
+                                                                        Cellphone
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="cellphone" name="contact.cellNumber"
+                                                                               type="text" value=""
+                                                                               placeholder="Cellphone"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+
+
+                                                            <div class="fms-panel ">
+
+
+                                                                <input id="saddressId" name="sAddress.addressId"
+                                                                       type="hidden" value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Street_address">
+                                                                        Street address
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="Street_address"
+                                                                               name="sAddress.address1" type="text"
+                                                                               value="" placeholder="Street address"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="surburb">
+                                                                        Surburb
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="surburb" name="sAddress.surburb"
+                                                                               type="text" value=""
+                                                                               placeholder="Surburb"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="city">
+                                                                        City
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="city" name="sAddress.city"
+                                                                               type="text" value="" placeholder="City"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="country">
+                                                                        County
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="country" name="sAddress.country"
+                                                                               type="text" value="" placeholder="County"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="code">
+                                                                        Code
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="code" name="sAddress.addressCode"
+                                                                               type="text" value="" placeholder="Code"
+                                                                               pattern="\d{4}" maxlength="4"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+
+                                                            <div class="fms-panel ">
+
+
+                                                                <input id="paddressId" name="pAddress.addressId"
+                                                                       type="hidden" value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="p_address">
+                                                                        Postal address
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="p_address" name="pAddress.address1"
+                                                                               type="text" value=""
+                                                                               placeholder="Address"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="p_surburb">
+                                                                        Surburb
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="p_surburb" name="pAddress.surburb"
+                                                                               type="text" value=""
+                                                                               placeholder="Surburb"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="p_city">
+                                                                        City
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="p_city" name="pAddress.city"
+                                                                               type="text" value="" placeholder="City"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="p_country">
+                                                                        County
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="p_country" name="pAddress.country"
+                                                                               type="text" value="" placeholder="County"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="p_code">
+                                                                        Code
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="p_code" name="pAddress.addressCode"
+                                                                               type="text" value="" placeholder="Code"
+                                                                               pattern="\d{4}" maxlength="4"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-6">
+
+
+                                                            <!-- form Group -->
+                                                            <div class="form-group">
+                                                                <label class="col-md-2 control-label" for="btn-grp1">
+
+                                                                </label>
+
+                                                                <div class="col-md-10  ">
+
+
+                                                                    <!-- Simple Button group -->
+                                                                    <div id="btn-grp1">
+
+
+                                                                        <!-- Simple Button style="color: black;"-->
+
+
+                                                                        <button id="saveBusinessPartner_btn"
+                                                                                name="saveBusinessPartner"
+                                                                                style="font-size: 14px; color: black;  "
+                                                                                target="" type="submit"
+                                                                                class="btn btn-primary btn-lg"
+                                                                                disabled="disabled">
+                                                                            Save business
+                                                                        </button>
+
+
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </fieldset>
+                                            </form>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>
