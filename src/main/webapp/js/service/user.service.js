@@ -27,7 +27,63 @@
         // http://localhost:8080/aManager/user-management/users/adonis
 
         function GetAllUsers() {
-            return $http.get('http://localhost:8080/risk-rev/user-management/users').then(handleSuccess, handleError('Error getting all users'));
+            // return $http.get('http://localhost:8080/risk-rev/user-management/users').then(handleSuccess, handleError('Error getting all users'));
+
+            var deferred = $q.defer();
+            /*$http.get('/api/v1/movies/' + movie)
+             .success(function(data) {
+             deferred.resolve({
+             title: data.title,
+             cost: data.price});
+             }).error(function(msg, code) {
+             deferred.reject(msg);
+             $log.error(msg, code);
+             });*/
+            deferred.resolve({success: true,data: [{
+                "userId": 51,
+                "created": "2015-06-14", "updated": "2015-06-14", "isactive": true,
+                "createdby": 100, "updatedby": 100,
+                "username": "adonis@fnb.co.za", "firstName": "Adonis",
+                "firstName1": null, "firstName2": null, "firstName3": null,
+                "surname": "Mhlanga", "password": "123", "idNumber": null,
+                "dateOfBirth": 1434277284914, "gender": null, "title": null,
+                "notes": null, "jobTitle": null, "description": null,
+
+                "userRole": {
+                    "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "roleId": 51,
+                    "name": "Admin",
+                    "description": null,
+                    "userList": []
+                },
+
+                "organisation": null,
+
+                "contactDetails": {
+                    "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "contactDetailsId": 51,
+                    "workNumber": null,
+                    "homeNumber": null,
+                    "cellNumber": "0728030942",
+                    "otherNumber": null,
+                    "faxNumber": null,
+                    "email": "adochiny@gmail.com",
+                    "website": null,
+                    "twitter": "@adochiny",
+                    "facebook": null,
+                    "linkedin": null },
+
+                "address": null
+            }]});
+            return deferred.promise;
         }
 
         function GetById(id) {
@@ -107,14 +163,14 @@
 
         function CreateUpdateUser(user) {
             console.log(user);
-            return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user).then(handleSuccess, handleError);
+            // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user).then(handleSuccess, handleError);
 
-            /*
+
             var deferred = $q.defer();
             deferred.notify('About to return ' + user + '.');
             deferred.resolve(user);
             // deferred.reject('Greeting ' + name + ' is not allowed.');
-            return deferred.promise;*/
+            return deferred.promise;
 
         }
 
@@ -124,7 +180,35 @@
         }
 
         function GetAllUserRoles() {
-            return $http.get('http://localhost:8080/risk-rev/user-management/user-roles').then(handleSuccess, handleError('Error getting all userRoles'));
+            // return $http.get('http://localhost:8080/risk-rev/user-management/user-roles').then(handleSuccess, handleError('Error getting all userRoles'));
+            var deferred = $q.defer();
+            deferred.notify('About to return ' + '.');
+            deferred.resolve({data:[
+               {
+                "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "roleId": 51,
+                    "name": "Admin",
+                    "description": null,
+                    "userList": []
+            },
+               {
+                "created": "2015-06-14",
+                    "updated": "2015-06-14",
+                    "isactive": true,
+                    "createdby": 100,
+                    "updatedby": 100,
+                    "roleId": 52,
+                    "name": "Admin1",
+                    "description": null,
+                    "userList": []
+            }]});
+            // deferred.reject('Greeting ' + name + ' is not allowed.');
+            return deferred.promise;
+
         }
 
         function Update(user) {

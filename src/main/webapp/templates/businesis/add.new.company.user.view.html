@@ -69,21 +69,20 @@
 
 
                                             <!-- Simple error tag -->
-
+                                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
 
                                             <!-- Simple Form -->
-                                            <form class="form-horizontal " id="saveMemberMinDetails_form" role="form"
+                                            <form class="form-horizontal" role="form"
+                                                  ng-submit="vm.saveCompanyUser()"
                                                   method="POST"
-                                                  action="http://197.242.146.106/entreprenosis/oras/saveMemberMinDetails"
-                                                  commandname="command" data-toggle="validator"
-                                                  style="margin-left: 20px;">
+                                                  data-toggle="validator" style="margin-left: 20px;">
                                                 <fieldset>
 
 
                                                     <div class="row">
 
 
-                                                        <div class="col-sm-5 col-md-5">
+                                                        <div class="col-sm-8 col-md-8">
 
 
                                                             <div class="fms-panel well">
@@ -205,118 +204,6 @@
                                                                     </div>
                                                                 </div>
 
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="beeContributer">
-                                                                        BEE Contributor
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- Select Basic -->
-                                                                        <select id="beeContributer"
-                                                                                name="member.beeContributer"
-                                                                                class="form-control" required="">
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="true">
-                                                                                Yes
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="false">
-                                                                                No
-                                                                            </option>
-
-
-                                                                        </select>
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="beeLevel">
-                                                                        BEE Level
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- Select Basic -->
-                                                                        <select id="beeLevel" name="member.beeLevel"
-                                                                                class="form-control" required="">
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="1">
-                                                                                1
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="2">
-                                                                                2
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="3">
-                                                                                3
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="4">
-                                                                                4
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="5">
-                                                                                5
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="6">
-                                                                                6
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="7">
-                                                                                7
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="8">
-                                                                                8
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="0">
-                                                                                No a contributor
-                                                                            </option>
-
-
-                                                                        </select>
-
-
-                                                                    </div>
-                                                                </div>
-
-
                                                                 <hr style="background-color: #bbb; border: 1px solid #bbb;">
 
 
@@ -348,11 +235,9 @@
 
 
                                                                         <button id="saveMemberMinDetails_btn"
-                                                                                name="saveMemberMinDetails"
-                                                                                style="font-size: 14px; color: black;  "
-                                                                                target="" type="submit"
-                                                                                class="btn btn-primary btn-lg"
-                                                                                disabled="disabled">
+                                                                                style="font-size: 14px; color: black;"
+                                                                                type="submit"
+                                                                                class="btn btn-primary btn-lg">
                                                                             Send token
                                                                         </button>
 
@@ -360,13 +245,12 @@
                                                                         <!-- Simple Button style="color: black;"-->
 
 
-                                                                        <a type="button" id="add_new_users"
-                                                                           name="add_new_users"
-                                                                           class="btn btn-primary btn-lg" target=""
-                                                                           style="font-size: 14px; color: black; "
-                                                                           href="http://197.242.146.106/entreprenosis/oras/editUserDetails">
-                                                                            Cancel
-                                                                        </a>
+                                                                        <!--<a type="button" name="add_new_users"-->
+                                                                           <!--class="btn btn-primary btn-lg"-->
+                                                                           <!--style="font-size: 14px; color: black; "-->
+                                                                           <!--href="">-->
+                                                                            <!--Cancel-->
+                                                                        <!--</a>-->
 
 
                                                                     </div>

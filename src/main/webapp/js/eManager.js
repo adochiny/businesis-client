@@ -43,27 +43,58 @@
                 controllerAs: 'vm'
             })
 
-            // Business Diagnosis ------------------------------------------
-            .when('/character', {
-                controller: 'HomeController',
+            // Business Diagnosis ------------------------------------------------------------------------------------
+            /*
+             Governance
+             Tax Compliance
+             Labour
+             Safety and Health
+             Standards
+             Broad Based Black Economic Empowerment (B-BBEE)
+             Production
+             Sales and Marketing
+             Information Technology
+             Financial Controls and Management
+             Technical – Site Visit
+             Intellectual Property
+             Risk Management*/
+
+            .when('/diagnoseCompany', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/company.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseGovernance', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/governance.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseCharacter', {
+                controller: 'DiagnosisController',
                 templateUrl: 'templates/diagnosis/character.view.html',
                 controllerAs: 'vm'
             })
-            .when('/financial', {
-                controller: 'HomeController',
+            .when('/diagnoseFinancial', {
+                controller: 'DiagnosisController',
                 templateUrl: 'templates/diagnosis/financial.view.html',
                 controllerAs: 'vm'
             })
-            .when('/marketing', {
-                controller: 'HomeController',
+            .when('/diagnoseMarketing', {
+                controller: 'DiagnosisController',
                 templateUrl: 'templates/diagnosis/marketing.view.html',
                 controllerAs: 'vm'
             })
 
             // Add New Bp -----------------------------------------------------------------------
-            .when('/addNewBp', {
+            .when('/addEditBp', {
                 controller: 'LandingListBpsController',
                 templateUrl: 'templates/businesis/add.new.bp.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/addEditAdmin', {
+                controller: 'UserController',
+                templateUrl: 'templates/businesis/add.new.admin.view.html',
                 controllerAs: 'vm'
             })
 

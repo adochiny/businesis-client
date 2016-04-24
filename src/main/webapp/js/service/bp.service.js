@@ -10,8 +10,10 @@
         var service = {};
 
         service.GetAllBps = GetAllBps;
-        service.AddUpdateBp = AddUpdateBp;
-        service.AddUpdateCompany = AddUpdateCompany;
+        service.SaveBp = SaveBp;
+
+        service.SaveCompany = SaveCompany;
+        service.saveCompanyUser = saveCompanyUser;
 
        /*
         service.GetById = GetById;
@@ -127,7 +129,7 @@
 
 
 
-        function AddUpdateBp(bp) {
+        function SaveBp(bp) {
             console.log(bp);
             // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user)
             // .then(handleSuccess, handleError);
@@ -138,13 +140,24 @@
             return deferred.promise;
         }
 
-        function AddUpdateCompany (company) {
+        function SaveCompany (company) {
             console.log(company);
             // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user)
             // .then(handleSuccess, handleError);
             var deferred = $q.defer();
             deferred.notify('About to return ' + company + '.');
             deferred.resolve(company);
+            // deferred.reject('Greeting ' + name + ' is not allowed.');
+            return deferred.promise;
+        }
+
+        function saveCompanyUser (companyUser) {
+            console.log(companyUser);
+            // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user)
+            // .then(handleSuccess, handleError);
+            var deferred = $q.defer();
+            deferred.notify('About to return ' + companyUser + '.');
+            deferred.resolve(companyUser);
             // deferred.reject('Greeting ' + name + ' is not allowed.');
             return deferred.promise;
         }

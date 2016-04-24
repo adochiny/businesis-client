@@ -12,6 +12,11 @@
 
         var props = {};
 
+        var bp = {};
+        var company = {};
+        var companyUser = {};
+
+
         var org = {};
         var user = {};
         // our clients
@@ -38,6 +43,16 @@
         // Period
 
         props.getDataLoadingImage = getDataLoadingImage;
+
+        props.getBp = getBp;
+        props.setBp = setBp;
+
+        props.getCompany = getCompany;
+        props.setCompany = setCompany;
+
+        props.getCompanyUser = getCompanyUser;
+        props.setCompanyUser = setCompanyUser;
+
         // getters and setters
         props.getOrg = getOrg;
         props.setOrg = setOrg;
@@ -81,6 +96,31 @@
 
 
         // org getter and setter
+        function getBp() {
+            return bp;
+        }
+        function setBp(value) {
+            bp = value;
+        }
+
+        function getCompany() {
+            return company;
+        }
+        function setCompany(value) {
+            company = value;
+        }
+
+        function getCompanyUser() {
+            return companyUser;
+        }
+        function setCompanyUser(value) {
+            companyUser = value;
+        }
+
+
+
+
+
         function getOrg() {
             return org;
         }

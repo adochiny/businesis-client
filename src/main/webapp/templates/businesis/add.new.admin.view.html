@@ -27,7 +27,7 @@
 
                         <div class="panel-heading">
                             <h3 class="panel-title" style="font-size: 28px; color: black;">
-                                Business partner information
+                                Administrator information
 
                             </h3>
                         </div>
@@ -49,7 +49,7 @@
                                             <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner#business_details"
                                                data-toggle="tab" style="color: black;">
                                                 <span class="glyphicon glyphicon-inbox"></span>
-                                                Business details
+                                                Administrator details
                                             </a>
                                         </li>
 
@@ -73,10 +73,10 @@
 
 
                                             <!-- Simple Form -->
-                                            <form class="form-horizontal " id="saveBusinessPartner_form" role="form"
+                                            <form class="form-horizontal " role="form"
+                                                  ng-submit="vm.saveUser()"
                                                   method="POST"
-                                                  action="http://197.242.146.106/entreprenosis/oras/saveBusinessPartner"
-                                                  commandname="command" data-toggle="validator"
+                                                  data-toggle="validator"
                                                   style="margin-left: 20px;">
                                                 <fieldset>
 
@@ -86,135 +86,127 @@
                                                         <div class="col-md-6">
 
 
+
                                                             <div class="fms-panel well">
 
 
                                                                 <input id="businessPartnerId"
-                                                                       name="bp.businessPartnerId" type="hidden"
+                                                                       name="member.businessPartnerId" type="hidden"
+                                                                       value="11">
+                                                                <input id="memberId" name="member.memberId"
+                                                                       type="hidden" value="">
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="firstnames">
+                                                                        First names
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="firstnames" name="member.firstName"
+                                                                               type="text" value=""
+                                                                               placeholder="First names" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label" for="surname">
+                                                                        Surname
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="surname" name="member.surname"
+                                                                               type="text" value=""
+                                                                               placeholder="Surname" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="idNumber">
+                                                                        ID number
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input id="idNumber" name="member.idNumber"
+                                                                               type="text" value=""
+                                                                               placeholder="ID number" pattern="\d{13}"
+                                                                               maxlength="13" required=""
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <input id="contactDetailsId"
+                                                                       name="contact.contactDetailsId" type="hidden"
                                                                        value="">
 
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="Companyname">
-                                                                        Company name
+                                                                    <label class="col-md-3 control-label" for="email">
+                                                                        Email
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
 
 
                                                                         <!-- Text input-->
-                                                                        <input id="Companyname" name="bp.name"
+                                                                        <input name="contact.email"
+                                                                               type="email" value=""
+                                                                               placeholder="Email address"
+                                                                               data-error="Email entered is not valid"
+                                                                               class="form-control input-md">
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="cellphone">
+                                                                        Cellphone
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Text input-->
+                                                                        <input name="contact.cellNumber"
                                                                                type="text" value=""
-                                                                               placeholder="Company name" required=""
+                                                                               placeholder="Cellphone" required=""
                                                                                class="form-control input-md">
 
 
                                                                     </div>
                                                                 </div>
 
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="Tradingas">
-                                                                        Trading as
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
-                                                                        <input id="Tradingas" name="bp.name1"
-                                                                               type="text" value=""
-                                                                               placeholder="Trading as"
-                                                                               class="form-control input-md">
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="Registrationnumber">
-                                                                        Registration number
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
-                                                                        <input id="Registrationnumber"
-                                                                               name="bp.registration" type="text"
-                                                                               value=""
-                                                                               placeholder="Registration number"
-                                                                               class="form-control input-md">
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="Registrationtype">
-                                                                        Registration type
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
-                                                                        <input id="Registrationtype"
-                                                                               name="bp.registartionType" type="text"
-                                                                               value="" placeholder="Registration type"
-                                                                               class="form-control input-md">
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="dateOfRegistration">
-                                                                        Date of registration
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-
-
-                                                                        <!-- date input-->
-                                                                        <div class="input-group date datetimepicker"
-                                                                             data-date-format="YYYY/MM/DD"
-                                                                             id="dateOfRegistration">
-                                                                            <input type="text"
-                                                                                   name="dateOfRegistrationDate"
-                                                                                   value=""
-                                                                                   pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"
-                                                                                   class="form-control">
-    <span class="input-group-addon">
-        <span class="glyphicon-calendar glyphicon"></span>
-    </span>
-                                                                        </div>
-                                                                        <script type="text/javascript">
-                                                                            $(function () {
-
-                                                                                $('.datetimepicker').datetimepicker({
-                                                                                    pickTime: false
-                                                                                });
-
-                                                                            });
-                                                                        </script>
-
-
-                                                                    </div>
-                                                                </div>
+                                                                <hr style="background-color: #bbb; border: 1px solid #bbb;">
 
 
                                                             </div>
@@ -223,7 +215,7 @@
                                                             <div class="fms-panel ">
 
 
-                                                                <input id="contactDetailsId"
+                                                                <input
                                                                        name="contact.contactDetailsId" type="hidden"
                                                                        value="">
 
@@ -567,9 +559,9 @@
                                                                         <button id="saveBusinessPartner_btn"
                                                                                 name="saveBusinessPartner"
                                                                                 style="font-size: 14px; color: black;  "
-                                                                                target="" type="submit"
+                                                                                type="submit"
                                                                                 class="btn btn-primary btn-lg">
-                                                                            Save business
+                                                                            Save Administrator
                                                                         </button>
 
 

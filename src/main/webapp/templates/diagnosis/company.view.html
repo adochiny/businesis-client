@@ -10,7 +10,7 @@
     </div>
 
     <div ng-include="'templates/home/businesis.header.html'"></div>
-    <div ng-include="'templates/home/businesis.admin.menu.html'"></div>
+    <div ng-include="'templates/home/businesis.user.menu.html'"></div>
 
     <aside class="right-side">
 
@@ -27,7 +27,7 @@
 
                         <div class="panel-heading">
                             <h3 class="panel-title" style="font-size: 28px; color: black;">
-                                Business partner information
+                                Company Diagnosis
 
                             </h3>
                         </div>
@@ -46,10 +46,10 @@
 
 
                                         <li class="active ">
-                                            <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner#business_details"
+                                            <a href=""
                                                data-toggle="tab" style="color: black;">
                                                 <span class="glyphicon glyphicon-inbox"></span>
-                                                Business details
+                                                Confirm Company Details
                                             </a>
                                         </li>
 
@@ -59,13 +59,8 @@
 
                                     <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
 
-
                                     <!-- Tab panes -->
-
-
                                     <div class="tab-content">
-
-
                                         <div class="tab-pane fade in active" id="business_details">
 
 
@@ -73,19 +68,20 @@
 
 
                                             <!-- Simple Form -->
-                                            <form class="form-horizontal " id="saveBusinessPartner_form" role="form"
+                                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+
+                                            <form ng-submit="vm.saveCompany()"
+                                                  class="form-horizontal " role="form"
                                                   method="POST"
-                                                  action="http://197.242.146.106/entreprenosis/oras/saveBusinessPartner"
-                                                  commandname="command" data-toggle="validator"
                                                   style="margin-left: 20px;">
                                                 <fieldset>
 
 
                                                     <div class="row">
-
+                                                        <!-- Left side -->
                                                         <div class="col-md-6">
 
-
+                                                            <!-- Company details panel-->
                                                             <div class="fms-panel well">
 
 
@@ -198,9 +194,9 @@
                                                                                    value=""
                                                                                    pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"
                                                                                    class="form-control">
-    <span class="input-group-addon">
-        <span class="glyphicon-calendar glyphicon"></span>
-    </span>
+                                                                            <span class="input-group-addon">
+                                                                                <span class="glyphicon-calendar glyphicon"></span>
+                                                                            </span>
                                                                         </div>
                                                                         <script type="text/javascript">
                                                                             $(function () {
@@ -219,7 +215,7 @@
 
                                                             </div>
 
-
+                                                            <!-- Contact details panel-->
                                                             <div class="fms-panel ">
 
 
@@ -314,15 +310,128 @@
 
                                                             </div>
 
+                                                            <!-- BEE Panel details -->
+                                                            <div class="fms-panel ">
+                                                                <!-- BEE Panel-->
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeContributer">
+                                                                        BEE Contributor
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Select Basic -->
+                                                                        <select id="beeContributer"
+                                                                                name="member.beeContributer"
+                                                                                class="form-control" required="">
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="true">
+                                                                                Yes
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="false">
+                                                                                No
+                                                                            </option>
+
+
+                                                                        </select>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeLevel">
+                                                                        BEE Level
+                                                                    </label>
+
+                                                                    <div class="col-md-8  ">
+
+
+                                                                        <!-- Select Basic -->
+                                                                        <select id="beeLevel" name="member.beeLevel"
+                                                                                class="form-control" required="">
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="1">
+                                                                                1
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="2">
+                                                                                2
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="3">
+                                                                                3
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="4">
+                                                                                4
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="5">
+                                                                                5
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="6">
+                                                                                6
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="7">
+                                                                                7
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="8">
+                                                                                8
+                                                                            </option>
+
+
+                                                                            <!-- Select option -->
+                                                                            <option value="0">
+                                                                                No a contributor
+                                                                            </option>
+
+
+                                                                        </select>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
 
                                                         </div>
 
-
+                                                        <!-- R ight side -->
                                                         <div class="col-md-6">
 
-
+                                                            <!-- Street address details -->
                                                             <div class="fms-panel ">
-
 
                                                                 <input id="saddressId" name="sAddress.addressId"
                                                                        type="hidden" value="">
@@ -429,9 +538,8 @@
 
                                                             </div>
 
-
+                                                            <!-- Postal address details -->
                                                             <div class="fms-panel ">
-
 
                                                                 <input id="paddressId" name="pAddress.addressId"
                                                                        type="hidden" value="">
@@ -551,28 +659,38 @@
                                                             <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label" for="btn-grp1">
-
                                                                 </label>
 
                                                                 <div class="col-md-10  ">
 
-
                                                                     <!-- Simple Button group -->
                                                                     <div id="btn-grp1">
 
-
-                                                                        <!-- Simple Button style="color: black;"-->
-
-
-                                                                        <button id="saveBusinessPartner_btn"
+                                                                        <button type="submit"
+                                                                                ng-disabled="form.$invalid || vm.dataLoading"
                                                                                 name="saveBusinessPartner"
-                                                                                style="font-size: 14px; color: black;  "
+                                                                                style="font-size: 14px; color: black;"
                                                                                 target="" type="submit"
-                                                                                class="btn btn-primary btn-lg">
-                                                                            Save business
+                                                                                class="btn btn-primary btn-lg"
+                                                                                >
+                                                                            Submit
                                                                         </button>
 
+                                                                        <!--<button type="submit"-->
+                                                                                <!--ng-disabled="form.$invalid || vm.dataLoading"-->
+                                                                                <!--class="btn btn-primary btn-sm">Save business</button>-->
 
+                                                                        <img ng-if="vm.dataLoading"
+                                                                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+                                                                        <!--<button id="saveBusinessPartner_btn"-->
+                                                                                <!--name="saveBusinessPartner"-->
+                                                                                <!--style="font-size: 14px; color: black;  "-->
+                                                                                <!--target="" type="submit"-->
+                                                                                <!--class="btn btn-primary btn-lg"-->
+                                                                                <!--disabled="disabled">-->
+                                                                            <!--Save business-->
+                                                                        <!--</button>-->
                                                                     </div>
 
 

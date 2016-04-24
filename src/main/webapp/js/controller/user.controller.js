@@ -65,23 +65,25 @@
             SharedProperties.setUser(vm.user);
 
             // set user role from the selected id
-            var roleIdNum = parseInt(vm.user.userRole.roleId);
-            var selectedUR = _.findWhere(vm.allUserRoles, {roleId:roleIdNum});
-            vm.user.userRole = selectedUR;
+            if (vm.user.userRole) {
+                var roleIdNum = parseInt(vm.user.userRole.roleId);
+                vm.user.userRole = _.findWhere(vm.allUserRoles, {roleId:roleIdNum});;
 
-            UserService.CreateUpdateUser(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        loadAllUsers();
-                        vm.dataLoading = false;
-                        flash(['Saved user : ' + vm.user.username ]);
-                        // $location.path('/');
-                    } else {
-                        // FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
+                UserService.CreateUpdateUser(vm.user)
+                    .then(function (response) {
+                        if (response.success) {
+                            loadAllUsers();
+                            vm.dataLoading = false;
+                            flash(['Saved user : ' + vm.user.username ]);
+                            // $location.path('/');
+                        } else {
+                            // FlashService.Error(response.message);
+                            vm.dataLoading = false;
+                        }
+                    });
+            }
 
+            $location.path('/');
         }
 
         vm.setTab = function (tabId) {
