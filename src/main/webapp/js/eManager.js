@@ -45,19 +45,20 @@
 
             // Business Diagnosis ------------------------------------------------------------------------------------
             /*
-             Governance
-             Tax Compliance
-             Labour
-             Safety and Health
-             Standards
-             Broad Based Black Economic Empowerment (B-BBEE)
-             Production
-             Sales and Marketing
-             Information Technology
-             Financial Controls and Management
-             Technical – Site Visit
-             Intellectual Property
-             Risk Management*/
+             diagnoseGovernance
+             diagnoseTaxCompliance
+             diagnoseLabour
+             diagnoseSafetyHealth
+             diagnoseStandards
+             diagnoseBBBEE Broad Based Black Economic Empowerment (B-BBEE)
+             diagnoseProduction
+             diagnoseSalesMarketing
+             diagnoseInformationTechnology
+             diagnoseFinancialControlsManagement
+             diagnoseTechnicalSiteVisit
+             diagnoseIntellectualProperty
+             diagnoseRiskManagement
+             */
 
             .when('/diagnoseCompany', {
                 controller: 'DiagnosisController',
@@ -69,19 +70,64 @@
                 templateUrl: 'templates/diagnosis/governance.view.html',
                 controllerAs: 'vm'
             })
-            .when('/diagnoseCharacter', {
+            .when('/diagnoseTaxCompliance', {
                 controller: 'DiagnosisController',
-                templateUrl: 'templates/diagnosis/character.view.html',
+                templateUrl: 'templates/diagnosis/tax.compliance.view.html',
                 controllerAs: 'vm'
             })
-            .when('/diagnoseFinancial', {
+            .when('/diagnoseLabour', {
                 controller: 'DiagnosisController',
-                templateUrl: 'templates/diagnosis/financial.view.html',
+                templateUrl: 'templates/diagnosis/labour.view.html',
                 controllerAs: 'vm'
             })
-            .when('/diagnoseMarketing', {
+            .when('/diagnoseSafetyHealth', {
                 controller: 'DiagnosisController',
-                templateUrl: 'templates/diagnosis/marketing.view.html',
+                templateUrl: 'templates/diagnosis/safety.health.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseStandards', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/standards.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseBBBEE', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/bbbee.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseProduction', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/production.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseSalesMarketing', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/sales.marketing.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseInformationTechnology', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/information.technology.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseFinancialControlsManagement', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/financial.controls.management.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseTechnicalSiteVisit', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/technical.site.visit.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseIntellectualProperty', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/intellectual.property.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/diagnoseRiskManagement', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/risk.management.view.html',
                 controllerAs: 'vm'
             })
 
