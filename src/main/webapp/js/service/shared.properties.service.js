@@ -16,6 +16,22 @@
         var company = {};
         var companyUser = {};
 
+        // diagnosis
+        var Governance = {};
+        var TaxCompliance = {};
+        var Labour = {};
+        var SafetyHealth = {};
+        var Standards = {};
+        var BBBEE = {};
+        var Production = {};
+        var SalesMarketing = {};
+        var InformationTechnology = {};
+        var FinancialControlsManagement = {};
+        var TechnicalSiteVisit = {};
+        var IntellectualProperty = {};
+        var RiskManagement = {};
+
+
 
         var org = {};
         var user = {};
@@ -38,10 +54,6 @@
 
         var allAssetWarehouses = [];
 
-        // will develop this for later.
-        // Request
-        // Period
-
         props.getDataLoadingImage = getDataLoadingImage;
 
         props.getBp = getBp;
@@ -52,6 +64,49 @@
 
         props.getCompanyUser = getCompanyUser;
         props.setCompanyUser = setCompanyUser;
+
+// ------------------------- Diagnosis ---------------------------------------------------------------------------------
+        props.getGovernance = getGovernance;
+        props.setGovernance = setGovernance;
+
+        props.getTaxCompliance = getTaxCompliance;
+        props.setTaxCompliance = setTaxCompliance;
+
+        props.getLabour = getLabour;
+        props.setLabour = setLabour;
+
+        props.getSafetyHealth = getSafetyHealth;
+        props.setSafetyHealth = setSafetyHealth;
+
+        props.getStandards = getStandards;
+        props.setStandards = setStandards;
+
+        props.getBBBEE = getBBBEE;
+        props.setBBBEE = setBBBEE;
+
+        props.getProduction = getProduction;
+        props.setProduction = setProduction;
+
+        props.getSalesMarketing = getSalesMarketing;
+        props.setSalesMarketing = setSalesMarketing;
+
+        props.getInformationTechnology = getInformationTechnology;
+        props.setInformationTechnology = setInformationTechnology;
+
+        props.getFinancialControlsManagement = getFinancialControlsManagement;
+        props.setFinancialControlsManagement = setFinancialControlsManagement;
+
+        props.getTechnicalSiteVisit = getTechnicalSiteVisit;
+        props.setTechnicalSiteVisit = setTechnicalSiteVisit;
+
+        props.getIntellectualProperty = getIntellectualProperty;
+        props.setIntellectualProperty = setIntellectualProperty;
+
+        props.getRiskManagement = getRiskManagement;
+        props.setRiskManagement = setRiskManagement;
+
+// ------------------------- Diagnosis ---------------------------------------------------------------------------------
+
 
         // getters and setters
         props.getOrg = getOrg;
@@ -116,6 +171,101 @@
         function setCompanyUser(value) {
             companyUser = value;
         }
+
+// --------------------------------- Diagnosis getters and setters -----------------------------------------------------
+
+        function getGovernance() {
+            return Governance;
+        }
+        function setGovernance(value) {
+            Governance = value;
+        }
+
+        function getTaxCompliance() {
+            return TaxCompliance;
+        }
+        function setTaxCompliance(value) {
+            TaxCompliance = value;
+        }
+
+        function getLabour() {
+            return Labour;
+        }
+        function setLabour(value) {
+            Labour = value;
+        }
+
+        function getSafetyHealth() {
+            return SafetyHealth;
+        }
+        function setSafetyHealth(value) {
+            SafetyHealth = value;
+        }
+
+        function getStandards() {
+            return Standards;
+        }
+        function setStandards(value) {
+            Standards = value;
+        }
+
+        function getBBBEE() {
+            return BBBEE;
+        }
+        function setBBBEE(value) {
+            BBBEE = value;
+        }
+
+        function getProduction() {
+            return Production;
+        }
+        function setProduction(value) {
+            Production = value;
+        }
+
+        function getSalesMarketing() {
+            return SalesMarketing;
+        }
+        function setSalesMarketing(value) {
+            SalesMarketing = value;
+        }
+
+        function getInformationTechnology() {
+            return InformationTechnology;
+        }
+        function setInformationTechnology(value) {
+            InformationTechnology = value;
+        }
+
+        function getFinancialControlsManagement() {
+            return FinancialControlsManagement;
+        }
+        function setFinancialControlsManagement(value) {
+            FinancialControlsManagement = value;
+        }
+
+        function getTechnicalSiteVisit() {
+            return TechnicalSiteVisit;
+        }
+        function setTechnicalSiteVisit(value) {
+            TechnicalSiteVisit = value;
+        }
+
+        function getIntellectualProperty() {
+            return IntellectualProperty;
+        }
+        function setIntellectualProperty(value) {
+            IntellectualProperty = value;
+        }
+
+        function getRiskManagement() {
+            return RiskManagement;
+        }
+        function setRiskManagement(value) {
+            RiskManagement = value;
+        }
+
+// --------------------------------- Diagnosis getters and setters -----------------------------------------------------
 
 
 
