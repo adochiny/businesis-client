@@ -76,83 +76,262 @@
                                                         <div class="col-md-8">
 
                                                             <div class="fms-panel well">
-                                                                <input id="memberId" name="member.memberId"
-                                                                       type="hidden" value="">
-                                                                <!-- form Group -->
+
+                                                                <!-- form Group 1-->
                                                                 <div class="form-group">
                                                                     <label class="col-md-6 control-label">
-                                                                        1. How do you rate your general ability to
-                                                                        market products or services?
+                                                                        0. Do you have marketing tools
                                                                     </label>
 
                                                                     <div class="col-md-6  ">
                                                                         <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q1-value" name="q1"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
+                                                                            <select id="q0" name="q0"
+                                                                                    ng-model="vm.SalesMarketing.q0"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
                                                                             </select>
                                                                         </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q0.$dirty && form.q0.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
 
-                                                                <!-- form Group -->
+                                                                 <!-- form Group 2-->
                                                                 <div class="form-group">
                                                                     <label class="col-md-6 control-label">
-                                                                        2. How do you rate your ability to network?
+                                                                        1. Do you have Business cards?
                                                                     </label>
+
                                                                     <div class="col-md-6  ">
                                                                         <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q2-value"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
+                                                                            <select id="q1" name="q1"
+                                                                                    ng-model="vm.SalesMarketing.q1"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
                                                                             </select>
                                                                         </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q1.$dirty && form.q1.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
+
+
+                                                                 <!-- form Group 3-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        2. Do you have Flyers?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q2" name="q2"
+                                                                                    ng-model="vm.SalesMarketing.q2"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q2.$dirty && form.q2.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 4-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        3. Do you have Brochures?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q3" name="q3"
+                                                                                    ng-model="vm.SalesMarketing.q3"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q3.$dirty && form.q3.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 5-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        4. Do you have Website?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q4" name="q4"
+                                                                                    ng-model="vm.SalesMarketing.q4"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q4.$dirty && form.q4.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 6-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        5. Do you have Signage?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q5" name="q5"
+                                                                                    ng-model="vm.SalesMarketing.q5"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q5.$dirty && form.q5.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 7-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        6.  Do you have Business profile?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q6" name="q6"
+                                                                                    ng-model="vm.SalesMarketing.q6"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q6.$dirty && form.q6.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 8-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        7. Do you have Business proposals?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q7" name="q7"
+                                                                                    ng-model="vm.SalesMarketing.q7"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q7.$dirty && form.q7.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 9-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        8. Do you have a Company logo?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q8" name="q8"
+                                                                                    ng-model="vm.SalesMarketing.q8"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q8.$dirty && form.q8.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                 <!-- form Group 10-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        9. Do you have Contact details and email address?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q9" name="q9"
+                                                                                    ng-model="vm.SalesMarketing.q9"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q9.$dirty && form.q9.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group 10-->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-6 control-label">
+                                                                        10. Do you have Product labelling and branding?
+                                                                    </label>
+
+                                                                    <div class="col-md-6  ">
+                                                                        <div class="col-md-6">
+                                                                            <select id="q10" name="q10"
+                                                                                    ng-model="vm.SalesMarketing.q10"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q10.$dirty && form.q10.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
 
                                                             </div>
 
                                                         </div>
-
-
-                                                        <div class="col-md-3">
-                                                            <h3>Legend </h3>
-                                                            <table class="table table-striped table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Rating</th>
-                                                                        <th>Description</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>1</td>
-                                                                        <td>Do not know</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2</td>
-                                                                        <td>Medium Knowledge</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>3</td>
-                                                                        <td>Good Knowledge</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
 
                                                     </div>
 
@@ -160,17 +339,12 @@
                                                     <div class="row">
                                                         <div class="col-sm-6 col-md-6">
 
-
-                                                            <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-0 control-label" for="btn-grp1">
-
                                                                 </label>
 
                                                                 <div class="col-md-10  ">
-                                                                    <!-- Simple Button group -->
                                                                     <div id="btn-grp1">
-                                                                        <!-- Simple Button style="color: black;"-->
                                                                         <button
                                                                                 name="saveMarketingAssessment"
                                                                                 style="font-size: 14px; color: black;"

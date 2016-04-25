@@ -10,7 +10,7 @@
         var vm = this;
         vm.currentUser = $rootScope.globals.currentUser;
 
-        vm.company = SharedProperties.getCompany();
+        vm.Company = SharedProperties.getCompany();
         vm.addEditCompany = addEditCompany;
         vm.saveCompany = saveCompany;
 
@@ -86,7 +86,7 @@
         vm.breadcrumbs = ["Home","User profile","User details"];
 
         (function initController() {
-            // todo: load company linked to this user.
+            // todo: load Company linked to this user.
             // loadAllUsers();
         })();
 
@@ -94,7 +94,7 @@
             $location.path('/' + path);
         };
 
-// ---------------------- company diagnosis ----------------------------------------------------------------------------
+// ---------------------- Company diagnosis ----------------------------------------------------------------------------
         function addEditCompany(val) {
             SharedProperties.setCompany(val);
             $location.path('/diagnoseCompany');
@@ -102,16 +102,16 @@
 
         function saveCompany() {
             vm.dataLoading = true;
-            console.log(vm.company);
-            SharedProperties.setCompany(vm.company);
+            console.log(vm.Company);
+            SharedProperties.setCompany(vm.Company);
 
-            // todo: save company details.
-            // BpService.saveCompany(vm.company);
+            // todo: save Company details.
+            // BpService.saveCompany(vm.Company);
             //AssetService.GetAllAssetTypes()
             //    .then(function (assetTypes) {
             //        vm.allAssetTypes = assetTypes.data;
             //    });
-            flash(['Saved company : ' + vm.company ]);
+            flash(['Saved Company : ' + vm.Company ]);
             vm.dataLoading = false;
             $location.path('/diagnoseGovernance');
         }
@@ -313,10 +313,10 @@
 
             flash(['Saved FinancialControlsManagement : ' + vm.FinancialControlsManagement ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseTechnicalSiteVisit');
+            $location.path('/diagnoseIntellectualProperty');
         }
 
-// ---------------------- TechnicalSiteVisit diagnosis ----------------------------------------------------------------------------
+// ----------------------Deprecated TechnicalSiteVisit diagnosis ----------------------------------------------------------------------------
 
         function addEditTechnicalSiteVisit(val) {
             SharedProperties.setTechnicalSiteVisit(val);
@@ -376,8 +376,14 @@
             $location.path('/login');
         }
 
-
-
+        /*Yes	No	Do not Know	Not Applicable
+         */
+        vm.diagnosisOpts = [
+            {optionId: 1, optionName: 'Yes'},
+            {optionId: 2, optionName: 'No'},
+            {optionId: 3, optionName: 'Do not Know'},
+            {optionId: 4, optionName: 'Not Applicable'}
+        ];
 
         vm.logout = function() {
             AuthenticationService.ClearCredentials(vm.currentUser);
@@ -386,6 +392,8 @@
             flash('User logged out, thanks for your time.');
             $location.path('/login');
         };
+
+
     }
 
 })();

@@ -76,83 +76,32 @@
                                                         <div class="col-md-8">
 
                                                             <div class="fms-panel well">
-                                                                <input id="memberId" name="member.memberId"
-                                                                       type="hidden" value="">
-                                                                <!-- form Group -->
+
+                                                                <!-- form Group 1-->
                                                                 <div class="form-group">
                                                                     <label class="col-md-6 control-label">
-                                                                        1. How do you rate your general ability to
-                                                                        market products or services?
+                                                                        1. Does the company comply with industry standards?
                                                                     </label>
 
                                                                     <div class="col-md-6  ">
                                                                         <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q1-value" name="q1"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
+                                                                            <select id="q1" name="q1"
+                                                                                    ng-model="vm.Standards.q1"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
                                                                             </select>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-6 control-label">
-                                                                        2. How do you rate your ability to network?
-                                                                    </label>
-                                                                    <div class="col-md-6  ">
-                                                                        <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q2-value"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
-                                                                            </select>
-                                                                        </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q1.$dirty && form.q1.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
 
                                                             </div>
 
                                                         </div>
-
-
-                                                        <div class="col-md-3">
-                                                            <h3>Legend </h3>
-                                                            <table class="table table-striped table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Rating</th>
-                                                                        <th>Description</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>1</td>
-                                                                        <td>Do not know</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2</td>
-                                                                        <td>Medium Knowledge</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>3</td>
-                                                                        <td>Good Knowledge</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
 
                                                     </div>
 
@@ -164,13 +113,10 @@
                                                             <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-0 control-label" for="btn-grp1">
-
                                                                 </label>
 
                                                                 <div class="col-md-10  ">
-                                                                    <!-- Simple Button group -->
                                                                     <div id="btn-grp1">
-                                                                        <!-- Simple Button style="color: black;"-->
                                                                         <button
                                                                                 name="saveMarketingAssessment"
                                                                                 style="font-size: 14px; color: black;"

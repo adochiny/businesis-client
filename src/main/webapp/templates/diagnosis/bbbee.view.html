@@ -76,49 +76,48 @@
                                                         <div class="col-md-8">
 
                                                             <div class="fms-panel well">
-                                                                <input id="memberId" name="member.memberId"
-                                                                       type="hidden" value="">
-                                                                <!-- form Group -->
+
+                                                                <!-- form Group 1-->
                                                                 <div class="form-group">
                                                                     <label class="col-md-6 control-label">
-                                                                        1. How do you rate your general ability to
-                                                                        market products or services?
+                                                                        1. Is the company certificate older than 12 months?
                                                                     </label>
 
                                                                     <div class="col-md-6  ">
                                                                         <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q1-value" name="q1"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
+                                                                            <select id="q1" name="q1"
+                                                                                    ng-model="vm.BBBEE.q1"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
                                                                             </select>
                                                                         </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q1.$dirty && form.q1.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
 
-                                                                <!-- form Group -->
+                                                                <!-- form Group 2-->
                                                                 <div class="form-group">
                                                                     <label class="col-md-6 control-label">
-                                                                        2. How do you rate your ability to network?
+                                                                        2. Is the certificate SANAS accredited?
                                                                     </label>
+
                                                                     <div class="col-md-6  ">
                                                                         <div class="col-md-6">
-                                                                            <!-- Select Basic -->
-                                                                            <select id="q2-value"
-                                                                                    class="form-control" required="">
-                                                                                <!-- Select option -->
-                                                                                <option value="1">1</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="2">2</option>
-                                                                                <!-- Select option -->
-                                                                                <option value="3">3</option>
+                                                                            <select id="q2" name="q2"
+                                                                                    ng-model="vm.BBBEE.q2"
+                                                                                    ng-options="opt.optionId as opt.optionName for opt in vm.diagnosisOpts"
+                                                                                    class="form-control" required>
+                                                                                <option value="">Please select </option>
                                                                             </select>
                                                                         </div>
+                                                                        <span class="help-inline col-md-6"
+                                                                              ng-show="form.q2.$dirty && form.q2.$error.required">
+                                                                            <span class="middle">Value is required</span>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
 
