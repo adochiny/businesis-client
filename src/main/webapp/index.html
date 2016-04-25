@@ -105,6 +105,19 @@
 
 		</div><!-- /.main-container -->
 
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='lib/assets/js/jquery.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='lib/assets/js/jquery1x.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+
         <script src="lib/angular/angular.js"></script>
         <script src="lib/angular/angular-resource.js"></script>
 
@@ -124,6 +137,7 @@
         <!--<script src="js/filters.js"></script>-->
         <!--<script src="js/directives.js"></script>-->
 
+		<!--<script src="js/directives/date.directive.js"></script>-->
 
         <script src="js/service/authentication.service.js"></script>
         <script src="js/service/flash.service.js"></script>
@@ -158,19 +172,6 @@
 
         <!-- AngularJs app -->
 
-
-		<!--[if !IE]> -->
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='lib/assets/js/jquery.js'>"+"<"+"/script>");
-		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-        <script type="text/javascript">
-         window.jQuery || document.write("<script src='lib/assets/js/jquery1x.js'>"+"<"+"/script>");
-        </script>
-        <![endif]-->
 
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='lib/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");

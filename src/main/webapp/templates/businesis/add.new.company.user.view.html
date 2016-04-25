@@ -12,38 +12,23 @@
     <div ng-include="'templates/home/businesis.admin.menu.html'"></div>
 
     <aside class="right-side">
-
-
         <section class="content">
 
-            <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-md-12">
 
-
                     <div class="panel panel-info" style="">
-
-
                         <div class="panel-heading">
                             <h3 class="panel-title" style="font-size: 28px; color: black;">
                                 Add New Company User
-
                             </h3>
                         </div>
-
 
                         <div class="panel-body" style="padding: 10px;">
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12">
-
-
-                                    <!-- Nav tabs -->
-
-
                                     <ul class="nav nav-pills cat-tabs">
-
-
                                         <li class="active ">
                                             <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#user_details"
                                                data-toggle="tab" style="color: black;">
@@ -51,22 +36,12 @@
                                                 Company User
                                             </a>
                                         </li>
-
-
                                     </ul>
-
 
                                     <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
 
-
-                                    <!-- Tab panes -->
-
-
                                     <div class="tab-content">
-
-
                                         <div class="tab-pane fade in active" id="user_details">
-
 
                                             <!-- Simple error tag -->
                                             <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
@@ -78,22 +53,10 @@
                                                   data-toggle="validator" style="margin-left: 20px;">
                                                 <fieldset>
 
-
                                                     <div class="row">
-
-
                                                         <div class="col-sm-8 col-md-8">
 
-
                                                             <div class="fms-panel well">
-
-
-                                                                <input id="businessPartnerId"
-                                                                       name="member.businessPartnerId" type="hidden"
-                                                                       value="11">
-                                                                <input id="memberId" name="member.memberId"
-                                                                       type="hidden" value="">
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -101,40 +64,26 @@
                                                                            for="firstnames">
                                                                         First names
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="firstnames" name="member.firstName"
                                                                                type="text" value=""
-                                                                               placeholder="First names" required=""
+                                                                               placeholder="First names" required
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="surname">
                                                                         Surname
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="surname" name="member.surname"
                                                                                type="text" value=""
-                                                                               placeholder="Surname" required=""
+                                                                               placeholder="Surname" required
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -142,47 +91,28 @@
                                                                            for="idNumber">
                                                                         ID number
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="idNumber" name="member.idNumber"
                                                                                type="text" value=""
                                                                                placeholder="ID number" pattern="\d{13}"
-                                                                               maxlength="13" required=""
+                                                                               maxlength="13" required
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
-                                                                <input id="contactDetailsId"
-                                                                       name="contact.contactDetailsId" type="hidden"
-                                                                       value="">
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="email">
                                                                         Email
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="email" name="contact.email"
                                                                                type="email" value=""
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -190,50 +120,28 @@
                                                                            for="cellphone">
                                                                         Cellphone
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="cellphone" name="contact.cellNumber"
                                                                                type="text" value=""
                                                                                placeholder="Cellphone" required=""
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
                                                                 <hr style="background-color: #bbb; border: 1px solid #bbb;">
-
-
                                                             </div>
-
                                                         </div>
-
-
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="col-sm-6 col-md-6">
 
-
                                                             <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-3 control-label" for="btn-grp1">
-
                                                                 </label>
-
                                                                 <div class="col-md-8  ">
-
-
-                                                                    <!-- Simple Button group -->
                                                                     <div id="btn-grp1">
-
-
-                                                                        <!-- Simple Button style="color: black;"-->
-
-
                                                                         <button id="saveMemberMinDetails_btn"
                                                                                 style="font-size: 14px; color: black;"
                                                                                 type="submit"
@@ -241,48 +149,25 @@
                                                                             Send token
                                                                         </button>
 
-
-                                                                        <!-- Simple Button style="color: black;"-->
-
-
                                                                         <!--<a type="button" name="add_new_users"-->
                                                                            <!--class="btn btn-primary btn-lg"-->
                                                                            <!--style="font-size: 14px; color: black; "-->
                                                                            <!--href="">-->
                                                                             <!--Cancel-->
                                                                         <!--</a>-->
-
-
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
-
-
                                                         </div>
                                                     </div>
-
-
                                                 </fieldset>
                                             </form>
-
-
                                         </div>
-
-
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </div>
-
-
                     </div>
-
-
                 </div>
             </div>
         </section>

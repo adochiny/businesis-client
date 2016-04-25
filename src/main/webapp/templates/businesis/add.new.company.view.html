@@ -14,65 +14,36 @@
 
     <aside class="right-side">
 
-
         <section class="content">
-
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-md-12">
-
-
                     <div class="panel panel-info" style="">
-
-
                         <div class="panel-heading">
                             <h3 class="panel-title" style="font-size: 28px; color: black;">
-                                Company Information
-
+                                Company Diagnosis
                             </h3>
                         </div>
-
-
                         <div class="panel-body" style="padding: 10px;">
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-12">
-
-
                                     <!-- Nav tabs -->
-
-
                                     <ul class="nav nav-pills cat-tabs">
-
-
                                         <li class="active ">
-                                            <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner#business_details"
+                                            <a href=""
                                                data-toggle="tab" style="color: black;">
                                                 <span class="glyphicon glyphicon-inbox"></span>
                                                 Company Details
                                             </a>
                                         </li>
-
-
                                     </ul>
-
-
                                     <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
 
-
                                     <!-- Tab panes -->
-
-
                                     <div class="tab-content">
-
-
                                         <div class="tab-pane fade in active" id="business_details">
-
-
                                             <!-- Simple error tag -->
-
-
-                                            <!-- Simple Form -->
                                             <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
 
                                             <form ng-submit="vm.saveCompany()"
@@ -80,20 +51,11 @@
                                                   method="POST"
                                                   style="margin-left: 20px;">
                                                 <fieldset>
-
-
                                                     <div class="row">
                                                         <!-- Left side -->
                                                         <div class="col-md-6">
-
                                                             <!-- Company details panel-->
                                                             <div class="fms-panel well">
-
-
-                                                                <input id="businessPartnerId"
-                                                                       name="bp.businessPartnerId" type="hidden"
-                                                                       value="">
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -103,39 +65,27 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="Companyname" name="bp.name"
+                                                                               ng-model="vm.Company.name"
                                                                                type="text" value=""
-                                                                               placeholder="Company name" required=""
+                                                                               placeholder="Company name" required
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="Tradingas">
                                                                         Trading as
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="Tradingas" name="bp.name1"
-                                                                               type="text" value=""
+                                                                               ng-model="vm.Company.tradingAs"
+                                                                               type="text"
                                                                                placeholder="Trading as"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -143,18 +93,12 @@
                                                                            for="Registrationnumber">
                                                                         Registration number
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
-                                                                        <input id="Registrationnumber"
-                                                                               name="bp.registration" type="text"
-                                                                               value=""
+                                                                        <input id="Registrationnumber" name="bp.registration"
+                                                                               type="text"
+                                                                               ng-model="vm.Company.registration"
                                                                                placeholder="Registration number"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -167,18 +111,13 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="Registrationtype"
                                                                                name="bp.registartionType" type="text"
-                                                                               value="" placeholder="Registration type"
+                                                                               ng-model="vm.Company.registartionType"
+                                                                               placeholder="Registration type"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -188,15 +127,13 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
                                                                         <!-- date input-->
                                                                         <div class="input-group date datetimepicker"
                                                                              data-date-format="YYYY/MM/DD"
                                                                              id="dateOfRegistration">
-                                                                            <input type="text"
+                                                                            <input type="text" id="dateOfRegistrationDate"
                                                                                    name="dateOfRegistrationDate"
-                                                                                   value=""
+                                                                                   ng-model="vm.Company.dateOfRegistrationDate"
                                                                                    pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"
                                                                                    class="form-control">
                                                                             <span class="input-group-addon">
@@ -212,23 +149,12 @@
 
                                                                             });
                                                                         </script>
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
 
                                                             <!-- Contact details panel-->
                                                             <div class="fms-panel ">
-
-
-                                                                <input id="contactDetailsId"
-                                                                       name="contact.contactDetailsId" type="hidden"
-                                                                       value="">
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="email">
@@ -236,16 +162,12 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
                                                                         <!-- Text input-->
                                                                         <input id="email" name="contact.email"
                                                                                type="email" value=""
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -258,18 +180,13 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
                                                                         <!-- Text input-->
                                                                         <input id="workTelephone"
                                                                                name="contact.workNumber" type="text"
                                                                                value="" placeholder="Work telephone"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -279,15 +196,11 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
                                                                         <!-- Text input-->
                                                                         <input id="homeTelephone"
                                                                                name="contact.homeNumber" type="text"
                                                                                value="" placeholder="Home telephone"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -300,15 +213,11 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
                                                                         <!-- Text input-->
                                                                         <input id="cellphone" name="contact.cellNumber"
                                                                                type="text" value=""
                                                                                placeholder="Cellphone"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -317,38 +226,18 @@
 
                                                             <!-- BEE Panel details -->
                                                             <div class="fms-panel ">
-                                                                <!-- BEE Panel-->
-                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="beeContributer">
                                                                         BEE Contributor
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Select Basic -->
                                                                         <select id="beeContributer"
                                                                                 name="member.beeContributer"
                                                                                 class="form-control" required="">
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="true">
-                                                                                Yes
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="false">
-                                                                                No
-                                                                            </option>
-
-
+                                                                            <option value="true">Yes</option>
+                                                                            <option value="false">No</option>
                                                                         </select>
-
-
                                                                     </div>
                                                                 </div>
 
@@ -358,78 +247,22 @@
                                                                            for="beeLevel">
                                                                         BEE Level
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Select Basic -->
                                                                         <select id="beeLevel" name="member.beeLevel"
                                                                                 class="form-control" required="">
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="1">
-                                                                                1
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="2">
-                                                                                2
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="3">
-                                                                                3
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="4">
-                                                                                4
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="5">
-                                                                                5
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="6">
-                                                                                6
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="7">
-                                                                                7
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="8">
-                                                                                8
-                                                                            </option>
-
-
-                                                                            <!-- Select option -->
-                                                                            <option value="0">
-                                                                                No a contributor
-                                                                            </option>
-
-
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="0">No a contributor</option>
                                                                         </select>
-
-
                                                                     </div>
                                                                 </div>
-
                                                             </div>
-
-
                                                         </div>
 
                                                         <!-- R ight side -->
@@ -438,11 +271,6 @@
                                                             <!-- Street address details -->
                                                             <div class="fms-panel ">
 
-                                                                <input id="saddressId" name="sAddress.addressId"
-                                                                       type="hidden" value="">
-
-
-                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="Street_address">
@@ -450,15 +278,10 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="Street_address"
                                                                                name="sAddress.address1" type="text"
                                                                                value="" placeholder="Street address"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -468,17 +291,11 @@
                                                                     <label class="col-md-3 control-label" for="surburb">
                                                                         Surburb
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="surburb" name="sAddress.surburb"
                                                                                type="text" value=""
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
 
@@ -488,68 +305,39 @@
                                                                     <label class="col-md-3 control-label" for="city">
                                                                         City
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="city" name="sAddress.city"
                                                                                type="text" value="" placeholder="City"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="country">
                                                                         County
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="country" name="sAddress.country"
                                                                                type="text" value="" placeholder="County"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="code">
                                                                         Code
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="code" name="sAddress.addressCode"
                                                                                type="text" value="" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
 
                                                             <!-- Postal address details -->
                                                             <div class="fms-panel ">
-
-                                                                <input id="paddressId" name="pAddress.addressId"
-                                                                       type="hidden" value="">
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
@@ -558,19 +346,12 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="p_address" name="pAddress.address1"
                                                                                type="text" value=""
                                                                                placeholder="Address"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
@@ -579,106 +360,66 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="p_surburb" name="pAddress.surburb"
                                                                                type="text" value=""
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
-                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="p_city">
                                                                         City
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="p_city" name="pAddress.city"
                                                                                type="text" value="" placeholder="City"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="p_country">
                                                                         County
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="p_country" name="pAddress.country"
                                                                                type="text" value="" placeholder="County"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="p_code">
                                                                         Code
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-
-
-                                                                        <!-- Text input-->
                                                                         <input id="p_code" name="pAddress.addressCode"
                                                                                type="text" value="" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
 
                                                         </div>
                                                     </div>
-
-
                                                     <div class="row">
                                                         <div class="col-sm-6 col-md-6">
-
-
                                                             <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label" for="btn-grp1">
                                                                 </label>
 
                                                                 <div class="col-md-10  ">
-
-                                                                    <!-- Simple Button group -->
                                                                     <div id="btn-grp1">
-
                                                                         <button type="submit"
                                                                                 ng-disabled="form.$invalid || vm.dataLoading"
                                                                                 name="saveBusinessPartner"
-                                                                                style="font-size: 14px; color: black;  "
-                                                                                target="" type="submit"
+                                                                                style="font-size: 14px; color: black;"
                                                                                 class="btn btn-primary btn-lg"
                                                                                 >
-                                                                            Save business
+                                                                            Save company
                                                                         </button>
 
                                                                         <!--<button type="submit"-->
@@ -709,23 +450,12 @@
 
                                                 </fieldset>
                                             </form>
-
-
                                         </div>
-
-
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </div>
-
-
                     </div>
-
-
                 </div>
             </div>
         </section>
