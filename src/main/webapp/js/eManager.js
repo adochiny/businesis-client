@@ -25,7 +25,20 @@
                 controllerAs: 'vm'
             })
 
-            // Add new Bp, Business and business user. ----------------------
+            // Add New Bp. ---------------------------------------------------------------------------------------------
+            .when('/addEditBp', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/add.new.bp.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/addEditAdmin', {
+                controller: 'UserController',
+                templateUrl: 'templates/businesis/add.new.admin.view.html',
+                controllerAs: 'vm'
+            })
+
+            // Add new Bp, Business and business user. -----------------------------------------------------------------
             .when('/LandingBpList', {
                 controller: 'LandingListBpsController',
                 templateUrl: 'templates/businesis/landing.list.bps.view.html',
@@ -43,7 +56,7 @@
                 controllerAs: 'vm'
             })
 
-            // Business Diagnosis ------------------------------------------------------------------------------------
+            // Business Diagnosis --------------------------------------------------------------------------------------
             /*
              diagnoseGovernance
              diagnoseTaxCompliance
@@ -128,19 +141,6 @@
             .when('/diagnoseRiskManagement', {
                 controller: 'DiagnosisController',
                 templateUrl: 'templates/diagnosis/risk.management.view.html',
-                controllerAs: 'vm'
-            })
-
-            // Add New Bp -----------------------------------------------------------------------
-            .when('/addEditBp', {
-                controller: 'LandingListBpsController',
-                templateUrl: 'templates/businesis/add.new.bp.view.html',
-                controllerAs: 'vm'
-            })
-
-            .when('/addEditAdmin', {
-                controller: 'UserController',
-                templateUrl: 'templates/businesis/add.new.admin.view.html',
                 controllerAs: 'vm'
             })
 

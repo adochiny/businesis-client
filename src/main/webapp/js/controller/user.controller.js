@@ -14,6 +14,8 @@
         vm.user = SharedProperties.getUser();
         vm.allUsers = [];
         vm.addEditUser = addEditUser;
+
+        vm.addEditAdmin = addEditAdmin;
         vm.saveUser = saveUser;
 
         vm.allUserRoles = [];
@@ -49,6 +51,13 @@
         }
 
         function addEditUser(pUserToEdit) {
+            if (pUserToEdit) {
+                SharedProperties.setUser(pUserToEdit);
+            }
+            $location.path('/addEditUser');
+        }
+
+        function addEditAdmin(pUserToEdit) {
             if (pUserToEdit) {
                 SharedProperties.setUser(pUserToEdit);
             }
@@ -151,14 +160,10 @@
         afterTomorrow.setDate(tomorrow.getDate() + 2);
         vm.events =
             [
-                {
-                    date: tomorrow,
-                    status: 'full'
-                },
-                {
-                    date: afterTomorrow,
-                    status: 'partially'
-                }
+                {date: tomorrow,
+                    status: 'full'},
+                {date: afterTomorrow,
+                    status: 'partially'}
             ];
 
         vm.getDayClass = function(date, mode) {

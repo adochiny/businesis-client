@@ -31,10 +31,10 @@
                                 <div class="col-sm-12 col-md-12">
                                     <ul class="nav nav-pills cat-tabs">
                                         <li class="active ">
-                                            <a href="http://197.242.146.106/entreprenosis/oras/captureBusinessPartner#business_details"
+                                            <a
                                                data-toggle="tab" style="color: black;">
                                                 <span class="glyphicon glyphicon-inbox"></span>
-                                                Business details
+                                                Business partner details
                                             </a>
                                         </li>
                                     </ul>
@@ -49,6 +49,7 @@
 
                                             <!-- Simple Form -->
                                             <form class="form-horizontal"role="form"
+                                                  ng-submit="vm.saveBp()"
                                                   method="POST"
                                                   data-toggle="validator"
                                                   style="margin-left: 20px;">
@@ -67,9 +68,9 @@
                                                                         Company name
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Companyname" name="bp.name"
-                                                                               type="text" value=""
-                                                                               placeholder="Company name" required=""
+                                                                        <input id="Companyname"
+                                                                               ng-model="vm.bp.name"
+                                                                               type="text" placeholder="Company name" required
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
@@ -81,8 +82,8 @@
                                                                         Trading as
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Tradingas" name="bp.name1"
-                                                                               type="text" value=""
+                                                                        <input id="Tradingas" ng-model="vm.bp.name1"
+                                                                               type="text"
                                                                                placeholder="Trading as"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -96,8 +97,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="Registrationnumber"
-                                                                               name="bp.registration" type="text"
-                                                                               value=""
+                                                                               ng-model="vm.bp.registration" type="text"
                                                                                placeholder="Registration number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -111,40 +111,38 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="Registrationtype"
-                                                                               name="bp.registartionType" type="text"
-                                                                               value="" placeholder="Registration type"
+                                                                               ng-model="vm.bp.registartionType" type="text"
+                                                                               placeholder="Registration type"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="dateOfRegistration">
+                                                                    <label class="col-md-3 control-label">
                                                                         Date of registration
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <div class="input-group date datetimepicker"
-                                                                             data-date-format="YYYY/MM/DD"
-                                                                             id="dateOfRegistration">
-                                                                            <input type="text"
-                                                                                   name="dateOfRegistrationDate"
-                                                                                   value=""
-                                                                                   pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"
-                                                                                   class="form-control">
-                                                                                <span class="input-group-addon">
-                                                                                    <span class="glyphicon-calendar glyphicon"></span>
-                                                                                </span>
-                                                                        </div>
-                                                                        <script type="text/javascript">
-                                                                            $(function () {
 
-                                                                                $('.datetimepicker').datetimepicker({
-                                                                                    pickTime: false
-                                                                                });
-
-                                                                            });
-                                                                        </script>
+                                                                        <input type="text" class="form-control input-md" required
+                                                                               datepicker ng-model="vm.bp.dateOfRegistration"/>
+                                                                        <!--<div class="input-group date"-->
+                                                                             <!--data-date-format="YYYY/MM/DD"-->
+                                                                             <!--id="dateOfRegistration">-->
+                                                                            <!--<input type="text" ui-date-->
+                                                                                   <!--ng-model="vm.bp.dateOfRegistration"-->
+                                                                                   <!--class="form-control">-->
+                                                                                <!--<span class="input-group-addon">-->
+                                                                                    <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                                <!--</span>-->
+                                                                        <!--</div>-->
+                                                                        <!--<script type="text/javascript">-->
+                                                                            <!--$(function () {-->
+                                                                                <!--$('.datetimepicker').datetimepicker({-->
+                                                                                    <!--pickTime: false-->
+                                                                                <!--});-->
+                                                                            <!--});-->
+                                                                        <!--</script>-->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -157,9 +155,9 @@
                                                                     <label class="col-md-3 control-label" for="email">
                                                                         Email
                                                                     </label>
-                                                                    <div class="col-md-8  ">
-                                                                        <input id="email" name="contact.email"
-                                                                               type="email" value=""
+                                                                    <div class="col-md-8">
+                                                                        <input id="email" ng-model="vm.bp.contact.email"
+                                                                               type="email"
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
                                                                                class="form-control input-md">
@@ -174,7 +172,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="workTelephone"
-                                                                               name="contact.workNumber" type="text"
+                                                                               ng-model="vm.bp.contact.workNumber" type="text"
                                                                                value="" placeholder="Work telephone"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -188,7 +186,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="homeTelephone"
-                                                                               name="contact.homeNumber" type="text"
+                                                                               ng-model="vm.bp.contact.homeNumber" type="text"
                                                                                value="" placeholder="Home telephone"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -201,7 +199,7 @@
                                                                         Cellphone
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="cellphone" name="contact.cellNumber"
+                                                                        <input id="cellphone" ng-model="vm.bp.contact.cellNumber"
                                                                                type="text" value=""
                                                                                placeholder="Cellphone"
                                                                                class="form-control input-md">
@@ -222,7 +220,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="Street_address"
-                                                                               name="sAddress.address1" type="text"
+                                                                               ng-model="vm.bp.sAddress.address1" type="text"
                                                                                value="" placeholder="Street address"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -234,7 +232,7 @@
                                                                         Surburb
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="surburb" name="sAddress.surburb"
+                                                                        <input id="surburb" ng-model="vm.bp.sAddress.surburb"
                                                                                type="text" value=""
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
@@ -247,7 +245,7 @@
                                                                         City
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="city" name="sAddress.city"
+                                                                        <input id="city" ng-model="vm.bp.sAddress.city"
                                                                                type="text" value="" placeholder="City"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -259,7 +257,7 @@
                                                                         County
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="country" name="sAddress.country"
+                                                                        <input id="country" ng-model="vm.bp.sAddress.country"
                                                                                type="text" value="" placeholder="County"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -271,7 +269,7 @@
                                                                         Code
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="code" name="sAddress.addressCode"
+                                                                        <input id="code" ng-model="vm.bp.sAddress.addressCode"
                                                                                type="text" value="" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
@@ -289,7 +287,7 @@
                                                                         Postal address
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_address" name="pAddress.address1"
+                                                                        <input id="p_address" ng-model="vm.bp.pAddress.address1"
                                                                                type="text" value=""
                                                                                placeholder="Address"
                                                                                class="form-control input-md">
@@ -303,7 +301,7 @@
                                                                         Surburb
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_surburb" name="pAddress.surburb"
+                                                                        <input id="p_surburb" ng-model="vm.bp.pAddress.surburb"
                                                                                type="text" value=""
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
@@ -316,7 +314,7 @@
                                                                         City
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_city" name="pAddress.city"
+                                                                        <input id="p_city" ng-model="vm.bp.pAddress.city"
                                                                                type="text" value="" placeholder="City"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -329,7 +327,7 @@
                                                                         County
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_country" name="pAddress.country"
+                                                                        <input id="p_country" ng-model="vm.bp.pAddress.country"
                                                                                type="text" value="" placeholder="County"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -341,7 +339,7 @@
                                                                         Code
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_code" name="pAddress.addressCode"
+                                                                        <input id="p_code" ng-model="vm.bp.pAddress.addressCode"
                                                                                type="text" value="" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
@@ -350,7 +348,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
 
                                                     <div class="row">
                                                         <div class="col-sm-6 col-md-6">
@@ -362,8 +359,7 @@
                                                                 <div class="col-md-10  ">
                                                                     <div id="btn-grp1">
                                                                         <button id="saveBusinessPartner_btn"
-                                                                                name="saveBusinessPartner"
-                                                                                style="font-size: 14px; color: black;  "
+                                                                                style="font-size: 14px; color: black;"
                                                                                 type="submit"
                                                                                 class="btn btn-primary btn-lg">
                                                                             Save business partner

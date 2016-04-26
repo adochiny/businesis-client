@@ -1,3 +1,4 @@
+/*
 (function () {
     'use strict';
     var eManager = angular
@@ -32,4 +33,16 @@
                 }
             };
         });
-})();
+})();*/
+
+angular.module("eManager")
+    .directive("datepicker", function () {
+        return {
+            restrict: "A",
+            link: function (scope, el, attr) {
+                el.datepicker({
+                    dateFormat: 'yy-mm-dd'
+                });
+            }
+        };
+    })

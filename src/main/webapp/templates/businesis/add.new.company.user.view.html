@@ -30,7 +30,7 @@
                                 <div class="col-sm-12 col-md-12">
                                     <ul class="nav nav-pills cat-tabs">
                                         <li class="active ">
-                                            <a href="http://197.242.146.106/entreprenosis/oras/captureMemberMin?businessPartnerId=11#user_details"
+                                            <a
                                                data-toggle="tab" style="color: black;">
                                                 <span class="glyphicon glyphicon-inbox"></span>
                                                 Company User
@@ -46,7 +46,6 @@
                                             <!-- Simple error tag -->
                                             <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
 
-                                            <!-- Simple Form -->
                                             <form class="form-horizontal" role="form"
                                                   ng-submit="vm.saveCompanyUser()"
                                                   method="POST"
@@ -65,8 +64,8 @@
                                                                         First names
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="firstnames" name="member.firstName"
-                                                                               type="text" value=""
+                                                                        <input id="firstnames" ng-model="vm.companyUser.firstName"
+                                                                               type="text"
                                                                                placeholder="First names" required
                                                                                class="form-control input-md">
                                                                     </div>
@@ -78,8 +77,8 @@
                                                                         Surname
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="surname" name="member.surname"
-                                                                               type="text" value=""
+                                                                        <input id="surname" ng-model="vm.companyUser.surname"
+                                                                               type="text"
                                                                                placeholder="Surname" required
                                                                                class="form-control input-md">
                                                                     </div>
@@ -92,8 +91,8 @@
                                                                         ID number
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="idNumber" name="member.idNumber"
-                                                                               type="text" value=""
+                                                                        <input id="idNumber" ng-model="vm.companyUser.idNumber"
+                                                                               type="text"
                                                                                placeholder="ID number" pattern="\d{13}"
                                                                                maxlength="13" required
                                                                                class="form-control input-md">
@@ -106,8 +105,8 @@
                                                                         Email
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="email" name="contact.email"
-                                                                               type="email" value=""
+                                                                        <input id="email" ng-model="vm.companyUser.contact.email"
+                                                                               type="email"
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
                                                                                class="form-control input-md">
@@ -121,9 +120,9 @@
                                                                         Cellphone
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="cellphone" name="contact.cellNumber"
-                                                                               type="text" value=""
-                                                                               placeholder="Cellphone" required=""
+                                                                        <input id="cellphone" ng-model="vm.companyUser.contact.cellNumber"
+                                                                               type="text"
+                                                                               placeholder="Cellphone" required
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
@@ -142,7 +141,7 @@
                                                                 </label>
                                                                 <div class="col-md-8  ">
                                                                     <div id="btn-grp1">
-                                                                        <button id="saveMemberMinDetails_btn"
+                                                                        <button
                                                                                 style="font-size: 14px; color: black;"
                                                                                 type="submit"
                                                                                 class="btn btn-primary btn-lg">

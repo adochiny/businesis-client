@@ -8973,7 +8973,7 @@ span.input-icon {
 }
 .input-medium,
 .input-md {
-  width: 150px;
+  /*width: 150px;*/
   max-width: 100%;
 }
 .input-large {

@@ -17,6 +17,7 @@
         vm.bpList = [];
         vm.bp = SharedProperties.getBp();
         vm.addEditBp = addEditBp;
+        vm.saveBp = saveBp;
 
         // Company details.
         vm.company = SharedProperties.getCompany();
@@ -77,7 +78,10 @@
             vm.dataLoading = true;
             /* Do the actual saving here */
             // store in shared props
-            console.log(SharedProperties.getBp());
+            console.log(vm.bp);
+            console.log(vm.bp.contact);
+            console.log(vm.bp.sAddress);
+            console.log(vm.bp.pAddress);
             SharedProperties.setBp(vm.bp);
 
             BpService.SaveBp(vm.bp);
