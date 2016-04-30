@@ -20,6 +20,8 @@
         vm.saveBp = saveBp;
 
         // Company details.
+        vm.viewCompanyList = viewCompanyList;
+
         vm.company = SharedProperties.getCompany();
         vm.addNewCompany = addNewCompany;
         vm.saveCompany = saveCompany;
@@ -67,6 +69,11 @@
                     // loadAllUsers();
                 });
         }*/
+
+        function viewCompanyList(value) {
+            SharedProperties.setBp(value);
+            $location.path('/companyList');
+        }
 
 
         function addEditBp(value) {

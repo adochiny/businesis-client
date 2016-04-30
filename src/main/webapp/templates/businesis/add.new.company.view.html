@@ -15,7 +15,6 @@
     <aside class="right-side">
 
         <section class="content">
-            <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-info" style="">
@@ -79,7 +78,7 @@
                                                                         Trading as
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Tradingas" name="bp.name1"
+                                                                        <input id="Tradingas"
                                                                                ng-model="vm.company.tradingAs"
                                                                                type="text"
                                                                                placeholder="Trading as"
@@ -94,9 +93,8 @@
                                                                         Registration number
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Registrationnumber" name="bp.registration"
-                                                                               type="text"
-                                                                               ng-model="vm.company.registration"
+                                                                        <input id="Registrationnumber" type="text"
+                                                                               ng-model="vm.company.registrationNumber"
                                                                                placeholder="Registration number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -116,15 +114,19 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label">
                                                                         Date of registration
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text" class="form-control input-md" required
-                                                                               datepicker ng-model="vm.company.dateOfRegistration"/>
-
+                                                                        <div class="input-group date datetimepicker"
+                                                                             data-date-format="YYYY/MM/DD">
+                                                                            <input type="text" class="form-control input-md" required
+                                                                                   datepicker ng-model="vm.company.dateOfRegistration"/>
+                                                                            <span class="input-group-addon">
+                                                                                <span class="glyphicon-calendar glyphicon"></span>
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
 
@@ -135,14 +137,197 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.registartionType"
-                                                                               placeholder="Registration type"
+                                                                               ng-model="vm.company.industry"
+                                                                               placeholder="Industry"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
 
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        Years in Business
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.yearsInBusiness"
+                                                                               placeholder="Years in Business"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        Number of Employees
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.numberOfEmployees"
+                                                                               placeholder="Number of Employees"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        Annual Turnover
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.annualTurnover"
+                                                                               placeholder="Annual Turnover"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        Income Tax Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.incomeTaxNumber"
+                                                                               placeholder="Income Tax Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        VAT Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.VATNumber"
+                                                                               placeholder="VAT Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        PAYE Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.PAYENumber"
+                                                                               placeholder="PAYE Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        UIF Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.UIFNumber"
+                                                                               placeholder="UIF Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        COID Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.COIDNumber"
+                                                                               placeholder="COID Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        Professional Standards Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.professionalStandardsNumber"
+                                                                               placeholder="Professional Standards Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeContributer">
+                                                                        BEE Contributor
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <select id="beeContributer"
+                                                                                ng-model="vm.company.beeContributer"
+                                                                                class="form-control">
+                                                                            <option value="true">Yes</option>
+                                                                            <option value="false">No</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">
+                                                                        B-BBEE Certificate Number
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <input type="text"
+                                                                               ng-model="vm.company.BBBEECertificateNumber"
+                                                                               placeholder="B-BBEE Certificate Number"
+                                                                               class="form-control input-md">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- form Group -->
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label class="col-md-3 control-label">-->
+                                                                        <!--BBBEE Status Level-->
+                                                                    <!--</label>-->
+                                                                    <!--<div class="col-md-8  ">-->
+                                                                        <!--<input type="text"-->
+                                                                               <!--ng-model="vm.company.BBBEEStatusLevel"-->
+                                                                               <!--placeholder="BBBEE Status Level"-->
+                                                                               <!--class="form-control input-md">-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+
+                                                                <!-- form Group -->
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="beeLevel">
+                                                                        BEE Level
+                                                                    </label>
+                                                                    <div class="col-md-8  ">
+                                                                        <select id="beeLevel" ng-model="vm.company.BBBEEStatusLevel"
+                                                                                class="form-control">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="0">No a contributor</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
+
+                                                            <!-- BEE Panel details -->
+                                                            <!--<div class="fms-panel ">-->
+                                                            <!--</div>-->
+                                                        </div>
+
+                                                        <!-- R ight side -->
+                                                        <div class="col-md-6">
 
                                                             <!-- Contact details panel-->
                                                             <div class="fms-panel ">
@@ -208,50 +393,6 @@
 
 
                                                             </div>
-
-                                                            <!-- BEE Panel details -->
-                                                            <div class="fms-panel ">
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="beeContributer">
-                                                                        BEE Contributor
-                                                                    </label>
-                                                                    <div class="col-md-8  ">
-                                                                        <select id="beeContributer"
-                                                                                ng-model="vm.company.member.beeContributer"
-                                                                                class="form-control">
-                                                                            <option value="true">Yes</option>
-                                                                            <option value="false">No</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="beeLevel">
-                                                                        BEE Level
-                                                                    </label>
-                                                                    <div class="col-md-8  ">
-                                                                        <select id="beeLevel" ng-model="vm.company.member.beeLevel"
-                                                                                class="form-control">
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                            <option value="3">3</option>
-                                                                            <option value="4">4</option>
-                                                                            <option value="5">5</option>
-                                                                            <option value="6">6</option>
-                                                                            <option value="7">7</option>
-                                                                            <option value="8">8</option>
-                                                                            <option value="0">No a contributor</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- R ight side -->
-                                                        <div class="col-md-6">
 
                                                             <!-- Street address details -->
                                                             <div class="fms-panel ">

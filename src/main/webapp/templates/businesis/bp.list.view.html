@@ -1,0 +1,204 @@
+﻿<div class="skin-blue wysihtml5-supported pace-done font-size-large"
+      style="margin-top: 50px; min-height: 1172px; font-size: 14px; background: rgb(249, 249, 249);">
+
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%"
+         data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+
+    <div ng-include="'templates/home/businesis.header.html'"></div>
+    <div ng-include="'templates/home/businesis.admin.menu.html'"></div>
+
+<aside class="right-side">
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info" style="">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="font-size: 28px; color: black;">
+                            Business Partner List
+                        </h3>
+                    </div>
+                    <div class="panel-body" style="padding: 10px;">
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-pills cat-tabs">
+
+                                    <li class="active ">
+                                        <a
+                                           data-toggle="tab" style="color: black;">
+                                            <span class="glyphicon glyphicon-inbox"></span>
+                                            Business Partners
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                                <hr style="background-color: #FF9900; border: 1px solid #FF9900;">
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="user_details">
+
+                                        <!-- Simple Form -->
+                                        <form class="form-horizontal " role="form"
+                                              method="POST"
+                                              data-toggle="validator" style="margin-left: 20px;">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-md-10">
+
+                                                        <div class="table-responsive">
+                                                            <div id="saveMemberMinDetails_tbl_wrapper"
+                                                                 class="dataTables_wrapper no-footer">
+                                                                <!--<div class="dataTables_length"-->
+                                                                     <!--id="saveMemberMinDetails_tbl_length"><label>Show-->
+                                                                    <!--entries <select-->
+                                                                            <!--name="saveMemberMinDetails_tbl_length"-->
+                                                                            <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                            <!--class="">-->
+                                                                        <!--<option value="10">10</option>-->
+                                                                        <!--<option value="25">25</option>-->
+                                                                        <!--<option value="50">50</option>-->
+                                                                        <!--<option value="100">100</option>-->
+                                                                    <!--</select> </label></div>-->
+                                                                <!--<div id="saveMemberMinDetails_tbl_filter"-->
+                                                                     <!--class="dataTables_filter"><label>Search:<input-->
+                                                                        <!--type="search" class=""-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"></label>-->
+                                                                <!--</div>-->
+
+                                                                <table id="saveMemberMinDetails_tbl"
+                                                                       class="table table-condensed table table-striped table-hover table-bordered dataTable no-footer"
+                                                                       role="grid">
+
+                                                                    <thead>
+                                                                    <tr role="row">
+                                                                        <th class="sorting_asc" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-sort="ascending"
+                                                                            aria-label="Company name: activate to sort column ascending"
+                                                                            style="width: 415px;">Business Partner Name
+                                                                        </th>
+                                                                        <th class="sorting" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-label="Trading as: activate to sort column ascending"
+                                                                            style="width: 312px;">Trading As
+                                                                        </th>
+                                                                        <th class="sorting" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-label="Registration number: activate to sort column ascending"
+                                                                            style="width: 219px;">Registration Number
+                                                                        </th>
+                                                                        <th class="sorting" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-label=": activate to sort column ascending"
+                                                                            style="width: 202px;"></th>
+
+                                                                        <th class="sorting" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-label=": activate to sort column ascending"
+                                                                            style="width: 202px;"></th>
+                                                                    </tr>
+                                                                    </thead>
+
+
+                                                                    <tbody>
+
+                                                                        <tr ng-repeat="bp in vm.bpList" role="row" class="odd" >
+
+                                                                            <td class="sorting_1">{{bp.companyName}}</td>
+                                                                            <td>{{bp.tradingAs}}</td>
+                                                                            <td>{{bp.registrationNumber}}</td>
+                                                                            <td>
+                                                                                <a type="button" name="" ng-click="vm.addNewCompany(bp)"
+                                                                                   class="btn btn-primary btn-sm btn-block"
+                                                                                   style="font-size: 14px; color: black;">
+                                                                                    Edit Business Partner
+                                                                                </a>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a type="button" name="" ng-click="vm.viewCompanyList(bp)"
+                                                                                   class="btn btn-primary btn-sm btn-block"
+                                                                                   style="font-size: 14px; color: black;">
+                                                                                    Add New Company
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+                                                                <!--<div class="dataTables_paginate paging_simple_numbers"-->
+                                                                     <!--id="saveMemberMinDetails_tbl_paginate"><a-->
+                                                                        <!--class="paginate_button previous disabled"-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="0" tabindex="0"-->
+                                                                        <!--id="saveMemberMinDetails_tbl_previous">Previous</a><span><a-->
+                                                                        <!--class="paginate_button current"-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="1" tabindex="0">1</a><a-->
+                                                                        <!--class="paginate_button "-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="2" tabindex="0">2</a><a-->
+                                                                        <!--class="paginate_button "-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="3" tabindex="0">3</a><a-->
+                                                                        <!--class="paginate_button "-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="4" tabindex="0">4</a></span><a-->
+                                                                        <!--class="paginate_button next"-->
+                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
+                                                                        <!--data-dt-idx="5" tabindex="0"-->
+                                                                        <!--id="saveMemberMinDetails_tbl_next">Next</a>-->
+                                                                <!--</div>-->
+                                                            </div>
+                                                        </div>
+
+                                                        <script type="text/javascript">
+                                                            $(document).ready(function () {
+                                                               /* $('#saveMemberMinDetails_tbl').dataTable({
+                                                                    "paging": false,
+                                                                    "ordering": true,
+                                                                    "info": false
+                                                                });*/
+                                                            });
+
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</aside>
+</div>

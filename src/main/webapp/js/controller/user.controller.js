@@ -24,8 +24,10 @@
 
         vm.tab = 1;
 
-
         (function initController() {
+            //path will be /person/show/321/, and array looks like: ["","person","show","321",""]
+            // var pId = $location.path().split("/")[3]||"Unknown";
+
             // reset register form
             loadCurrentUser();
             loadAllUsers();
@@ -50,19 +52,19 @@
                 });
         }
 
-        function addEditUser(pUserToEdit) {
-            if (pUserToEdit) {
-                SharedProperties.setUser(pUserToEdit);
-            }
-            $location.path('/addEditUser');
-        }
-
         function addEditAdmin(pUserToEdit) {
             if (pUserToEdit) {
                 SharedProperties.setUser(pUserToEdit);
             }
-            $location.path('/addEditUser');
+            $location.path('/addEditAdmin');
         }
+
+        // function addEditUser(pUserToEdit) {
+        //     if (pUserToEdit) {
+        //         SharedProperties.setUser(pUserToEdit);
+        //     }
+        //     $location.path('/addEditUser');
+        // }
 
         function saveUser() {
             vm.dataLoading = true;

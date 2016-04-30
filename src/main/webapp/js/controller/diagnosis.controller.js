@@ -128,6 +128,10 @@
             console.log(vm.Governance);
             SharedProperties.setGovernance(vm.Governance);
 
+            var url = $location.url();
+            console.log($location.path());
+            console.log(url);
+
             // todo: send this to the db, rest call.
             // BpService.saveGovernance(vm.Governance);
 

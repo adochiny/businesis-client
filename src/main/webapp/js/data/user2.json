@@ -17,7 +17,7 @@ var x = {
         "updatedby": 100,
         "roleId": 51,
         "name": "Admin",
-        "description": null,
+        "description": "Admin",
         "userList": []
         },
 
@@ -43,3 +43,161 @@ var x = {
 
     "address": null
 };
+
+
+{
+    "isactive": true,
+    "createdby": "100", "updatedby": "100",
+    "username": "bat@fnb.co.za", "firstName": "Adonis",
+    "firstName1": null, "firstName2": null, "firstName3": null,
+    "surname": "Mhlanga", "password": "bat123", "idNumber": null,
+    "dateOfBirth": 1434277284914, "gender": null, "title": null,
+    "notes": null, "jobTitle": null, "description": null,
+
+"userRole": {
+    "createdby": "100",
+    "updatedby": "100",
+    "isactive": true,
+    "name": "Admin",
+    "description": "Admin",
+    "userList": []
+    },
+
+"organisation": null,
+
+"contactDetails": {
+    "isactive": true,
+    "createdby": "100",
+    "updatedby": "100",
+    "workNumber": null,
+    "homeNumber": null,
+    "cellNumber": "0728030942",
+    "otherNumber": null,
+    "faxNumber": null,
+    "email": "adochiny@gmail.com",
+    "website": null,
+    "twitter": "@adochiny",
+    "facebook": null,
+    "linkedin": null },
+
+"address": {
+    "addressType": "Physical",
+    "createdby": "100",
+    "updatedby": "100",
+    "isactive": true,
+    "streetName": "252 long ave",
+    "postalCode": "2911",
+    "townCity": "roodeport",
+    "country": "SA",
+    "suburb": "ruimsig"}
+}
+
+// response from create COMPANY.------------------------------------------------------------------------------------------
+
+{
+"name":"Batanai Contruction",
+"tradingAs":"Batanai",
+"registrationNumber":"BAT 2525252",
+"registartionType":"CC",
+"dateOfRegistration":1434277284914,
+"industry":"IT",
+"yearsInBusiness":"2",
+"numberOfEmployees":"4",
+"annualTurnover":"ZAR30000",
+"incomeTaxNumber":"4585485",
+"vatNumber":"",
+"payeNumber":"",
+"uifNumber":"",
+"coidNumber":"",
+"professionalStandardsNumber":"",
+"beeContributer":"",
+"bbbeeCertificateNumber":"",
+"bbbeeStatusLevel":"",
+
+"userReference": null,
+        "isactive": true,
+        "createdby": 100,
+        "updatedby": 100,
+
+
+    "contactDetails": {
+        "userReference": null,
+        "isactive": true,
+        "createdby": 100,
+        "updatedby": 100,
+        "workNumber": null,
+        "homeNumber": null,
+        "cellNumber": "0728030942",
+        "otherNumber": null,
+        "faxNumber": null,
+        "email": "adochiny@gmail.com",
+        "website": null,
+        "twitter": "@adochiny",
+        "facebook": null,
+        "linkedin": null
+        },
+
+    "addresses":[{
+        "userReference": null,
+        "isactive": true,
+        "createdby": 100,
+        "updatedby": 100,
+        "addressType": "Postal",
+        "complexName": null,
+        "poBox": null,
+        "unitNumber": null,
+        "houseNumber": null,
+        "streetName": "PO box 234",
+        "postalCode": "2911",
+        "erfNumber": null,
+        "portionNumber": null,
+        "country": "SA",
+        "province": null,
+        "townCity": "roodeport",
+        "suburb": "ruimsig",
+        "anotherNumber": null
+        },
+        {
+        "userReference": null,
+        "isactive": true,
+        "createdby": 100,
+        "updatedby": 100,
+        "addressType": "Physical",
+        "complexName": null,
+        "poBox": null,
+        "unitNumber": null,
+        "houseNumber": null,
+        "streetName": "252 long ave",
+        "postalCode": "2911",
+        "erfNumber": null,
+        "portionNumber": null,
+        "country": "SA",
+        "province": null,
+        "townCity": "roodeport",
+        "suburb": "ruimsig",
+        "anotherNumber": null
+        }]
+     }
+
+
+// response from create user.------------------------------------------------------------------------------------------
+
+     {
+        "diagnosisId":null,
+        "companyId":"1",
+        "companySection":"Governance",
+        "companySectionId":"1_Governance",
+        "q1": 1,
+        "q2": 1,
+        "q3": 2,
+        "q4": 1,
+        "q5": 1,
+        "q6": 3,
+        "q7": 3,
+        "q8": 3,
+        "q9": 4,
+        "q10": 4,
+        "q11": 4,
+        "q12": 4,
+        "q13": 4
+     }

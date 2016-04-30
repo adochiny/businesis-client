@@ -16,7 +16,7 @@
                 controller: 'LandingListBpsController',
                 //templateUrl: 'templates/home/home.view.html',
                 //templateUrl: 'templates/businesis/add.new.ass.bp.view.html',
-                templateUrl: 'templates/businesis/landing.list.bps.view.html',
+                templateUrl: 'templates/businesis/bp.list.view.html',
                 controllerAs: 'vm'
             })
             .when('/login', {
@@ -25,23 +25,43 @@
                 controllerAs: 'vm'
             })
 
-            // Add New Bp. ---------------------------------------------------------------------------------------------
+            // Business partner. ---------------------------------------------------------------------------------------------
+            .when('/bpList', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/bp.list.view.html',
+                controllerAs: 'vm'
+            })
             .when('/addEditBp', {
                 controller: 'LandingListBpsController',
                 templateUrl: 'templates/businesis/add.new.bp.view.html',
                 controllerAs: 'vm'
             })
-
+            // todo: the below one (LandingBpList) has to die.
+            /* .when('/LandingBpList', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/old.landing.list.bps.view.html',
+                controllerAs: 'vm'
+            })*/
+            // Business partner. ---------------------------------------------------------------------------------------------
+            // System admin . ------------------------------------------------------------------------------------------------
             .when('/addEditAdmin', {
                 controller: 'UserController',
                 templateUrl: 'templates/businesis/add.new.admin.view.html',
                 controllerAs: 'vm'
             })
+            .when('/adminList', {
+                controller: 'UserController',
+                templateUrl: 'templates/businesis/admin.list.view.html',
+                controllerAs: 'vm'
+            })
+            // System admin . ---------------------------------------------------------------------------------------------
+            // Bp Company . ---------------------------------------------------------------------------------------------
 
-            // Add new Bp, Business and business user. -----------------------------------------------------------------
-            .when('/LandingBpList', {
+            // Todo: the 2 below addNewCompany, addNewCompanyUser should probably be
+            // removed as they should only be accessed via the Bp and company then user.
+            .when('/companyList', {
                 controller: 'LandingListBpsController',
-                templateUrl: 'templates/businesis/landing.list.bps.view.html',
+                templateUrl: 'templates/businesis/company.list.view.html',
                 controllerAs: 'vm'
             })
             .when('/addNewCompany', {
@@ -50,11 +70,32 @@
                 controllerAs: 'vm'
             })
 
+            // Bp Company . ---------------------------------------------------------------------------------------------
+            //  Business and business user. ---------------------------------------------------------------------------------------------
             .when('/addNewCompanyUser', {
                 controller: 'LandingListBpsController',
                 templateUrl: 'templates/businesis/add.new.company.user.view.html',
                 controllerAs: 'vm'
             })
+
+            // bp list for Pending/Diagnosed companies
+            // this is coming from the menu.
+            .when('/bpListPending', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/bp.list.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/bpListDiagnosed', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/bp.list.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/companyListPendingDiagnosed', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/company.list.view.html',
+                controllerAs: 'vm'
+            })
+            //  Business user. ---------------------------------------------------------------------------------------------
 
             // Business Diagnosis --------------------------------------------------------------------------------------
             /*
@@ -143,6 +184,9 @@
                 templateUrl: 'templates/diagnosis/risk.management.view.html',
                 controllerAs: 'vm'
             })
+
+            // Business Old stuff --------------------------------------------------------------------------------------
+
 
             .when('/viewUserList', {
                 controller: 'UserController',
@@ -260,8 +304,10 @@
             .otherwise({ redirectTo: '/login' });
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http','$httpBackend'];
+    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
     function run($rootScope, $location, $cookieStore, $http) {
+
+        // $locationProvider.html5Mode(true);
 
         // Set the template path for all instances
         // acuteSelectService.updateSetting("templatePath", "lib/acute");
