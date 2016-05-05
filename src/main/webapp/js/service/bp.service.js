@@ -12,9 +12,13 @@
         service.GetAllBps = GetAllBps;
         service.SaveBp = SaveBp;
 
+        service.GetAllCompanies = GetAllCompanies;
         service.SaveCompany = SaveCompany;
-        service.saveCompanyUser = saveCompanyUser;
+        service.SaveCompanyUser = SaveCompanyUser;
+        service.GetBpById = GetBpById;
+        service.GetCompanyUserByParentId = GetCompanyUserByParentId;
 
+        service.GetAllCompanyDiagnosis = GetAllCompanyDiagnosis;
        /*
         service.GetById = GetById;
         service.GetByUsername = GetByUsername;
@@ -34,8 +38,9 @@
         // http://localhost:8080/aManager/user-management/users/adonis
 
         function GetAllBps() {
-            /*return $http.get('http://localhost:8080/risk-rev/user-management/users')
-                .then(handleSuccess, handleError('Error getting all users'));*/
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-company-bp/BP')
+                        .then(handleSuccess, handleError('Error getting all Business Partners'));
+            /*
             var deferred = $q.defer();
 
             deferred.resolve({success: true,data: [{
@@ -51,15 +56,32 @@
                 "userId": 5,
                 "created": "2015-06-14", "updated": "2015-06-14", "isactive": true,
                 "createdby": 100, "updatedby": 100}]});
-            return deferred.promise;
+            return deferred.promise;*/
         }
 
-        function GetById(id) {
-            return $http.get('/api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        function GetAllCompanies(parentId) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-company-for-bp/'+parentId)
+                        .then(handleSuccess, handleError('Error getting all Companies'));
+        }
+
+        function GetAllCompanyDiagnosis(parentId, companySection) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-diagnosis-section-for-company/'+parentId + '/' + companySection)
+                        .then(handleSuccess, handleError('Error getting all Company Diagnosis'));
+        }
+
+        function GetBpById(id) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-company-bp-id/' + id)
+                .then(handleSuccess, handleError('Error getting company by id'));
+        }
+
+        function GetCompanyUserByParentId(id) {
+            return $http.get('http://localhost:8081/businesis/user-management/company-user/' + id)
+                .then(handleSuccess, handleError('Error getting company user by parent id'));
         }
 
         function GetByUsername(username) {
-            return $http.get('http://localhost:8080/risk-rev/user-management/users/username/' + username).then(handleSuccess, handleError('Error getting user by username'));
+            return $http.get('http://localhost:8081/businesis/user-management/users/username/' + username)
+                .then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function AuthenticateUsername(username, password) {
@@ -131,13 +153,15 @@
 
         function SaveBp(bp) {
             console.log(bp);
-            // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user)
-            // .then(handleSuccess, handleError);
+            return $http.post('http://localhost:8081/businesis/company-bp/create-update-company-bp', bp)
+                .then(handleSuccess, handleError);
+            /*
             var deferred = $q.defer();
-            deferred.notify('About to return ' + bp + '.');
+            deferred.notify('About to save ' + bp + '.');
             deferred.resolve(bp);
             // deferred.reject('Greeting ' + name + ' is not allowed.');
             return deferred.promise;
+            */
         }
 
         function SaveCompany (company) {
@@ -151,15 +175,17 @@
             return deferred.promise;
         }
 
-        function saveCompanyUser (companyUser) {
+        function SaveCompanyUser (companyUser) {
             console.log(companyUser);
-            // return $http.post('http://localhost:8080/risk-rev/user-management/create-update-user', user)
-            // .then(handleSuccess, handleError);
+             return $http.post('http://localhost:8081/businesis/user-management/create-update-user', companyUser)
+             .then(handleSuccess, handleError);
+
+            /*
             var deferred = $q.defer();
             deferred.notify('About to return ' + companyUser + '.');
             deferred.resolve(companyUser);
             // deferred.reject('Greeting ' + name + ' is not allowed.');
-            return deferred.promise;
+            return deferred.promise;*/
         }
 
 

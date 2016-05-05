@@ -21,7 +21,7 @@
                 <div class="panel panel-info" style="">
                     <div class="panel-heading">
                         <h3 class="panel-title" style="font-size: 28px; color: black;">
-                            Company List
+                            Company List for AdoChiny {{bp.companyName}}
                         </h3>
                     </div>
                     <div class="panel-body" style="padding: 10px;">
@@ -104,6 +104,12 @@
                                                                             rowspan="1" colspan="1"
                                                                             aria-label=": activate to sort column ascending"
                                                                             style="width: 202px;"></th>
+
+                                                                        <th class="sorting" tabindex="0"
+                                                                            aria-controls="saveMemberMinDetails_tbl"
+                                                                            rowspan="1" colspan="1"
+                                                                            aria-label=": activate to sort column ascending"
+                                                                            style="width: 202px;"></th>
                                                                     </tr>
                                                                     </thead>
 
@@ -116,10 +122,17 @@
                                                                             <td>{{company.tradingAs}}</td>
                                                                             <td>{{company.registrationNumber}}</td>
                                                                             <td>
-                                                                                <a type="button" name="" ng-click="vm.addNewCompany(bp)"
+                                                                                <a type="button" name="" ng-click="vm.addNewCompany(company)"
                                                                                    class="btn btn-primary btn-sm btn-block"
                                                                                    style="font-size: 14px; color: black;">
                                                                                     Edit Company
+                                                                                </a>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a type="button" name="" ng-click="vm.addEditCompanyUser(company)"
+                                                                                   class="btn btn-primary btn-sm btn-block"
+                                                                                   style="font-size: 14px; color: black;">
+                                                                                    Add/Edit Company User
                                                                                 </a>
                                                                             </td>
                                                                         </tr>
@@ -127,29 +140,6 @@
                                                                     </tbody>
                                                                 </table>
 
-                                                                <!--<div class="dataTables_paginate paging_simple_numbers"-->
-                                                                     <!--id="saveMemberMinDetails_tbl_paginate"><a-->
-                                                                        <!--class="paginate_button previous disabled"-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="0" tabindex="0"-->
-                                                                        <!--id="saveMemberMinDetails_tbl_previous">Previous</a><span><a-->
-                                                                        <!--class="paginate_button current"-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="1" tabindex="0">1</a><a-->
-                                                                        <!--class="paginate_button "-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="2" tabindex="0">2</a><a-->
-                                                                        <!--class="paginate_button "-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="3" tabindex="0">3</a><a-->
-                                                                        <!--class="paginate_button "-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="4" tabindex="0">4</a></span><a-->
-                                                                        <!--class="paginate_button next"-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                        <!--data-dt-idx="5" tabindex="0"-->
-                                                                        <!--id="saveMemberMinDetails_tbl_next">Next</a>-->
-                                                                <!--</div>-->
                                                             </div>
                                                         </div>
 

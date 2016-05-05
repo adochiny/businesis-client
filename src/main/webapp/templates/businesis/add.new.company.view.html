@@ -202,7 +202,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.VATNumber"
+                                                                               ng-model="vm.company.vatNumber"
                                                                                placeholder="VAT Number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -214,7 +214,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.PAYENumber"
+                                                                               ng-model="vm.company.payeNumber"
                                                                                placeholder="PAYE Number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -226,7 +226,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.UIFNumber"
+                                                                               ng-model="vm.company.uifNumber"
                                                                                placeholder="UIF Number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -238,7 +238,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.COIDNumber"
+                                                                               ng-model="vm.company.coidNumber"
                                                                                placeholder="COID Number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -279,7 +279,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input type="text"
-                                                                               ng-model="vm.company.BBBEECertificateNumber"
+                                                                               ng-model="vm.company.bbbeeCertificateNumber"
                                                                                placeholder="B-BBEE Certificate Number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -304,7 +304,7 @@
                                                                         BEE Level
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <select id="beeLevel" ng-model="vm.company.BBBEEStatusLevel"
+                                                                        <select id="beeLevel" ng-model="vm.company.bbbeeStatusLevel"
                                                                                 class="form-control">
                                                                             <option value="1">1</option>
                                                                             <option value="2">2</option>
@@ -337,7 +337,7 @@
                                                                         Email
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="email" ng-model="vm.company.contact.email"
+                                                                        <input id="email" ng-model="vm.company.contactDetails.email"
                                                                                type="email"
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
@@ -355,7 +355,7 @@
 
                                                                     <div class="col-md-8  ">
                                                                         <input id="workTelephone"
-                                                                               ng-model="vm.company.contact.workNumber" type="text"
+                                                                               ng-model="vm.company.contactDetails.workNumber" type="text"
                                                                                placeholder="Work telephone"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -369,7 +369,7 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="homeTelephone"
-                                                                               ng-model="vm.company.contact.homeNumber" type="text"
+                                                                               ng-model="vm.company.contactDetails.homeNumber" type="text"
                                                                                placeholder="Home telephone"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -384,7 +384,7 @@
                                                                     </label>
 
                                                                     <div class="col-md-8  ">
-                                                                        <input id="cellphone" ng-model="vm.company.contact.cellNumber"
+                                                                        <input id="cellphone" ng-model="vm.company.contactDetails.cellNumber"
                                                                                type="text"
                                                                                placeholder="Cellphone"
                                                                                class="form-control input-md">
@@ -397,6 +397,7 @@
                                                             <!-- Street address details -->
                                                             <div class="fms-panel ">
 
+                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="Street_address">
@@ -404,12 +405,11 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="Street_address"
-                                                                               ng-model="vm.company.sAddress.address1" type="text"
+                                                                               ng-model="vm.company.address.sstreetName" type="text"
                                                                                placeholder="Street address"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -417,13 +417,12 @@
                                                                         Surburb
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="surburb" ng-model="vm.company.sAddress.surburb"
+                                                                        <input id="surburb" ng-model="vm.company.address.ssuburb"
                                                                                type="text"
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
-
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -431,29 +430,31 @@
                                                                         City
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="city" ng-model="vm.company.sAddress.city"
+                                                                        <input id="city" ng-model="vm.company.address.stownCity"
                                                                                type="text" placeholder="City"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="country">
                                                                         County
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="country" ng-model="vm.company.sAddress.country"
+                                                                        <input id="country" ng-model="vm.company.address.scountry"
                                                                                type="text" placeholder="County"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="code">
                                                                         Code
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="code" ng-model="vm.company.sAddress.addressCode"
+                                                                        <input id="code" ng-model="vm.company.address.spostalCode"
                                                                                type="text" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
@@ -463,6 +464,7 @@
 
                                                             <!-- Postal address details -->
                                                             <div class="fms-panel ">
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
@@ -470,36 +472,39 @@
                                                                         Postal address
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_address" ng-model="vm.company.pAddress.address1"
+                                                                        <input id="p_address" ng-model="vm.company.address.pstreetName"
                                                                                type="text"
                                                                                placeholder="Address"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="p_surburb">
                                                                         Surburb
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_surburb" ng-model="vm.company.pAddress.surburb"
+                                                                        <input id="p_surburb" ng-model="vm.company.address.psuburb"
                                                                                type="text"
                                                                                placeholder="Surburb"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="p_city">
                                                                         City
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_city" ng-model="vm.company.pAddress.city"
+                                                                        <input id="p_city" ng-model="vm.company.address.ptownCity"
                                                                                type="text" placeholder="City"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
@@ -507,18 +512,19 @@
                                                                         County
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_country" ng-model="vm.company.pAddress.country"
+                                                                        <input id="p_country" ng-model="vm.company.address.pcountry"
                                                                                type="text" placeholder="County"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label" for="p_code">
                                                                         Code
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="p_code" ng-model="vm.company.pAddress.addressCode"
+                                                                        <input id="p_code" ng-model="vm.company.address.ppostalCode"
                                                                                type="text" placeholder="Code"
                                                                                pattern="\d{4}" maxlength="4"
                                                                                class="form-control input-md">
@@ -528,8 +534,9 @@
 
                                                         </div>
                                                     </div>
+
                                                     <div class="row">
-                                                        <div class="col-sm-6 col-md-6">
+                                                        <div class="col-sm-3 col-md-3">
                                                             <!-- form Group -->
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label" for="btn-grp1">
@@ -539,32 +546,35 @@
                                                                     <div id="btn-grp1">
                                                                         <button type="submit"
                                                                                 ng-disabled="form.$invalid || vm.dataLoading"
+                                                                                ng-click="vm.viewCompanyList(vm.bp)"
                                                                                 name="saveBusinessPartner"
                                                                                 style="font-size: 14px; color: black;"
-                                                                                class="btn btn-primary btn-lg"
-                                                                                >
+                                                                                class="btn btn-primary btn-lg">
                                                                             Save company
                                                                         </button>
 
-                                                                        <!--<button type="submit"-->
-                                                                                <!--ng-disabled="form.$invalid || vm.dataLoading"-->
-                                                                                <!--class="btn btn-primary btn-sm">Save business</button>-->
-
-                                                                        <img ng-if="vm.dataLoading"
-                                                                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-
-                                                                        <!--<button id="saveBusinessPartner_btn"-->
-                                                                                <!--name="saveBusinessPartner"-->
-                                                                                <!--style="font-size: 14px; color: black;  "-->
-                                                                                <!--target="" type="submit"-->
-                                                                                <!--class="btn btn-primary btn-lg"-->
-                                                                                <!--disabled="disabled">-->
-                                                                            <!--Save business-->
-                                                                        <!--</button>-->
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <!--<div class="col-sm-3 col-md-3">-->
+                                                             <!-- -->
+                                                            <!--<div class="form-group">-->
+                                                                <!--<div class="col-md-12  ">-->
+                                                                    <!--<div id="btn-grp2">-->
+                                                                        <!--<button -->
+                                                                                <!--ng-click="vm.viewCompanyList(vm.bp)"-->
+                                                                                <!--name="saveBusinessPartner"-->
+                                                                                <!--style="font-size: 14px; color: black;"-->
+                                                                                <!--class="btn btn-primary btn-lg">-->
+                                                                            <!--Save company-->
+                                                                        <!--</button>-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+
                                                     </div>
 
                                                 </fieldset>

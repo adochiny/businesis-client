@@ -86,7 +86,19 @@
         vm.breadcrumbs = ["Home","User profile","User details"];
 
         (function initController() {
-            // todo: load Company linked to this user.
+            // todo: load Company linked to this currentUser.
+             if (!(vm.Company) || !(vm.Company.companyBusinessId)) {
+                // load company linked to this currentUser.
+                if ($rootScope.globals.currentUser.parentId) {
+                    BpService.GetBpById($rootScope.globals.currentUser.parentId)
+                        .then(function (comp) {
+                            SharedProperties.setCompany(comp.data);
+                            vm.Company = comp.data;
+                            //$location.path('/diagnoseCompany');
+                        });
+                }
+
+            }
             // loadAllUsers();
         })();
 
@@ -103,17 +115,32 @@
         function saveCompany() {
             vm.dataLoading = true;
             console.log(vm.Company);
-            SharedProperties.setCompany(vm.Company);
 
-            // todo: save Company details.
-            // BpService.saveCompany(vm.Company);
-            //AssetService.GetAllAssetTypes()
-            //    .then(function (assetTypes) {
-            //        vm.allAssetTypes = assetTypes.data;
-            //    });
+            // make company status inprogress
+            vm.Company.status = 'INPROGRESS';
+            SharedProperties.setCompany(vm.Company);
+            // save to db
+            BpService.SaveBp(vm.Company)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'Governance', 'diagnoseGovernance', GovernanceCallback));
+
             flash(['Saved Company : ' + vm.Company ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseGovernance');
+           // $location.path('/diagnoseGovernance');
+        }
+
+        function GovernanceCallback(diagnosis) {
+            vm.Governance = diagnosis.data;
+            SharedProperties.setGovernance(diagnosis.data);
+        }
+
+        function loadAllCompanyDiagnosis(parentId, companySection, pageToNav, callback) {
+            return BpService.GetAllCompanyDiagnosis(parentId, companySection)
+                .then(function (diagnosis) {
+                    callback(diagnosis);
+                    if (pageToNav) {
+                        vm.navigateToPage(pageToNav);
+                    }
+                });
         }
 
 // ---------------------- Governance diagnosis ----------------------------------------------------------------------------

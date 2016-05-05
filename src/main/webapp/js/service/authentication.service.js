@@ -5,8 +5,8 @@
         .module('eManager')
         .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService'];
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
+    AuthenticationService.$inject = ['$location','$http', '$cookieStore', '$rootScope', '$timeout', 'UserService'];
+    function AuthenticationService($location, $http, $cookieStore, $rootScope, $timeout, UserService) {
         var service = {};
 
         service.Login = Login;
@@ -30,6 +30,10 @@
                         response = { success: false, message: 'Login details are incorrect' };
                     }
                     callback(response);
+                    //
+                    if (response.user.userType == 'company_user') {
+                        $location.path('/diagnoseCompany');
+                    }
                 });
 
 

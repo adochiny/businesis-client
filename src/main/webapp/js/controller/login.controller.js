@@ -5,8 +5,8 @@
         .module('eManager')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location','$window', 'AuthenticationService', '$rootScope', '$route', 'flash'];
-    function LoginController($location, $window, AuthenticationService, $rootScope, $route, flash) {
+    LoginController.$inject = ['$location','$window', 'AuthenticationService','BpService','SharedProperties', '$rootScope', '$route', 'flash'];
+    function LoginController($location, $window, AuthenticationService, BpService, SharedProperties, $rootScope, $route, flash) {
         var vm = this;
 
         vm.user = null;
@@ -29,10 +29,25 @@
                     //
                     $route.reload();
                     $window.location.reload();
-                    $location.path('/');
+
+                    // Todo: depending on the userType either open home or company diagnosis.
+                    if (response.user.userType == 'company_user') {
+                        // load the company into the cache and open dignose company page.
+                        if (response.user.parentId) {
+                            BpService.GetBpById(response.user.parentId)
+                                .then(function (comp) {
+                                    SharedProperties.setCompany(comp.data);
+                                });
+                        }
+                        $location.path('/diagnoseCompany');
+                    } else {
+                        $location.path('/');
+                    }
 
                 } else {
-                    flash('There was an error user not logged in, if this persist contact Administrator');
+                    vm.error = true;
+                    vm.errorMessage = 'There was an error user not logged in, if this persist contact Administrator.';
+                    flash('There was an error user not logged in, if this persist contact Administrator.');
                     vm.dataLoading = false;
                 }
             });

@@ -99,64 +99,7 @@
             var userDto = {};
             userDto.username = username;
             userDto.password = password;
-            // return $http.post('http://localhost:8080/risk-rev/user-management/authenticate-username', userDto).then(handleSuccess, handleError('Error auth by username'));
-
-            var deferred = $q.defer();
-            /*$http.get('/api/v1/movies/' + movie)
-                .success(function(data) {
-                    deferred.resolve({
-                            title: data.title,
-                    cost: data.price});
-            }).error(function(msg, code) {
-                deferred.reject(msg);
-                $log.error(msg, code);
-            });*/
-            deferred.resolve({success: true,data:  {
-                "userId": 51,
-                "created": "2015-06-14", "updated": "2015-06-14", "isactive": true,
-                "createdby": 100, "updatedby": 100,
-                "username": "adonis@fnb.co.za", "firstName": "Adonis",
-                "firstName1": null, "firstName2": null, "firstName3": null,
-                "surname": "Mhlanga", "password": "123", "idNumber": null,
-                "dateOfBirth": 1434277284914, "gender": null, "title": null,
-                "notes": null, "jobTitle": null, "description": null,
-
-                "userRole": {
-                    "created": "2015-06-14",
-                    "updated": "2015-06-14",
-                    "isactive": true,
-                    "createdby": 100,
-                    "updatedby": 100,
-                    "roleId": 51,
-                    "name": "Admin",
-                    "description": null,
-                    "userList": []
-                },
-
-                "organisation": null,
-
-                "contactDetails": {
-                    "created": "2015-06-14",
-                    "updated": "2015-06-14",
-                    "isactive": true,
-                    "createdby": 100,
-                    "updatedby": 100,
-                    "contactDetailsId": 51,
-                    "workNumber": null,
-                    "homeNumber": null,
-                    "cellNumber": "0728030942",
-                    "otherNumber": null,
-                    "faxNumber": null,
-                    "email": "adochiny@gmail.com",
-                    "website": null,
-                    "twitter": "@adochiny",
-                    "facebook": null,
-                    "linkedin": null },
-
-                "address": null
-            }});
-            return deferred.promise;
-
+            return $http.post('http://localhost:8081/businesis/user-management/authenticate-user', userDto).then(handleSuccess, handleError('Error authenticate by username'));
         }
 
 

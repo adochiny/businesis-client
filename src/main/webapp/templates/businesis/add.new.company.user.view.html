@@ -44,7 +44,7 @@
                                         <div class="tab-pane fade in active" id="user_details">
 
                                             <!-- Simple error tag -->
-                                            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                                            <div ng-show="vm.error" class="alert alert-danger">{{vm.errorMessage}}</div>
 
                                             <form class="form-horizontal" role="form"
                                                   ng-submit="vm.saveCompanyUser()"
@@ -105,7 +105,7 @@
                                                                         Email
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="email" ng-model="vm.companyUser.contact.email"
+                                                                        <input id="email" ng-model="vm.companyUser.contactDetails.email"
                                                                                type="email"
                                                                                placeholder="Email address"
                                                                                data-error="Email entered is not valid"
@@ -120,7 +120,7 @@
                                                                         Cellphone
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="cellphone" ng-model="vm.companyUser.contact.cellNumber"
+                                                                        <input id="cellphone" ng-model="vm.companyUser.contactDetails.cellNumber"
                                                                                type="text"
                                                                                placeholder="Cellphone" required
                                                                                class="form-control input-md">

@@ -13,7 +13,7 @@
 
         vm.user = SharedProperties.getUser();
         vm.allUsers = [];
-        vm.addEditUser = addEditUser;
+        // vm.addEditUser = addEditUser;
 
         vm.addEditAdmin = addEditAdmin;
         vm.saveUser = saveUser;

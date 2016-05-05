@@ -113,16 +113,15 @@
                                                                     </tr>
                                                                     </thead>
 
-
                                                                     <tbody>
 
                                                                         <tr ng-repeat="bp in vm.bpList" role="row" class="odd" >
 
-                                                                            <td class="sorting_1">{{bp.companyName}}</td>
+                                                                            <td class="sorting_1">{{bp.name}}</td>
                                                                             <td>{{bp.tradingAs}}</td>
                                                                             <td>{{bp.registrationNumber}}</td>
                                                                             <td>
-                                                                                <a type="button" name="" ng-click="vm.addNewCompany(bp)"
+                                                                                <a type="button" name="" ng-click="vm.addEditBp(bp)"
                                                                                    class="btn btn-primary btn-sm btn-block"
                                                                                    style="font-size: 14px; color: black;">
                                                                                     Edit Business Partner
@@ -163,6 +162,30 @@
                                                                         <!--data-dt-idx="5" tabindex="0"-->
                                                                         <!--id="saveMemberMinDetails_tbl_next">Next</a>-->
                                                                 <!--</div>-->
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 col-md-6">
+                                                                        <!-- form Group -->
+                                                                        <div class="form-group">
+
+                                                                            <div class="col-md-12">
+                                                                                <div id="btn-grp1">
+                                                                                    <button type="submit"
+                                                                                            ng-click="vm.addEditBp()"
+                                                                                            name="saveBusinessPartner"
+                                                                                            style="font-size: 14px; color: black;"
+                                                                                            class="btn btn-primary btn-lg"
+                                                                                            >
+                                                                                        Add New Business Partner.
+                                                                                    </button>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
                                                             </div>
                                                         </div>
 

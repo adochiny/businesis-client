@@ -13,6 +13,8 @@
         var props = {};
 
         var bp = {};
+        var bpList = undefined;
+        var companyList = undefined;
         var company = {};
         var companyUser = {};
 
@@ -59,6 +61,11 @@
         props.getBp = getBp;
         props.setBp = setBp;
 
+        props.getBpList = getBpList;
+        props.setBpList = setBpList;
+
+        props.getCompanyList = getCompanyList;
+        props.setCompanyList = setCompanyList;
         props.getCompany = getCompany;
         props.setCompany = setCompany;
 
@@ -147,6 +154,10 @@
         props.getAllAssetWarehouses = getAllAssetWarehouses;
         props.setAllAssetWarehouses = setAllAssetWarehouses;
 
+
+        props.CacheProvider = CacheProvider;
+        // ex of use :  var reg = cache.get(c) || cache.set(c, new RegExp("(?:^|\\s+)" + c + "(?:\\s+|$)"));
+
         return props;
 
 
@@ -156,6 +167,20 @@
         }
         function setBp(value) {
             bp = value;
+        }
+
+        function getBpList() {
+            return bpList;
+        }
+        function setBpList(value) {
+            bpList = value;
+        }
+
+        function getCompanyList() {
+            return companyList;
+        }
+        function setCompanyList(value) {
+            companyList = value;
         }
 
         function getCompany() {
@@ -364,6 +389,69 @@
             return !str.replace(/^\s+/g, '').length;
         }
 
+        var CacheProvider = {
+            _cache:{},
 
+            /**
+             * {String} k - the key
+             * {Boolean} local - get this from local storage?
+             * {Boolean} o - is the value you put in local storage an object?
+             */
+            get: function(k, local, o) {
+                if (local && CacheProvider.hasLocalStorage) {
+                    var action = o ? 'getObject' : 'getItem';
+                    return localStorage[action](k) || undefined;
+                } else {
+                    return this._cache[k] || undefined;
+                }
+            },
+
+
+            /**
+             * {String} k - the key
+             * {Object} v - any kind of value you want to store
+             * however only objects and strings are allowed in local storage
+             * {Boolean} local - put this in local storage
+             */
+            set: function(k, v, local) {
+                if (local && CacheProvider.hasLocalStorage) {
+                    if (typeof v !== 'string') {
+                        // make assumption if it's not a string, then we're storing an object
+                        localStorage.setObject(k, v);
+                    } else {
+                        try {
+                            localStorage.setItem(k, v);
+                        } catch (ex) {
+                            if (ex.name == 'QUOTA_EXCEEDED_ERR') {
+                                // developer needs to figure out what to start invalidating
+                                throw new Exception(v);
+                                return;
+                            }
+                        }
+                    }
+                } else {
+                    // put in our local object
+                    this._cache[k] = v;
+                }
+                // return our newly cached item
+                return v;
+            },
+
+
+            /**
+             * {String} k - the key
+             * {Boolean} local - put this in local storage
+             * {Boolean} o - is this an object you want to put in local storage?
+             */
+            clear: function(k, local, o) {
+                if (local && CacheProvider.hasLocalStorage) {
+                    localStorage.removeItem(k);
+                }
+                // delete in both caches - doesn't hurt.
+                delete this._cache[k];
+            }
+
+
+        };
     }
 })();
