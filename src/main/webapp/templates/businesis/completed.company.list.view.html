@@ -57,22 +57,6 @@
                                                         <div class="table-responsive">
                                                             <div id="saveMemberMinDetails_tbl_wrapper"
                                                                  class="dataTables_wrapper no-footer">
-                                                                <!--<div class="dataTables_length"-->
-                                                                     <!--id="saveMemberMinDetails_tbl_length"><label>Show-->
-                                                                    <!--entries <select-->
-                                                                            <!--name="saveMemberMinDetails_tbl_length"-->
-                                                                            <!--aria-controls="saveMemberMinDetails_tbl"-->
-                                                                            <!--class="">-->
-                                                                        <!--<option value="10">10</option>-->
-                                                                        <!--<option value="25">25</option>-->
-                                                                        <!--<option value="50">50</option>-->
-                                                                        <!--<option value="100">100</option>-->
-                                                                    <!--</select> </label></div>-->
-                                                                <!--<div id="saveMemberMinDetails_tbl_filter"-->
-                                                                     <!--class="dataTables_filter"><label>Search:<input-->
-                                                                        <!--type="search" class=""-->
-                                                                        <!--aria-controls="saveMemberMinDetails_tbl"></label>-->
-                                                                <!--</div>-->
 
                                                                 <table id="saveMemberMinDetails_tbl"
                                                                        class="table table-condensed table table-striped table-hover table-bordered dataTable no-footer"
@@ -110,12 +94,6 @@
                                                                             rowspan="1" colspan="1"
                                                                             aria-label=": activate to sort column ascending"
                                                                             style="width: 202px;"></th>
-
-                                                                        <th class="sorting" tabindex="0"
-                                                                            aria-controls="saveMemberMinDetails_tbl"
-                                                                            rowspan="1" colspan="1"
-                                                                            aria-label=": activate to sort column ascending"
-                                                                            style="width: 202px;"></th>
                                                                     </tr>
                                                                     </thead>
 
@@ -129,17 +107,10 @@
                                                                             <td>{{company.registrationNumber}}</td>
                                                                             <td>{{company.dateOfRegistration}}</td>
                                                                             <td>
-                                                                                <a type="button" name="" ng-click="vm.addNewCompany(company)"
+                                                                                <a type="button" name="" ng-click="vm.viewCompanyCertificate(company)"
                                                                                    class="btn btn-primary btn-sm btn-block"
                                                                                    style="font-size: 14px; color: black;">
-                                                                                    Edit Company
-                                                                                </a>
-                                                                            </td>
-                                                                            <td>
-                                                                                <a type="button" name="" ng-click="vm.addEditCompanyUser(company)"
-                                                                                   class="btn btn-primary btn-sm btn-block"
-                                                                                   style="font-size: 14px; color: black;">
-                                                                                    Add/Edit Company User
+                                                                                    View Certificate
                                                                                 </a>
                                                                             </td>
                                                                         </tr>
@@ -152,63 +123,11 @@
 
                                                         <script type="text/javascript">
                                                             $(document).ready(function () {
-                                                               /* $('#saveMemberMinDetails_tbl').dataTable({
-                                                                    "paging": false,
-                                                                    "ordering": true,
-                                                                    "info": false
-                                                                });*/
                                                             });
 
                                                         </script>
                                                     </div>
                                                 </div>
-
-                                                <br/>
-                                                <div class="row">
-                                                    <div class="col-sm-6 col-md-6">
-                                                        <!-- form Group -->
-                                                        <div class="form-group">
-                                                            <!--<label class="col-md-2 control-label" for="btn-grp1">-->
-                                                            <!--</label>-->
-
-                                                            <div class="col-md-10  ">
-                                                                <div id="btn-grp1">
-                                                                    <!--<button type="submit"-->
-                                                                            <!--ng-disabled="form.$invalid || vm.dataLoading"-->
-                                                                            <!--name="saveBusinessPartner"-->
-                                                                            <!--style="font-size: 14px; color: black;"-->
-                                                                            <!--class="btn btn-primary btn-lg"-->
-                                                                        <!--Save company-->
-                                                                    <!--</button>-->
-
-                                                                    <a type="button" name="" ng-click="vm.addNewCompany()"
-                                                                       class="btn btn-primary btn-sm btn-block"
-                                                                       style="font-size: 14px; color: black;">
-                                                                        Add New Company
-                                                                    </a>
-
-
-                                                                    <!--<button type="submit"-->
-                                                                    <!--ng-disabled="form.$invalid || vm.dataLoading"-->
-                                                                    <!--class="btn btn-primary btn-sm">Save business</button>-->
-
-                                                                    <img ng-if="vm.dataLoading"
-                                                                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-
-                                                                    <!--<button id="saveBusinessPartner_btn"-->
-                                                                    <!--name="saveBusinessPartner"-->
-                                                                    <!--style="font-size: 14px; color: black;  "-->
-                                                                    <!--target="" type="submit"-->
-                                                                    <!--class="btn btn-primary btn-lg"-->
-                                                                    <!--disabled="disabled">-->
-                                                                    <!--Save business-->
-                                                                    <!--</button>-->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
 
                                             </fieldset>
                                         </form>

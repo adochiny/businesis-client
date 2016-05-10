@@ -22,11 +22,17 @@
 
         // Company details.
         vm.viewCompanyList = viewCompanyList;
+        vm.viewInProgressCompanyList = viewInProgressCompanyList;
+        vm.viewCompletedCompanyList = viewCompletedCompanyList;
         vm.companyList = SharedProperties.getCompanyList();
+        vm.viewCompanyCertificate = viewCompanyCertificate;
 
         vm.company = SharedProperties.getCompany();
         vm.addNewCompany = addNewCompany;
         vm.saveCompany = saveCompany;
+
+        // certs
+        vm.companyCert = SharedProperties.getCompanyCert();
 
         // Company User details.
         vm.companyUser = SharedProperties.getCompanyUser();
@@ -39,11 +45,22 @@
 
         (function initController() {
             loadCurrentUser();
-            // loadAllUsers();
-             loadAllBps();
-            /*if (!(SharedProperties.getBpList())) {
+
+            var bpListInProgressPage = $.inArray($location.path(), ['/bpListInProgress']) !== -1;
+            var bpListCompletedPage = $.inArray($location.path(), ['/bpListCompleted']) !== -1;
+            if (bpListInProgressPage) {
+                console.log("$location.path(): " + $location.path());
+                console.log("value of bpListInProgressPage: " + bpListInProgressPage);
+                loadInProgressBps();
+
+            } else if (bpListCompletedPage) {
+                loadCompletedBps();
+                console.log("$location.path(): " + $location.path());
+            } else {
+                console.log("$location.path(): " + $location.path());
                 loadAllBps();
-            }*/
+            }
+
         })();
 
         vm.navigateToPage = function (path){
@@ -59,6 +76,8 @@
             vm.currentUser = $rootScope.globals.currentUser;
         }
 
+        // depending on where the page is coming from.
+        //
         function loadAllBps() {
            return BpService.GetAllBps()
                 .then(function (bps) {
@@ -67,16 +86,55 @@
                 });
         }
 
-        function loadAllCompanies(parentId, pageToNav) {
-           return BpService.GetAllCompanies(parentId)
-                .then(function (companies) {
-                   vm.companyList = companies.data;
-                   SharedProperties.setCompanyList(companies.data);
-
-                   if (pageToNav) {
-                       vm.navigateToPage(pageToNav);
-                   }
+        function loadInProgressBps() {
+           return BpService.GetInProgressBps()
+                .then(function (bps) {
+                   vm.bpList = bps.data;
+                   SharedProperties.setBpList(bps.data);
                 });
+        }
+
+        function loadCompletedBps() {
+           return BpService.GetCompletedBps()
+                .then(function (bps) {
+                   vm.bpList = bps.data;
+                   SharedProperties.setBpList(bps.data);
+                });
+        }
+
+        function loadAllCompanies(parentId, pageToNav, pageFrom) {
+            if (pageFrom == 'IN_PROGRESS') {
+                return BpService.GetInProgressCompanies(parentId)
+                    .then(function (companies) {
+                        vm.companyList = companies.data;
+                        SharedProperties.setCompanyList(companies.data);
+
+                        if (pageToNav) {
+                            vm.navigateToPage(pageToNav);
+                        }
+                    });
+            } else if (pageFrom == 'COMPLETED') {
+                return BpService.GetCompleteCompanies(parentId)
+                    .then(function (companies) {
+                        vm.companyList = companies.data;
+                        SharedProperties.setCompanyList(companies.data);
+
+                        if (pageToNav) {
+                            vm.navigateToPage(pageToNav);
+                        }
+                    });
+            } else {
+                return BpService.GetAllCompanies(parentId)
+                    .then(function (companies) {
+                        vm.companyList = companies.data;
+                        SharedProperties.setCompanyList(companies.data);
+
+                        if (pageToNav) {
+                            vm.navigateToPage(pageToNav);
+                        }
+                    });
+            }
+
         }
 
 
@@ -146,6 +204,41 @@
         }
 
 //----- Create update new company ---------------------------------------------------------------
+
+        function viewInProgressCompanyList(value) {
+            SharedProperties.setBp(value);
+            // first load companies.
+            loadAllCompanies(SharedProperties.getBp().companyBusinessId, 'inprogressCompanyList', 'IN_PROGRESS');
+        }
+
+        function viewCompletedCompanyList(value) {
+            SharedProperties.setBp(value);
+            // first load companies.
+            loadAllCompanies(SharedProperties.getBp().companyBusinessId, 'completedCompanyList', 'COMPLETED');
+        }
+
+        function viewCompanyCertificate(company) {
+
+            SharedProperties.setCompany(company);
+            vm.company = company;
+
+            BpService.GetCompanyCerts(company.companyBusinessId)
+                .then(function (comp) {
+                    if (comp.data) {
+                        var compCert = {};
+                        compCert.data = comp.data;
+
+                        _.each(comp.data, function(cert) {
+                           console.log(cert);
+                            compCert[cert.companySection] = cert;
+                        });
+
+                        SharedProperties.setCompanyCert(compCert);
+                        vm.companyCert = compCert;
+                        vm.navigateToPage('viewCompanyCert');
+                    }
+                });
+        }
 
         function viewCompanyList(value) {
             SharedProperties.setBp(value);

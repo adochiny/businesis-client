@@ -25,7 +25,7 @@
          diagnose SalesMarketing
          diagnose InformationTechnology
          diagnose FinancialControlsManagement
-         diagnose TechnicalSiteVisit
+         //diagnose TechnicalSiteVisit
          diagnose IntellectualProperty
          diagnose RiskManagement
          */
@@ -40,7 +40,7 @@
         vm.SalesMarketing = SharedProperties.getSalesMarketing();
         vm.InformationTechnology = SharedProperties.getInformationTechnology();
         vm.FinancialControlsManagement = SharedProperties.getFinancialControlsManagement();
-        vm.TechnicalSiteVisit = SharedProperties.getTechnicalSiteVisit();
+        // vm.TechnicalSiteVisit = SharedProperties.getTechnicalSiteVisit();
         vm.IntellectualProperty = SharedProperties.getIntellectualProperty();
         vm.RiskManagement = SharedProperties.getRiskManagement();
 
@@ -74,8 +74,8 @@
         vm.addEditFinancialControlsManagement = addEditFinancialControlsManagement;
         vm.saveFinancialControlsManagement = saveFinancialControlsManagement;
 
-        vm.addEditTechnicalSiteVisit = addEditTechnicalSiteVisit;
-        vm.saveTechnicalSiteVisit = saveTechnicalSiteVisit;
+        // vm.addEditTechnicalSiteVisit = addEditTechnicalSiteVisit;
+        // vm.saveTechnicalSiteVisit = saveTechnicalSiteVisit;
 
         vm.addEditIntellectualProperty = addEditIntellectualProperty;
         vm.saveIntellectualProperty = saveIntellectualProperty;
@@ -128,15 +128,16 @@
            // $location.path('/diagnoseGovernance');
         }
 
-        function GovernanceCallback(diagnosis) {
-            vm.Governance = diagnosis.data;
-            SharedProperties.setGovernance(diagnosis.data);
-        }
-
         function loadAllCompanyDiagnosis(parentId, companySection, pageToNav, callback) {
             return BpService.GetAllCompanyDiagnosis(parentId, companySection)
                 .then(function (diagnosis) {
+                    if (diagnosis.data) {
+                        diagnosis.data.companySection = companySection;
+                        diagnosis.data.companyId = SharedProperties.getCompany().companyBusinessId;
+                    }
+
                     callback(diagnosis);
+
                     if (pageToNav) {
                         vm.navigateToPage(pageToNav);
                     }
@@ -144,6 +145,11 @@
         }
 
 // ---------------------- Governance diagnosis ----------------------------------------------------------------------------
+
+        function GovernanceCallback(diagnosis) {
+            vm.Governance = diagnosis.data;
+            SharedProperties.setGovernance(diagnosis.data);
+        }
 
         function addEditGovernance(val) {
             SharedProperties.setGovernance(val);
@@ -159,15 +165,20 @@
             console.log($location.path());
             console.log(url);
 
-            // todo: send this to the db, rest call.
-            // BpService.saveGovernance(vm.Governance);
+            BpService.SaveDiagnosis(vm.Governance)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'TaxCompliance', 'diagnoseTaxCompliance', TaxComplianceCallback));
 
             flash(['Saved Governance : ' + vm.Governance ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseTaxCompliance');
+            //$location.path('/diagnoseTaxCompliance');
         }
 
 // ---------------------- TaxCompliance diagnosis ----------------------------------------------------------------------------
+
+        function TaxComplianceCallback(diagnosis) {
+            vm.TaxCompliance = diagnosis.data;
+            SharedProperties.setTaxCompliance(diagnosis.data);
+        }
 
         function addEditTaxCompliance(val) {
             SharedProperties.setTaxCompliance(val);
@@ -179,15 +190,21 @@
             console.log(vm.TaxCompliance);
             SharedProperties.setTaxCompliance(vm.TaxCompliance);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.TaxCompliance)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'Labour', 'diagnoseLabour', LabourCallback));
+
             // BpService.saveTaxCompliance(vm.TaxCompliance);
 
             flash(['Saved TaxCompliance : ' + vm.TaxCompliance ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseLabour');
+            //$location.path('/diagnoseLabour');
         }
 
 // ---------------------- Labour diagnosis ----------------------------------------------------------------------------
+        function LabourCallback(diagnosis) {
+            vm.Labour = diagnosis.data;
+            SharedProperties.setLabour(diagnosis.data);
+        }
 
         function addEditLabour(val) {
             SharedProperties.setLabour(val);
@@ -199,15 +216,20 @@
             console.log(vm.Labour);
             SharedProperties.setLabour(vm.Labour);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.Labour)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'SafetyHealth', 'diagnoseSafetyHealth', SafetyHealthCallback));
             // BpService.saveLabour(vm.Labour);
 
             flash(['Saved Labour : ' + vm.Labour ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseSafetyHealth');
+            //$location.path('/diagnoseSafetyHealth');
         }
 
 // ---------------------- SafetyHealth diagnosis ----------------------------------------------------------------------------
+        function SafetyHealthCallback(diagnosis) {
+            vm.SafetyHealth = diagnosis.data;
+            SharedProperties.setSafetyHealth(diagnosis.data);
+        }
 
         function addEditSafetyHealth(val) {
             SharedProperties.setSafetyHealth(val);
@@ -219,15 +241,20 @@
             console.log(vm.SafetyHealth);
             SharedProperties.setSafetyHealth(vm.SafetyHealth);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.SafetyHealth)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'Standards', 'diagnoseStandards', StandardsCallback));
             // BpService.saveSafetyHealth(vm.SafetyHealth);
 
             flash(['Saved SafetyHealth : ' + vm.SafetyHealth ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseStandards');
+            //$location.path('/diagnoseStandards');
         }
 
 // ---------------------- Standards diagnosis ----------------------------------------------------------------------------
+        function StandardsCallback(diagnosis) {
+            vm.Standards = diagnosis.data;
+            SharedProperties.setStandards(diagnosis.data);
+        }
 
         function addEditStandards(val) {
             SharedProperties.setStandards(val);
@@ -239,15 +266,20 @@
             console.log(vm.Standards);
             SharedProperties.setStandards(vm.Standards);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.Standards)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'BBBEE', 'diagnoseBBBEE', BBBEECallback));
             // BpService.saveStandards(vm.Standards);
 
             flash(['Saved Standards : ' + vm.Standards ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseBBBEE');
+            //$location.path('/diagnoseBBBEE');
         }
 
 // ---------------------- BBBEE diagnosis ----------------------------------------------------------------------------
+        function BBBEECallback(diagnosis) {
+            vm.BBBEE = diagnosis.data;
+            SharedProperties.setBBBEE(diagnosis.data);
+        }
 
         function addEditBBBEE(val) {
             SharedProperties.setBBBEE(val);
@@ -259,15 +291,20 @@
             console.log(vm.BBBEE);
             SharedProperties.setBBBEE(vm.BBBEE);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.BBBEE)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'Production', 'diagnoseProduction', ProductionCallback));
             // BpService.saveBBBEE(vm.BBBEE);
 
             flash(['Saved BBBEE : ' + vm.BBBEE ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseProduction');
+            //$location.path('/diagnoseProduction');
         }
 
 // ---------------------- Production diagnosis ----------------------------------------------------------------------------
+        function ProductionCallback(diagnosis) {
+            vm.Production = diagnosis.data;
+            SharedProperties.setProduction(diagnosis.data);
+        }
 
         function addEditProduction(val) {
             SharedProperties.setProduction(val);
@@ -279,15 +316,20 @@
             console.log(vm.Production);
             SharedProperties.setProduction(vm.Production);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.Production)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'SalesMarketing', 'diagnoseSalesMarketing', SalesMarketingCallback));
             // BpService.saveProduction(vm.Production);
 
             flash(['Saved Production : ' + vm.Production ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseSalesMarketing');
+            //$location.path('/diagnoseSalesMarketing');
         }
 
 // ---------------------- SalesMarketing diagnosis ----------------------------------------------------------------------------
+        function SalesMarketingCallback(diagnosis) {
+            vm.SalesMarketing = diagnosis.data;
+            SharedProperties.setSalesMarketing(diagnosis.data);
+        }
 
         function addEditSalesMarketing(val) {
             SharedProperties.setSalesMarketing(val);
@@ -299,15 +341,20 @@
             console.log(vm.SalesMarketing);
             SharedProperties.setSalesMarketing(vm.SalesMarketing);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.SalesMarketing)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'InformationTechnology', 'diagnoseInformationTechnology', InformationTechnologyCallback));
             // BpService.saveSalesMarketing(vm.SalesMarketing);
 
             flash(['Saved SalesMarketing : ' + vm.SalesMarketing ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseInformationTechnology');
+            //$location.path('/diagnoseInformationTechnology');
         }
 
 // ---------------------- InformationTechnology diagnosis ----------------------------------------------------------------------------
+        function InformationTechnologyCallback(diagnosis) {
+            vm.InformationTechnology = diagnosis.data;
+            SharedProperties.setInformationTechnology(diagnosis.data);
+        }
 
         function addEditInformationTechnology(val) {
             SharedProperties.setInformationTechnology(val);
@@ -319,15 +366,20 @@
             console.log(vm.InformationTechnology);
             SharedProperties.setInformationTechnology(vm.InformationTechnology);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.InformationTechnology)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'FinancialControlsManagement', 'diagnoseFinancialControlsManagement', FinancialControlsManagementCallback));
             // BpService.saveInformationTechnology(vm.InformationTechnology);
 
             flash(['Saved InformationTechnology : ' + vm.InformationTechnology ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseFinancialControlsManagement');
+            //$location.path('/diagnoseFinancialControlsManagement');
         }
 
 // ---------------------- FinancialControlsManagement diagnosis ----------------------------------------------------------------------------
+        function FinancialControlsManagementCallback(diagnosis) {
+            vm.FinancialControlsManagement = diagnosis.data;
+            SharedProperties.setFinancialControlsManagement(diagnosis.data);
+        }
 
         function addEditFinancialControlsManagement(val) {
             SharedProperties.setFinancialControlsManagement(val);
@@ -339,16 +391,18 @@
             console.log(vm.FinancialControlsManagement);
             SharedProperties.setFinancialControlsManagement(vm.FinancialControlsManagement);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.FinancialControlsManagement)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'IntellectualProperty', 'diagnoseIntellectualProperty', IntellectualPropertyCallback));
             // BpService.saveFinancialControlsManagement(vm.FinancialControlsManagement);
 
             flash(['Saved FinancialControlsManagement : ' + vm.FinancialControlsManagement ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseIntellectualProperty');
+            //$location.path('/diagnoseIntellectualProperty');
         }
 
 // ----------------------Deprecated TechnicalSiteVisit diagnosis ----------------------------------------------------------------------------
 
+    /*
         function addEditTechnicalSiteVisit(val) {
             SharedProperties.setTechnicalSiteVisit(val);
             $location.path('/diagnoseTechnicalSiteVisit');
@@ -365,9 +419,13 @@
             flash(['Saved TechnicalSiteVisit : ' + vm.TechnicalSiteVisit ]);
             vm.dataLoading = false;
             $location.path('/diagnoseIntellectualProperty');
-        }
+        }*/
 
 // ---------------------- IntellectualProperty diagnosis ----------------------------------------------------------------------------
+        function IntellectualPropertyCallback(diagnosis) {
+            vm.IntellectualProperty = diagnosis.data;
+            SharedProperties.setIntellectualProperty(diagnosis.data);
+        }
 
         function addEditIntellectualProperty(val) {
             SharedProperties.setIntellectualProperty(val);
@@ -379,15 +437,20 @@
             console.log(vm.IntellectualProperty);
             SharedProperties.setIntellectualProperty(vm.IntellectualProperty);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.IntellectualProperty)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'RiskManagement', 'diagnoseRiskManagement', RiskManagementCallback));
             // BpService.saveIntellectualProperty(vm.IntellectualProperty);
 
             flash(['Saved IntellectualProperty : ' + vm.IntellectualProperty ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseRiskManagement');
+            //$location.path('/diagnoseRiskManagement');
         }
 
-        // ---------------------- RiskManagement diagnosis ----------------------------------------------------------------------------
+// ---------------------- RiskManagement diagnosis ----------------------------------------------------------------------------
+        function RiskManagementCallback(diagnosis) {
+            vm.RiskManagement = diagnosis.data;
+            SharedProperties.setRiskManagement(diagnosis.data);
+        }
 
         function addEditRiskManagement(val) {
             SharedProperties.setRiskManagement(val);
@@ -399,12 +462,17 @@
             console.log(vm.RiskManagement);
             SharedProperties.setRiskManagement(vm.RiskManagement);
 
-            // todo: send this to the db, rest call.
+            BpService.SaveDiagnosis(vm.RiskManagement);
             // BpService.saveRiskManagement(vm.RiskManagement);
+            vm.Company.status = 'COMPLETED';
+            SharedProperties.setCompany(vm.Company);
+            // save to db
+            BpService.SaveBp(vm.Company);
 
             flash(['Saved RiskManagement : ' + vm.RiskManagement ]);
             vm.dataLoading = false;
-            $location.path('/login');
+            vm.logout();
+            // $location.path('/login');
         }
 
         /*Yes	No	Do not Know	Not Applicable

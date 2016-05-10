@@ -10,15 +10,22 @@
         var service = {};
 
         service.GetAllBps = GetAllBps;
+        service.GetInProgressBps = GetInProgressBps;
+        service.GetCompletedBps = GetCompletedBps;
         service.SaveBp = SaveBp;
 
+        service.GetInProgressCompanies = GetInProgressCompanies;
+        service.GetCompleteCompanies = GetCompleteCompanies;
         service.GetAllCompanies = GetAllCompanies;
+
         service.SaveCompany = SaveCompany;
         service.SaveCompanyUser = SaveCompanyUser;
         service.GetBpById = GetBpById;
         service.GetCompanyUserByParentId = GetCompanyUserByParentId;
+        service.GetCompanyCerts = GetCompanyCerts;
 
         service.GetAllCompanyDiagnosis = GetAllCompanyDiagnosis;
+        service.SaveDiagnosis = SaveDiagnosis;
        /*
         service.GetById = GetById;
         service.GetByUsername = GetByUsername;
@@ -59,6 +66,26 @@
             return deferred.promise;*/
         }
 
+        function GetInProgressBps() {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-bps-for-company/INCOMPLETED')
+                        .then(handleSuccess, handleError('Error getting all Business Partners'));
+        }
+
+        function GetCompletedBps() {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-bps-for-company/COMPLETED')
+                        .then(handleSuccess, handleError('Error getting all Business Partners'));
+        }
+
+        function GetInProgressCompanies(parentId) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-companies-for-bp/'+parentId+'/INCOMPLETED')
+                        .then(handleSuccess, handleError('Error getting all Companies'));
+        }
+
+        function GetCompleteCompanies(parentId) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-companies-for-bp/'+parentId+'/COMPLETED')
+                        .then(handleSuccess, handleError('Error getting all Companies'));
+        }
+
         function GetAllCompanies(parentId) {
             return $http.get('http://localhost:8081/businesis/company-bp/get-all-company-for-bp/'+parentId)
                         .then(handleSuccess, handleError('Error getting all Companies'));
@@ -76,6 +103,11 @@
 
         function GetCompanyUserByParentId(id) {
             return $http.get('http://localhost:8081/businesis/user-management/company-user/' + id)
+                .then(handleSuccess, handleError('Error getting company user by parent id'));
+        }
+
+        function GetCompanyCerts(id) {
+            return $http.get('http://localhost:8081/businesis/company-bp/get-all-companies-certs/' + id)
                 .then(handleSuccess, handleError('Error getting company user by parent id'));
         }
 
@@ -188,7 +220,11 @@
             return deferred.promise;*/
         }
 
-
+        function SaveDiagnosis(diagnosis) {
+            console.log(diagnosis);
+            return $http.post('http://localhost:8081/businesis/company-bp/create-update-company-diagnosis', diagnosis)
+                .then(handleSuccess, handleError);
+        }
 
         // ---------------------User stuff --------------------------------------------------------------------------------------------
 

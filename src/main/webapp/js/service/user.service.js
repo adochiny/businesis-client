@@ -119,7 +119,11 @@
 
         function logoutUser(user) {
             console.log(user);
-            return $http.post('http://localhost:8080/risk-rev/user-management/logout-user', user).then(handleSuccess, handleError);
+            // return $http.post('http://localhost:8080/risk-rev/user-management/logout-user', user).then(handleSuccess, handleError);
+            var deferred = $q.defer();
+            deferred.notify('About to return ' + user + '.');
+            deferred.resolve(user);
+            return deferred.promise;
         }
 
         function GetAllUserRoles() {

@@ -2,14 +2,17 @@
     'use strict';
 
     angular
-        .module('eManager', ['ngRoute', 'ngCookies', 'smart-table','flash'])
+        .module('eManager', ['ngRoute', 'ngIdle', 'ngCookies', 'smart-table','flash'])
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-    function config($routeProvider, $locationProvider) {
+    config.$inject = ['$routeProvider', '$locationProvider', 'IdleProvider', 'KeepaliveProvider'];
+    function config($routeProvider, $locationProvider, IdleProvider, KeepaliveProvider) {
 
         // Note that we run everything on the localhost
+        IdleProvider.idle(5);
+        IdleProvider.timeout(5);
+        KeepaliveProvider.interval(10);
 
         $routeProvider
             .when('/', {
@@ -69,7 +72,23 @@
                 templateUrl: 'templates/businesis/add.new.company.view.html',
                 controllerAs: 'vm'
             })
-
+            // CERTS Company . ---------------------------------------------------------------------------------------------
+                //
+            .when('/completedCompanyList', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/completed.company.list.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/inprogressCompanyList', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/inprogress.company.list.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/viewCompanyCert', {
+                controller: 'LandingListBpsController',
+                templateUrl: 'templates/businesis/company.cert.view.html',
+                controllerAs: 'vm'
+            })
             // Bp Company . ---------------------------------------------------------------------------------------------
             //  Business and business user. ---------------------------------------------------------------------------------------------
             .when('/addNewCompanyUser', {
@@ -80,21 +99,22 @@
 
             // bp list for Pending/Diagnosed companies
             // this is coming from the menu.
-            .when('/bpListPending', {
+            .when('/bpListInProgress', {
                 controller: 'LandingListBpsController',
-                templateUrl: 'templates/businesis/bp.list.view.html',
+                templateUrl: 'templates/businesis/inprogress.bp.list.view.html',
                 controllerAs: 'vm'
             })
-            .when('/bpListDiagnosed', {
+            .when('/bpListCompleted', {
                 controller: 'LandingListBpsController',
-                templateUrl: 'templates/businesis/bp.list.view.html',
+                templateUrl: 'templates/businesis/completed.bp.list.view.html',
                 controllerAs: 'vm'
             })
             .when('/companyListPendingDiagnosed', {
                 controller: 'LandingListBpsController',
-                templateUrl: 'templates/businesis/company.list.view.html',
+                templateUrl: 'templates/businesis/bp.list.view.html',
                 controllerAs: 'vm'
             })
+
             //  Business user. ---------------------------------------------------------------------------------------------
 
             // Business Diagnosis --------------------------------------------------------------------------------------
@@ -302,10 +322,12 @@
             })
 
             .otherwise({ redirectTo: '/login' });
+
+
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-    function run($rootScope, $location, $cookieStore, $http) {
+    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'Idle', 'AuthenticationService'];
+    function run($rootScope, $location, $cookieStore, $http, Idle, AuthenticationService) {
 
         // $locationProvider.html5Mode(true);
 
@@ -322,9 +344,17 @@
        //    .when('POST', 'http://localhost:8080/risk-rev/user-management/authenticate-username')
        //    .respond(user);
 
-
-
         // ---------------------------MOCKS----------------------------------------------------------------------------------
+        // ---------------------------Session logout----------------------------------------------------------------------------------
+        Idle.watch();
+
+        $rootScope.$on('IdleTimeout', function() {
+            // end their session and redirect to login
+            console.log($rootScope.globals.currentUser);
+            AuthenticationService.ClearCredentials($rootScope.globals.currentUser);
+            console.log($rootScope.globals.currentUser);
+            $location.path('/login');
+        });
 
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -340,6 +370,9 @@
                 $location.path('/login');
             }
         });
+
+
+
     }
 
 })();

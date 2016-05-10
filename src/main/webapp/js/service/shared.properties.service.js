@@ -17,6 +17,7 @@
         var companyList = undefined;
         var company = {};
         var companyUser = {};
+        var companyCert = {};
 
         // diagnosis
         var Governance = {};
@@ -71,6 +72,9 @@
 
         props.getCompanyUser = getCompanyUser;
         props.setCompanyUser = setCompanyUser;
+
+        props.getCompanyCert = getCompanyCert;
+        props.setCompanyCert = setCompanyCert;
 
 // ------------------------- Diagnosis ---------------------------------------------------------------------------------
         props.getGovernance = getGovernance;
@@ -195,6 +199,13 @@
         }
         function setCompanyUser(value) {
             companyUser = value;
+        }
+
+        function getCompanyCert() {
+            return companyCert;
+        }
+        function setCompanyCert(value) {
+            companyCert = value;
         }
 
 // --------------------------------- Diagnosis getters and setters -----------------------------------------------------
