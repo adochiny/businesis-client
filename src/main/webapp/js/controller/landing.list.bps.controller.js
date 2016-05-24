@@ -39,6 +39,8 @@
         vm.addEditCompanyUser = addEditCompanyUser;
         vm.saveCompanyUser = saveCompanyUser;
 
+        vm.diagnoseCompany = diagnoseCompany;
+
 
 
         vm.breadcrumbs = ["Home","User profile","User details"];
@@ -238,6 +240,13 @@
                         vm.navigateToPage('viewCompanyCert');
                     }
                 });
+        }
+
+        function diagnoseCompany(value) {
+            SharedProperties.setCompany(value);
+            // open company diagnosis page...
+            vm.navigateToPage('diagnoseCompany');
+
         }
 
         function viewCompanyList(value) {
