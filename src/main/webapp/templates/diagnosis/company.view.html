@@ -78,10 +78,8 @@
                                                                         Trading as
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Tradingas" name="bp.name1"
-                                                                               ng-model="vm.Company.tradingAs"
-                                                                               type="text"
-                                                                               placeholder="Trading as"
+                                                                        <input id="Tradingas" ng-model="vm.Company.tradingAs"
+                                                                               type="text" placeholder="Trading as"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
@@ -94,8 +92,9 @@
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <input id="Registrationnumber"
-                                                                               type="text"
+                                                                               type="text" required
                                                                                ng-model="vm.Company.registrationNumber"
+                                                                               ng-blur="vm.registrationNumberBlur()"
                                                                                placeholder="Registration number"
                                                                                class="form-control input-md">
                                                                     </div>
@@ -108,8 +107,7 @@
                                                                         Registration type
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Registrationtype"
-                                                                               name="bp.registartionType" type="text"
+                                                                        <input id="Registrationtype" readonly type="text"
                                                                                ng-model="vm.Company.registartionType"
                                                                                placeholder="Registration Type"
                                                                                class="form-control input-md">
@@ -117,19 +115,34 @@
                                                                 </div>
 
                                                                 <!-- form Group -->
-                                                                <!-- form Group -->
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label class="col-md-3 control-label">-->
+                                                                        <!--Year of Registration-->
+                                                                    <!--</label>-->
+                                                                    <!--<div class="col-md-8  ">-->
+                                                                        <!--<div class="input-group date datetimepicker"-->
+                                                                             <!--data-date-format="YYYY/MM/DD">-->
+                                                                            <!--<input type="text" class="form-control input-md" required-->
+                                                                               <!--datepicker ng-model="vm.Company.dateOfRegistration"/>-->
+                                                                            <!--<span class="input-group-addon">-->
+                                                                                <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                            <!--</span>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label">
-                                                                        Date of registration
+                                                                        Year of Registration
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <div class="input-group date datetimepicker"
-                                                                             data-date-format="YYYY/MM/DD">
+                                                                        <div class="input-group"
+                                                                             data-date-format="YYYY">
                                                                             <input type="text" class="form-control input-md" required
                                                                                datepicker ng-model="vm.Company.dateOfRegistration"/>
-                                                                            <span class="input-group-addon">
-                                                                                <span class="glyphicon-calendar glyphicon"></span>
-                                                                            </span>
+                                                                            <!--<span class="input-group-addon">-->
+                                                                                <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                            <!--</span>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -162,7 +175,7 @@
                                                                         Industry
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.Company.industry"
                                                                                placeholder="Industry"
                                                                                class="form-control input-md">
@@ -175,7 +188,7 @@
                                                                         Years in Business
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.Company.yearsInBusiness"
                                                                                placeholder="Years in Business"
                                                                                class="form-control input-md">
@@ -188,7 +201,7 @@
                                                                         Number of Employees
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.Company.numberOfEmployees"
                                                                                placeholder="Number of Employees"
                                                                                class="form-control input-md">
@@ -198,10 +211,10 @@
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label">
-                                                                        Annual Turnover
+                                                                        Annual Sales
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.Company.annualTurnover"
                                                                                placeholder="Annual Turnover"
                                                                                class="form-control input-md">
@@ -390,19 +403,18 @@
                                                                 </div>
 
                                                                 <!-- form Group -->
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label"
-                                                                           for="homeTelephone">
-                                                                        Home telephone
-                                                                    </label>
-
-                                                                    <div class="col-md-8  ">
-                                                                        <input id="homeTelephone"
-                                                                               ng-model="vm.Company.contactDetails.homeNumber" type="text"
-                                                                               placeholder="Home telephone"
-                                                                               class="form-control input-md">
-                                                                    </div>
-                                                                </div>
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label class="col-md-3 control-label"-->
+                                                                           <!--for="homeTelephone">-->
+                                                                        <!--Home telephone-->
+                                                                    <!--</label>-->
+                                                                    <!--<div class="col-md-8  ">-->
+                                                                        <!--<input id="homeTelephone"-->
+                                                                               <!--ng-model="vm.Company.contactDetails.homeNumber" type="text"-->
+                                                                               <!--placeholder="Home telephone"-->
+                                                                               <!--class="form-control input-md">-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
 
 
                                                                 <!-- form Group -->

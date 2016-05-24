@@ -83,6 +83,9 @@
         vm.addEditRiskManagement = addEditRiskManagement;
         vm.saveRiskManagement = saveRiskManagement;
 
+        // Utils
+        vm.registrationNumberBlur = registrationNumberBlur;
+
         vm.breadcrumbs = ["Home","User profile","User details"];
 
         (function initController() {
@@ -105,6 +108,11 @@
         vm.navigateToPage = function (path){
             $location.path('/' + path);
         };
+
+// ---------------------- Diagnosis utils ----------------------------------------------------------------------------
+        function registrationNumberBlur() {
+            vm.Company.registartionType = vm.Company.registrationNumber;
+        }
 
 // ---------------------- Company diagnosis ----------------------------------------------------------------------------
         function addEditCompany(val) {
