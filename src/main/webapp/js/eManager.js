@@ -10,8 +10,8 @@
     function config($routeProvider, $locationProvider, IdleProvider, KeepaliveProvider) {
 
         // Note that we run everything on the localhost
-        IdleProvider.idle(5);
-        IdleProvider.timeout(5);
+        IdleProvider.idle(60);
+        IdleProvider.timeout(60);
         KeepaliveProvider.interval(10);
 
         $routeProvider

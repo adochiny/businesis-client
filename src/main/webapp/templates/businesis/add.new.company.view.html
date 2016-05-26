@@ -50,6 +50,7 @@
                                                   method="POST"
                                                   style="margin-left: 20px;">
                                                 <fieldset>
+
                                                     <div class="row">
                                                         <!-- Left side -->
                                                         <div class="col-md-6">
@@ -62,11 +63,10 @@
                                                                            for="Companyname">
                                                                         Company name
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
                                                                         <input id="Companyname"
                                                                                ng-model="vm.company.name"
-                                                                               type="text"
+                                                                               type="text" value=""
                                                                                placeholder="Company name" required
                                                                                class="form-control input-md">
                                                                     </div>
@@ -78,10 +78,8 @@
                                                                         Trading as
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Tradingas"
-                                                                               ng-model="vm.company.tradingAs"
-                                                                               type="text"
-                                                                               placeholder="Trading as"
+                                                                        <input id="Tradingas" ng-model="vm.company.tradingAs"
+                                                                               type="text" placeholder="Trading as"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
@@ -93,42 +91,83 @@
                                                                         Registration number
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Registrationnumber" type="text"
+                                                                        <input id="Registrationnumber"
+                                                                               type="text" required
                                                                                ng-model="vm.company.registrationNumber"
+                                                                               ng-blur="vm.registrationNumberBlur()"
                                                                                placeholder="Registration number"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
 
-
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
-                                                                    <label class="col-md-3 control-label">
+                                                                    <label class="col-md-3 control-label"
+                                                                           for="Registrationtype">
                                                                         Registration type
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input id="Registrationtype" required readonly type="text"
                                                                                ng-model="vm.company.registartionType"
-                                                                               placeholder="Registration type"
+                                                                               placeholder="Registration Type"
                                                                                class="form-control input-md">
                                                                     </div>
                                                                 </div>
 
+                                                                <!-- form Group -->
+                                                                <!--<div class="form-group">-->
+                                                                <!--<label class="col-md-3 control-label">-->
+                                                                <!--Year of Registration-->
+                                                                <!--</label>-->
+                                                                <!--<div class="col-md-8  ">-->
+                                                                <!--<div class="input-group date datetimepicker"-->
+                                                                <!--data-date-format="YYYY/MM/DD">-->
+                                                                <!--<input type="text" class="form-control input-md" required-->
+                                                                <!--datepicker ng-model="vm.company.dateOfRegistration"/>-->
+                                                                <!--<span class="input-group-addon">-->
+                                                                <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                <!--</span>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label">
-                                                                        Date of registration
+                                                                        Year of Registration
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <div class="input-group date datetimepicker"
-                                                                             data-date-format="YYYY/MM/DD">
+                                                                        <div class="input-group"
+                                                                             data-date-format="YYYY">
                                                                             <input type="text" class="form-control input-md" required
-                                                                                   datepicker ng-model="vm.company.dateOfRegistration"/>
-                                                                            <span class="input-group-addon">
-                                                                                <span class="glyphicon-calendar glyphicon"></span>
-                                                                            </span>
+                                                                                   ng-model="vm.company.yearOfRegistration"/>
+                                                                            <!--<span class="input-group-addon">-->
+                                                                            <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                            <!--</span>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <!--<div class="form-group">-->
+                                                                <!--<label class="col-md-3 control-label"-->
+                                                                <!--for="dateOfRegistration">-->
+                                                                <!--Date of registration-->
+                                                                <!--</label>-->
+                                                                <!--<div class="col-md-8  ">-->
+                                                                <!--<div class="input-group date datetimepicker"-->
+                                                                <!--data-date-format="YYYY/MM/DD"-->
+                                                                <!--id="dateOfRegistration">-->
+                                                                <!--<input type="text" id="dateOfRegistrationDate"-->
+                                                                <!--name="dateOfRegistrationDate"-->
+                                                                <!--ng-model="vm.company.dateOfRegistrationDate"-->
+                                                                <!--pattern="^(19|20)\d\d[/.](0[1-9]|1[012])[/.](0[1-9]|[12][0-9]|3[01])$"-->
+                                                                <!--class="form-control">-->
+                                                                <!--<span class="input-group-addon">-->
+                                                                <!--<span class="glyphicon-calendar glyphicon"></span>-->
+                                                                <!--</span>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
@@ -136,7 +175,7 @@
                                                                         Industry
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.company.industry"
                                                                                placeholder="Industry"
                                                                                class="form-control input-md">
@@ -149,7 +188,7 @@
                                                                         Years in Business
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.company.yearsInBusiness"
                                                                                placeholder="Years in Business"
                                                                                class="form-control input-md">
@@ -162,7 +201,7 @@
                                                                         Number of Employees
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.company.numberOfEmployees"
                                                                                placeholder="Number of Employees"
                                                                                class="form-control input-md">
@@ -172,10 +211,10 @@
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label">
-                                                                        Annual Turnover
+                                                                        Annual Sales
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input type="text"
+                                                                        <input type="text" required
                                                                                ng-model="vm.company.annualTurnover"
                                                                                placeholder="Annual Turnover"
                                                                                class="form-control input-md">
@@ -286,22 +325,22 @@
                                                                 </div>
                                                                 <!-- form Group -->
                                                                 <!--<div class="form-group">-->
-                                                                    <!--<label class="col-md-3 control-label">-->
-                                                                        <!--BBBEE Status Level-->
-                                                                    <!--</label>-->
-                                                                    <!--<div class="col-md-8  ">-->
-                                                                        <!--<input type="text"-->
-                                                                               <!--ng-model="vm.company.BBBEEStatusLevel"-->
-                                                                               <!--placeholder="BBBEE Status Level"-->
-                                                                               <!--class="form-control input-md">-->
-                                                                    <!--</div>-->
+                                                                <!--<label class="col-md-3 control-label">-->
+                                                                <!--BBBEE Status Level-->
+                                                                <!--</label>-->
+                                                                <!--<div class="col-md-8  ">-->
+                                                                <!--<input type="text"-->
+                                                                <!--ng-model="vm.company.BBBEEStatusLevel"-->
+                                                                <!--placeholder="BBBEE Status Level"-->
+                                                                <!--class="form-control input-md">-->
+                                                                <!--</div>-->
                                                                 <!--</div>-->
 
                                                                 <!-- form Group -->
                                                                 <div class="form-group">
                                                                     <label class="col-md-3 control-label"
                                                                            for="beeLevel">
-                                                                        BEE Level
+                                                                        BEE Status Level
                                                                     </label>
                                                                     <div class="col-md-8  ">
                                                                         <select id="beeLevel" ng-model="vm.company.bbbeeStatusLevel"
@@ -319,15 +358,18 @@
                                                                     </div>
                                                                 </div>
 
+
                                                             </div>
 
                                                             <!-- BEE Panel details -->
                                                             <!--<div class="fms-panel ">-->
                                                             <!--</div>-->
+
                                                         </div>
 
                                                         <!-- R ight side -->
                                                         <div class="col-md-6">
+
 
                                                             <!-- Contact details panel-->
                                                             <div class="fms-panel ">
@@ -352,7 +394,6 @@
                                                                            for="workTelephone">
                                                                         Work telephone
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
                                                                         <input id="workTelephone"
                                                                                ng-model="vm.company.contactDetails.workNumber" type="text"
@@ -363,16 +404,16 @@
 
                                                                 <!-- form Group -->
                                                                 <!--<div class="form-group">-->
-                                                                    <!--<label class="col-md-3 control-label"-->
-                                                                           <!--for="homeTelephone">-->
-                                                                        <!--Home telephone-->
-                                                                    <!--</label>-->
-                                                                    <!--<div class="col-md-8  ">-->
-                                                                        <!--<input id="homeTelephone"-->
-                                                                               <!--ng-model="vm.company.contactDetails.homeNumber" type="text"-->
-                                                                               <!--placeholder="Home telephone"-->
-                                                                               <!--class="form-control input-md">-->
-                                                                    <!--</div>-->
+                                                                <!--<label class="col-md-3 control-label"-->
+                                                                <!--for="homeTelephone">-->
+                                                                <!--Home telephone-->
+                                                                <!--</label>-->
+                                                                <!--<div class="col-md-8  ">-->
+                                                                <!--<input id="homeTelephone"-->
+                                                                <!--ng-model="vm.company.contactDetails.homeNumber" type="text"-->
+                                                                <!--placeholder="Home telephone"-->
+                                                                <!--class="form-control input-md">-->
+                                                                <!--</div>-->
                                                                 <!--</div>-->
 
 
@@ -382,7 +423,6 @@
                                                                            for="cellphone">
                                                                         Cellphone
                                                                     </label>
-
                                                                     <div class="col-md-8  ">
                                                                         <input id="cellphone" ng-model="vm.company.contactDetails.cellNumber"
                                                                                type="text"
@@ -546,8 +586,6 @@
                                                                     <div id="btn-grp1">
                                                                         <button type="submit"
                                                                                 ng-disabled="form.$invalid || vm.dataLoading"
-                                                                                ng-click="vm.viewCompanyList(vm.bp)"
-                                                                                name="saveBusinessPartner"
                                                                                 style="font-size: 14px; color: black;"
                                                                                 class="btn btn-primary btn-lg">
                                                                             Save company
@@ -558,22 +596,21 @@
                                                             </div>
                                                         </div>
 
-                                                        <!--<div class="col-sm-3 col-md-3">-->
-                                                             <!-- -->
-                                                            <!--<div class="form-group">-->
-                                                                <!--<div class="col-md-12  ">-->
-                                                                    <!--<div id="btn-grp2">-->
-                                                                        <!--<button -->
-                                                                                <!--ng-click="vm.viewCompanyList(vm.bp)"-->
-                                                                                <!--name="saveBusinessPartner"-->
-                                                                                <!--style="font-size: 14px; color: black;"-->
-                                                                                <!--class="btn btn-primary btn-lg">-->
-                                                                            <!--Save company-->
-                                                                        <!--</button>-->
-                                                                    <!--</div>-->
-                                                                <!--</div>-->
-                                                            <!--</div>-->
-                                                        <!--</div>-->
+                                                        <!--ng-click="vm.viewCompanyList(vm.bp)"-->
+                                                        <div class="col-sm-3 col-md-3">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12  ">
+                                                                    <div id="btn-grp2">
+                                                                        <button
+                                                                                ng-click="vm.viewCompanyList(vm.bp)"
+                                                                                style="font-size: 14px; color: black;"
+                                                                                class="btn btn-primary btn-lg">
+                                                                            View Company List
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                     </div>
 

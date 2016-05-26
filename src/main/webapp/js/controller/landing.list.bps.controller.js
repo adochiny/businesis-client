@@ -41,7 +41,7 @@
 
         vm.diagnoseCompany = diagnoseCompany;
 
-
+        vm.registrationNumberBlur = registrationNumberBlur;
 
         vm.breadcrumbs = ["Home","User profile","User details"];
 
@@ -268,10 +268,14 @@
                 } else {
                     SharedProperties.setCompany(company);
                     vm.company = company;
-                    vm.navigateToPage('addNewCompany')
+                    vm.navigateToPage('addNewCompany');
                 }
+            } else {
+                // reset company value
+                vm.company = {};
+                SharedProperties.setCompany(vm.company);
+                vm.navigateToPage('addNewCompany');
             }
-            // $location.path('/addNewCompany');
         }
 
         function saveCompany() {
@@ -349,6 +353,47 @@
                 });
             flash(['Saved companyUser : ' + vm.companyUser ]);
             vm.dataLoading = false;
+        }
+
+
+        // ---------------------- Diagnosis utils ----------------------------------------------------------------------------
+        function registrationNumberBlur() {
+            // make sure the  registartionType is of format // (2014/123456/07)
+            vm.error = undefined;
+            if (vm.company.registrationNumber) {
+                var arr = vm.company.registrationNumber.split('/');
+                if (arr[0].length != 4) {
+                    vm.error = 'Company registration number, is in wrong format. Year of registration needs to be correct.';
+                    return;
+                } else {
+                    // then count the years in business.
+                    vm.company.yearOfRegistration = arr[0];
+                    vm.company.yearsInBusiness = ((new Date()).getFullYear() - vm.company.yearOfRegistration);
+                }
+
+                if (arr.length > 2) {
+                    var regType = arr[2];
+                    if (regType == '23') {
+                        vm.company.registartionType = 'Close Corporation';
+                    } else if (regType == '07') {
+                        vm.company.registartionType = 'PTY';
+                    } else if (regType == '24') {
+                        vm.company.registartionType = 'Co-operative';
+                    } else if (regType == '25') {
+                        vm.company.registartionType = 'Other';
+                    } else {
+                        vm.error = 'Company registration number, last segment must be one of these: 23, 07, 24, 25.';
+                    }
+
+                } else {
+                    // error format is wrong.
+                    vm.error = 'Company registration number, is in wrong format.';
+                }
+            } else {
+                // error format is wrong.
+                vm.error = 'Company registration number, is required.';
+            }
+
         }
 
 // --------------------------------------Old User stuff -----------------------------------------------------------------------

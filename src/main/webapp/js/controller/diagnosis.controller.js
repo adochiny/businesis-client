@@ -40,7 +40,7 @@
         vm.SalesMarketing = SharedProperties.getSalesMarketing();
         vm.InformationTechnology = SharedProperties.getInformationTechnology();
         vm.FinancialControlsManagement = SharedProperties.getFinancialControlsManagement();
-        // vm.TechnicalSiteVisit = SharedProperties.getTechnicalSiteVisit();
+        vm.TechnicalSiteVisit = SharedProperties.getTechnicalSiteVisit();
         vm.IntellectualProperty = SharedProperties.getIntellectualProperty();
         vm.RiskManagement = SharedProperties.getRiskManagement();
 
@@ -74,8 +74,8 @@
         vm.addEditFinancialControlsManagement = addEditFinancialControlsManagement;
         vm.saveFinancialControlsManagement = saveFinancialControlsManagement;
 
-        // vm.addEditTechnicalSiteVisit = addEditTechnicalSiteVisit;
-        // vm.saveTechnicalSiteVisit = saveTechnicalSiteVisit;
+         vm.addEditTechnicalSiteVisit = addEditTechnicalSiteVisit;
+         vm.saveTechnicalSiteVisit = saveTechnicalSiteVisit;
 
         vm.addEditIntellectualProperty = addEditIntellectualProperty;
         vm.saveIntellectualProperty = saveIntellectualProperty;
@@ -111,7 +111,42 @@
 
 // ---------------------- Diagnosis utils ----------------------------------------------------------------------------
         function registrationNumberBlur() {
-            vm.Company.registartionType = vm.Company.registrationNumber;
+            // make sure the  registartionType is of format // (2014/123456/07)
+            vm.error = undefined;
+            if (vm.Company.registrationNumber) {
+                var arr = vm.Company.registrationNumber.split('/');
+               if (arr[0].length != 4) {
+                   vm.error = 'Company registration number, is in wrong format. Year of registration needs to be correct.';
+                   return;
+               } else {
+                   // then count the years in business.
+                   vm.Company.yearOfRegistration = arr[0];
+                   vm.Company.yearsInBusiness = ((new Date()).getFullYear() - vm.Company.yearOfRegistration);
+               }
+
+                if (arr.length > 2) {
+                    var regType = arr[2];
+                    if (regType == '23') {
+                        vm.Company.registartionType = 'Close Corporation';
+                    } else if (regType == '07') {
+                        vm.Company.registartionType = 'PTY';
+                    } else if (regType == '24') {
+                        vm.Company.registartionType = 'Co-operative';
+                    } else if (regType == '25') {
+                        vm.Company.registartionType = 'Other';
+                    } else {
+                        vm.error = 'Company registration number, last segment must be one of these: 23, 07, 24, 25.';
+                    }
+
+                } else {
+                    // error format is wrong.
+                    vm.error = 'Company registration number, is in wrong format.';
+                }
+            } else {
+                // error format is wrong.
+                vm.error = 'Company registration number, is required.';
+            }
+
         }
 
 // ---------------------- Company diagnosis ----------------------------------------------------------------------------
@@ -408,27 +443,6 @@
             //$location.path('/diagnoseIntellectualProperty');
         }
 
-// ----------------------Deprecated TechnicalSiteVisit diagnosis ----------------------------------------------------------------------------
-
-    /*
-        function addEditTechnicalSiteVisit(val) {
-            SharedProperties.setTechnicalSiteVisit(val);
-            $location.path('/diagnoseTechnicalSiteVisit');
-        }
-
-        function saveTechnicalSiteVisit() {
-            vm.dataLoading = true;
-            console.log(vm.TechnicalSiteVisit);
-            SharedProperties.setTechnicalSiteVisit(vm.TechnicalSiteVisit);
-
-            // todo: send this to the db, rest call.
-            // BpService.saveTechnicalSiteVisit(vm.TechnicalSiteVisit);
-
-            flash(['Saved TechnicalSiteVisit : ' + vm.TechnicalSiteVisit ]);
-            vm.dataLoading = false;
-            $location.path('/diagnoseIntellectualProperty');
-        }*/
-
 // ---------------------- IntellectualProperty diagnosis ----------------------------------------------------------------------------
         function IntellectualPropertyCallback(diagnosis) {
             vm.IntellectualProperty = diagnosis.data;
@@ -470,18 +484,55 @@
             console.log(vm.RiskManagement);
             SharedProperties.setRiskManagement(vm.RiskManagement);
 
-            BpService.SaveDiagnosis(vm.RiskManagement);
+            // BpService.SaveDiagnosis(vm.RiskManagement);
+            BpService.SaveDiagnosis(vm.RiskManagement)
+                .then(loadAllCompanyDiagnosis(vm.Company.companyBusinessId, 'TechnicalSiteVisit', 'diagnoseTechnicalSiteVisit', TechnicalSiteVisitCallback));
             // BpService.saveRiskManagement(vm.RiskManagement);
-            vm.Company.status = 'COMPLETED';
-            SharedProperties.setCompany(vm.Company);
+
+            // vm.Company.status = 'COMPLETED';
+            // SharedProperties.setCompany(vm.Company);
             // save to db
             BpService.SaveBp(vm.Company);
 
             flash(['Saved RiskManagement : ' + vm.RiskManagement ]);
             vm.dataLoading = false;
-            vm.logout();
+            $location.path('/diagnoseTechnicalSiteVisit');
+
             // $location.path('/login');
         }
+
+// ---------------------- TechnicalSiteVisit diagnosis Added as the last item. ----------------------------------------------------------------------------
+        function TechnicalSiteVisitCallback(diagnosis) {
+            vm.TechnicalSiteVisit = diagnosis.data;
+            SharedProperties.setTechnicalSiteVisit(diagnosis.data);
+        }
+
+        function addEditTechnicalSiteVisit(val) {
+            SharedProperties.setTechnicalSiteVisit(val);
+            $location.path('/diagnoseTechnicalSiteVisit');
+        }
+
+        function saveTechnicalSiteVisit() {
+            vm.dataLoading = true;
+            console.log(vm.TechnicalSiteVisit);
+            SharedProperties.setTechnicalSiteVisit(vm.TechnicalSiteVisit);
+
+            BpService.SaveDiagnosis(vm.TechnicalSiteVisit);
+
+            vm.Company.status = 'COMPLETED';
+            SharedProperties.setCompany(vm.Company);
+            // save to db
+            BpService.SaveBp(vm.Company);
+
+            // todo: send this to the db, rest call.
+            // BpService.saveTechnicalSiteVisit(vm.TechnicalSiteVisit);
+            flash(['Saved TechnicalSiteVisit : ' + vm.TechnicalSiteVisit ]);
+            vm.dataLoading = false;
+            // do not logout but rather open home page.
+            $location.path('/');
+            // vm.logout();
+        }
+
 
         /*Yes	No	Do not Know	Not Applicable
          */

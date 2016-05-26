@@ -10,7 +10,7 @@
     </div>
 
     <div ng-include="'templates/home/businesis.header.html'"></div>
-    <div ng-include="'templates/home/businesis.user.menu.html'"></div>
+    <div ng-include="'templates/home/businesis.admin.menu.html'"></div>
 
     <aside class="right-side">
 
@@ -107,7 +107,7 @@
                                                                         Registration type
                                                                     </label>
                                                                     <div class="col-md-8  ">
-                                                                        <input id="Registrationtype" readonly type="text"
+                                                                        <input id="Registrationtype" required readonly type="text"
                                                                                ng-model="vm.Company.registartionType"
                                                                                placeholder="Registration Type"
                                                                                class="form-control input-md">
@@ -139,7 +139,7 @@
                                                                         <div class="input-group"
                                                                              data-date-format="YYYY">
                                                                             <input type="text" class="form-control input-md" required
-                                                                               datepicker ng-model="vm.Company.dateOfRegistration"/>
+                                                                               ng-model="vm.Company.yearOfRegistration"/>
                                                                             <!--<span class="input-group-addon">-->
                                                                                 <!--<span class="glyphicon-calendar glyphicon"></span>-->
                                                                             <!--</span>-->
