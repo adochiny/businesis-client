@@ -189,11 +189,11 @@
                 templateUrl: 'templates/diagnosis/financial.controls.management.view.html',
                 controllerAs: 'vm'
             })
-            //.when('/diagnoseTechnicalSiteVisit', {
-            //    controller: 'DiagnosisController',
-            //    templateUrl: 'templates/diagnosis/technical.site.visit.view.html',
-            //    controllerAs: 'vm'
-            //})
+            .when('/diagnoseTechnicalSiteVisit', {
+                controller: 'DiagnosisController',
+                templateUrl: 'templates/diagnosis/technical.site.visit.view.html',
+                controllerAs: 'vm'
+            })
             .when('/diagnoseIntellectualProperty', {
                 controller: 'DiagnosisController',
                 templateUrl: 'templates/diagnosis/intellectual.property.view.html',
