@@ -492,11 +492,11 @@
             // vm.Company.status = 'COMPLETED';
             // SharedProperties.setCompany(vm.Company);
             // save to db
-            BpService.SaveBp(vm.Company);
+            // BpService.SaveBp(vm.Company);
 
             flash(['Saved RiskManagement : ' + vm.RiskManagement ]);
             vm.dataLoading = false;
-            $location.path('/diagnoseTechnicalSiteVisit');
+            // $location.path('/diagnoseTechnicalSiteVisit');
 
             // $location.path('/login');
         }

@@ -167,9 +167,16 @@
                                                                                     <tr>
                                                                                         <td></td>
                                                                                         <td style="font-weight: bold;">
-                                                                                            Date Of Registration
+                                                                                            Year Of Registration
                                                                                         </td>
-                                                                                        <td>{{vm.company.dateOfRegistration}}</td>
+                                                                                        <td>{{vm.company.yearOfRegistration}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td></td>
+                                                                                        <td style="font-weight: bold;">
+                                                                                            Years in Business
+                                                                                        </td>
+                                                                                        <td>{{vm.company.yearsInBusiness}}</td>
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>
@@ -195,6 +202,20 @@
                                                                 <!--</tbody>-->
                                                             <!--</table>-->
 
+                                                            <!--diagnose Governance-->
+                                                            <!--diagnose TaxCompliance-->
+                                                            <!--diagnose Labour-->
+                                                            <!--diagnose SafetyHealth-->
+                                                            <!--diagnose Standards-->
+                                                            <!--diagnose BBBEE Broad Based Black Economic Empowerment (B-BBEE)-->
+                                                            <!--diagnose Production-->
+                                                            <!--diagnose SalesMarketing-->
+                                                            <!--diagnose InformationTechnology-->
+                                                            <!--diagnose FinancialControlsManagement-->
+                                                            <!--diagnose IntellectualProperty-->
+                                                            <!--diagnose RiskManagement-->
+                                                            <!--diagnose TechnicalSiteVisit-->
+
                                                             <hr style="background-color: #bbb; border: 1px solid #bbb;">
 
                                                             <h3>Business Skills Diagnosis</h3>
@@ -210,41 +231,113 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td style="width: 30px;"></td>
-                                                                        <td style="font-weight: bold;">Financial
-                                                                            Management
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.TaxCompliance.companySection}}
                                                                         </td>
-                                                                        <td>50:50</td>
+                                                                        <td>{{vm.companyCert.TaxCompliance.description}}</td>
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td style="font-weight: bold;">Project Management
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.Labour.companySection}}
                                                                         </td>
-                                                                        <td>50:50</td>
+                                                                        <td>{{vm.companyCert.Labour.description}}</td>
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td style="font-weight: bold;">Marketing</td>
-                                                                        <td>50:50</td>
-
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td style="font-weight: bold;">Information
-                                                                            Technology
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.SafetyHealth.companySection}}
                                                                         </td>
-                                                                        <td>50:50</td>
+                                                                        <td>{{vm.companyCert.SafetyHealth.description}}</td>
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td style="font-weight: bold;">Administration and
-                                                                            Business Laws
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.Standards.companySection}}
                                                                         </td>
-                                                                        <td>50:50</td>
+                                                                        <td>{{vm.companyCert.Standards.description}}</td>
+
                                                                     </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.BBBEE.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.BBBEE.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.Production.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.Production.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.SalesMarketing.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.SalesMarketing.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.InformationTechnology.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.InformationTechnology.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.FinancialControlsManagement.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.FinancialControlsManagement.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.IntellectualProperty.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.IntellectualProperty.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.RiskManagement.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.RiskManagement.description}}</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 30px;"></td>
+                                                                        <td style="font-weight: bold;">
+                                                                            {{vm.companyCert.TechnicalSiteVisit.companySection}}
+                                                                        </td>
+                                                                        <td>{{vm.companyCert.TechnicalSiteVisit.description}}</td>
+
+                                                                    </tr>
+                                                                    <!--<tr>-->
+                                                                        <!--<td style="width: 30px;"></td>-->
+                                                                        <!--<td style="font-weight: bold;">Financial-->
+                                                                            <!--Management-->
+                                                                        <!--</td>-->
+                                                                        <!--<td>50:50</td>-->
+
+                                                                    <!--</tr>-->
+
+                                                                    <!--diagnose IntellectualProperty-->
+                                                                    <!--diagnose RiskManagement-->
+                                                                    <!--diagnose TechnicalSiteVisit-->
+
                                                                 </tbody>
                                                             </table>
 
