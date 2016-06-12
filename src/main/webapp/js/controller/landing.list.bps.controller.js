@@ -244,13 +244,15 @@
 
         function diagnoseCompany(value) {
             SharedProperties.setCompany(value);
-            // open company diagnosis page...
+            vm.company = value;
+            // open company diagnosis page ...
             vm.navigateToPage('diagnoseCompany');
 
         }
 
         function viewCompanyList(value) {
             SharedProperties.setBp(value);
+            vm.bp = value;
             // first load companies.
             loadAllCompanies(SharedProperties.getBp().companyBusinessId, 'companyList');
         }
